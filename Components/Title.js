@@ -7,7 +7,7 @@ const TextContainer = styled.Text`
   font-size: 24px;
   font-weight: bold;
   color: white;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 `;
 const Title = ({ title }) => {
   const [loaded] = useFonts({

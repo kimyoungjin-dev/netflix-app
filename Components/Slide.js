@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components/native";
 import { apiImage } from "../api";
 import { trimText } from "./utils";
-import { FontAwesome } from "@expo/vector-icons";
 
 const Continaer = styled.View`
   justify-content: center;
@@ -10,54 +9,54 @@ const Continaer = styled.View`
   height: 100%;
 `;
 
-const PosterContainer = styled.Image`
+const BackDropContainer = styled.Image`
   height: 100%;
   width: 100%;
-  border-radius: 30px;
   position: absolute;
 `;
 
-const Data = styled.View`
-  justify-content: center;
-  align-items: center;
-  top: 20;
+const Contents = styled.View`
+  flex-direction: row;
   width: 100%;
-  padding: 0px 80px;
+  justify-content: space-around;
+  height: 100%;
+  align-items: center;
+`;
+
+const PosterContainer = styled.Image`
+  height: 100px;
+  width: 100px;
+`;
+
+const Data = styled.View`
+  width: 50%;
 `;
 
 const Title = styled.Text`
   color: white;
+  font-size: 18px;
   font-weight: bold;
-  font-size: 20px;
-  margin-bottom: 13px;
 `;
 
-const BottomData = styled.View`
-  top: 40;
-  width: 100%;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-`;
-
-const PlayNowContainer = styled.View`
-  flex-direction: row;
-  align-items: center;
-`;
-
-const PlayNow = styled.Text`
+const Year = styled.Text`
   color: white;
-  font-size: 20px;
-  font-weight: bold;
+  font-size: 14px;
+  margin: 5px 0px;
 `;
 
-const BackDropContainer = styled.Image`
-  border-radius: 30px;
-  height: 50px;
-  width: 50px;
+const Vote = styled.Text`
+  color: white;
+  font-size: 14px;
+  margin-bottom: 5px;
 `;
 
-const Slide = ({ backDrop, id, poster, title, year }) => {
+const OverView = styled.Text`
+  color: white;
+  font-size: 15px;
+  opacity: 0.8;
+`;
+
+const Slide = ({ backDrop, id, overView, poster, title, vote, year }) => {
   return (
     <Continaer
       style={{
@@ -67,22 +66,16 @@ const Slide = ({ backDrop, id, poster, title, year }) => {
         shadowOffset: { height: 10, width: 10 },
       }}
     >
-      <PosterContainer source={{ uri: apiImage(poster) }} />
-      <Data>
-        <Title>{title}</Title>
-      </Data>
-      <BottomData>
-        <PlayNowContainer>
-          <FontAwesome
-            name="play-circle-o"
-            size={30}
-            color={"white"}
-            style={{ marginRight: 10 }}
-          />
-          <PlayNow>Play</PlayNow>
-        </PlayNowContainer>
-        <BackDropContainer source={{ uri: apiImage(backDrop) }} />
-      </BottomData>
+      <BackDropContainer source={{ uri: apiImage(backDrop) }} />
+      <Contents>
+        <PosterContainer source={{ uri: apiImage(poster) }} />
+        <Data>
+          <Title>{title}</Title>
+          <Year>{year}</Year>
+          <Vote>⭐️ {vote} /10</Vote>
+          <OverView>{trimText(overView, 100)}</OverView>
+        </Data>
+      </Contents>
     </Continaer>
   );
 };

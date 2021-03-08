@@ -36,6 +36,7 @@ const MoviePresenter = ({ loading, nowPlaying, popular, upcoming }) => {
                 title={movie.original_title}
                 year={movie.release_date}
                 overView={movie.overview}
+                backDrop={movie.backdrop_path}
               />
             ))}
           </Swiper>

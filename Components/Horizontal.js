@@ -13,16 +13,29 @@ const PosterContainer = styled.Image`
   margin-bottom: 10px;
 `;
 
+const Contents = styled.View`
+  align-items: center;
+`;
+
 const Title = styled.Text`
   font-weight: bold;
   color: white;
-  font-size: 14px;
+  font-size: 10px;
 `;
-const Horizontal = ({ id, poster, title }) => {
+
+const Vote = styled.Text`
+  color: white;
+  font-size: 8px;
+`;
+
+const Horizontal = ({ id, poster, title, vote }) => {
   return (
     <Container>
       <PosterContainer source={{ uri: apiImage(poster) }} />
-      <Title>{title}</Title>
+      <Contents>
+        <Title>{title}</Title>
+        <Vote>⭐️ {vote} /10</Vote>
+      </Contents>
     </Container>
   );
 };

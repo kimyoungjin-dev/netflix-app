@@ -2,9 +2,10 @@ import React from "react";
 import styled from "styled-components/native";
 import ScrollContainer from "../../Components/SlideContents/ScrollContainer";
 import { apiImage } from "../../api";
-import { Button, Dimensions } from "react-native";
+import { Dimensions } from "react-native";
 import { TouchableOpacity } from "react-native";
-import { Ionicons, FontAwesome } from "@expo/vector-icons";
+import { FontAwesome } from "@expo/vector-icons";
+import Icon from "../../Components/Icon";
 
 const { height: HEIGHT } = Dimensions.get("window");
 
@@ -23,10 +24,10 @@ const BackDropContainer = styled.Image`
 
 const Container = styled.View`
   flex-direction: row;
-  justify-content: center;
-  width: 100%;
+  justify-content: space-around;
+  width: 80%;
   top: 60;
-  right: 30;
+  right: 40;
 `;
 
 const PosterContainer = styled.Image`
@@ -70,8 +71,6 @@ const Vote = styled.Text`
   margin-bottom: 6px;
 `;
 
-const ButtonContainer = styled.View``;
-
 const DataContainer = styled.View`
   margin-top: 100px;
 `;
@@ -104,16 +103,13 @@ const DetailPresenter = ({ openBrowser, loading, results }) => {
             <RunTime>{results.runtime} minutes</RunTime>
             <Status>{results.status}</Status>
             <Vote>⭐️{results.vote_average} /10</Vote>
-
-            <TouchableOpacity
+            <Icon
+              text={"IMDB"}
+              name={"imdb"}
               onPress={() =>
                 openBrowser(`https://www.imdb.com/title/${results.imdb_id}`)
               }
-            >
-              <ButtonContainer>
-                <FontAwesome name="imdb" color="white" size={40} />
-              </ButtonContainer>
-            </TouchableOpacity>
+            />
           </Contents>
         </Container>
       </Header>
@@ -134,24 +130,29 @@ const DetailPresenter = ({ openBrowser, loading, results }) => {
         <DataName>Spoken_Languages</DataName>
         <DataValue>
           {results.spoken_languages &&
-            results.spoken_languages.map((l) => l.name)}
+            results.spoken_languages.map((l, index) =>
+              index + 1 === results.spoken_languages.length
+                ? `${l.name}`
+                : `${l.name} , `
+            )}
         </DataValue>
       </DataContainer>
 
-      {results.videos?.results?.map((movie) => (
-        <TouchableOpacity
-          onPress={() =>
-            openBrowser(`https://www.youtube.com/watch?v=${movie.key}`)
-          }
-        >
-          <DataContainer>
-            <DataName>
-              <FontAwesome name="youtube-play" size={22} />
-            </DataName>
-            <DataValue>{movie.name}</DataValue>
-          </DataContainer>
-        </TouchableOpacity>
-      ))}
+      <DataContainer>
+        <DataName>Youtube</DataName>
+        <DataValue>
+          {results?.videos?.results.map((movie) => (
+            <Icon
+              key={movie.id}
+              name={"youtube-play"}
+              text={movie.name}
+              onPress={() =>
+                openBrowser(`https://www.youtube.com/watch?v=${movie.key}`)
+              }
+            />
+          ))}
+        </DataValue>
+      </DataContainer>
     </ScrollContainer>
   );
 };

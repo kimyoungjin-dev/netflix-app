@@ -3,7 +3,9 @@ import Title from "../Title";
 import styled from "styled-components/native";
 import { ScrollView } from "react-native";
 
-const Container = styled.View``;
+const Container = styled.View`
+  margin-bottom: 20px;
+`;
 
 const ScrollHorizontal = ({ title, children }) => {
   return (

@@ -5,21 +5,18 @@ import Swiper from "react-native-web-swiper";
 import Slide from "../../Components/Slide";
 import Title from "../../Components/Title";
 import Horizontal from "../../Components/Horizontal";
-import { Ionicons, FontAwesome } from "@expo/vector-icons";
+import Vertical from "../../Components/Vertical";
 
 const { width: WIDTH, height: HEIGHT } = Dimensions.get("window");
 
 const SlideContainer = styled.View`
-  height: ${HEIGHT / 2.1}px;
+  height: ${HEIGHT / 4}px;
   width: 100%;
   margin-bottom: 10px;
 `;
 
-const HorizontalContainer = styled.View``;
-
-const Contents = styled.View`
-  flex-direction: row;
-  justify-content: space-between;
+const Container = styled.View`
+  margin-top: 20px;
 `;
 
 const MoviePresenter = ({ loading, nowPlaying, popular, upcoming }) => {
@@ -60,15 +57,9 @@ const MoviePresenter = ({ loading, nowPlaying, popular, upcoming }) => {
               ))}
             </Swiper>
           </SlideContainer>
-          <HorizontalContainer>
-            <Contents>
-              <Title title={"Popular Movies..."} />
-              <Ionicons
-                name="arrow-forward-circle-outline"
-                size={22}
-                color={"white"}
-              />
-            </Contents>
+
+          <Container>
+            <Title title={"Popular Movies..."} />
             <ScrollView horizontal showsHorizontalScrollIndicator={false}>
               {popular.map((movie) => (
                 <Horizontal
@@ -76,10 +67,27 @@ const MoviePresenter = ({ loading, nowPlaying, popular, upcoming }) => {
                   id={movie.id}
                   poster={movie.poster_path}
                   title={movie.original_title}
+                  vote={movie.vote_average}
                 />
               ))}
             </ScrollView>
-          </HorizontalContainer>
+          </Container>
+
+          <Container>
+            <Title title={"Upcoming Movies..."} />
+            <ScrollView>
+              {upcoming.map((movie) => (
+                <Vertical
+                  key={movie.id}
+                  id={movie.id}
+                  poster={movie.poster_path}
+                  title={movie.original_title}
+                  vote={movie.vote_average}
+                  overView={movie.overview}
+                />
+              ))}
+            </ScrollView>
+          </Container>
         </>
       )}
     </ScrollView>

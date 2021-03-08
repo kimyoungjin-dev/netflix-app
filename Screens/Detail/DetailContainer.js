@@ -1,6 +1,7 @@
 import React from "react";
 
-const DetailContainer = () => {
+const DetailContainer = (props) => {
+  console.log(props);
   return <></>;
 };
 

@@ -1,7 +1,9 @@
 import React from "react";
+import { TouchableOpacity } from "react-native";
 import styled from "styled-components/native";
 import { apiImage } from "../api";
 import { trimText } from "./utils";
+import { useNavigation } from "@react-navigation/native";
 
 const Continaer = styled.View`
   justify-content: center;
@@ -30,6 +32,7 @@ const PosterContainer = styled.Image`
 
 const Data = styled.View`
   width: 50%;
+  align-items: flex-start;
 `;
 
 const Title = styled.Text`
@@ -54,9 +57,23 @@ const OverView = styled.Text`
   color: white;
   font-size: 15px;
   opacity: 0.8;
+  margin-bottom: 5px;
+`;
+
+const ButtonContainer = styled.View`
+  padding: 5px;
+  background-color: red;
+  opacity: 0.8;
+  border-radius: 5px;
+`;
+
+const ButtonText = styled.Text`
+  color: white;
 `;
 
 const Slide = ({ backDrop, id, overView, poster, title, vote, year }) => {
+  const navigation = useNavigation();
+
   return (
     <Continaer
       style={{
@@ -74,6 +91,23 @@ const Slide = ({ backDrop, id, overView, poster, title, vote, year }) => {
           <Year>{year}</Year>
           <Vote>⭐️ {vote} /10</Vote>
           <OverView>{trimText(overView, 100)}</OverView>
+          <TouchableOpacity
+            onPress={() =>
+              navigation.navigate("Detail", {
+                backDrop,
+                id,
+                overView,
+                poster,
+                title,
+                vote,
+                year,
+              })
+            }
+          >
+            <ButtonContainer>
+              <ButtonText>Detail</ButtonText>
+            </ButtonContainer>
+          </TouchableOpacity>
         </Data>
       </Contents>
     </Continaer>

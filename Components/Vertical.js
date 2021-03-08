@@ -1,5 +1,7 @@
 import React from "react";
+import { TouchableOpacity } from "react-native";
 import styled from "styled-components/native";
+import { useNavigation } from "@react-navigation/native";
 import { apiImage } from "../api";
 import { trimText } from "./utils";
 
@@ -36,15 +38,27 @@ const OverView = styled.Text`
 `;
 
 const Vertical = ({ poster, title, vote, overView }) => {
+  const navigation = useNavigation();
   return (
-    <Container>
-      <PosterContainer source={{ uri: apiImage(poster) }} />
-      <Contents>
-        <Title>{title}</Title>
-        <Vote>⭐️ {vote} /10</Vote>
-        <OverView>{trimText(overView, 145)}</OverView>
-      </Contents>
-    </Container>
+    <TouchableOpacity
+      onPress={() =>
+        navigation.navigate("Detail", {
+          poster,
+          title,
+          vote,
+          overView,
+        })
+      }
+    >
+      <Container>
+        <PosterContainer source={{ uri: apiImage(poster) }} />
+        <Contents>
+          <Title>{title}</Title>
+          <Vote>⭐️ {vote} /10</Vote>
+          <OverView>{trimText(overView, 145)}</OverView>
+        </Contents>
+      </Container>
+    </TouchableOpacity>
   );
 };
 

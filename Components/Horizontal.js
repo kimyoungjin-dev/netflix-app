@@ -1,6 +1,8 @@
 import React from "react";
+import { TouchableOpacity } from "react-native";
 import styled from "styled-components/native";
 import { apiImage } from "../api";
+import { useNavigation } from "@react-navigation/native";
 
 const Container = styled.View`
   margin-right: 20px;
@@ -29,14 +31,26 @@ const Vote = styled.Text`
 `;
 
 const Horizontal = ({ id, poster, title, vote }) => {
+  const navigation = useNavigation();
   return (
-    <Container>
-      <PosterContainer source={{ uri: apiImage(poster) }} />
-      <Contents>
-        <Title>{title}</Title>
-        <Vote>⭐️ {vote} /10</Vote>
-      </Contents>
-    </Container>
+    <TouchableOpacity
+      onPress={() =>
+        navigation.navigate("Detail", {
+          id,
+          poster,
+          title,
+          vote,
+        })
+      }
+    >
+      <Container>
+        <PosterContainer source={{ uri: apiImage(poster) }} />
+        <Contents>
+          <Title>{title}</Title>
+          <Vote>⭐️ {vote} /10</Vote>
+        </Contents>
+      </Container>
+    </TouchableOpacity>
   );
 };
 

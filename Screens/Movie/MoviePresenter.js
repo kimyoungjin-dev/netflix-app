@@ -12,6 +12,7 @@ import ScrollVertical from "../../Components/SlideContents/ScrollVertical";
 import ScrollHorizontal from "../../Components/SlideContents/ScrollHorizontal";
 
 const MoviePresenter = ({ loading, nowPlaying, popular, upcoming }) => {
+  console.log(nowPlaying);
   return (
     <ScrollContainer loading={loading}>
       <ScrollSwiper>
@@ -19,11 +20,12 @@ const MoviePresenter = ({ loading, nowPlaying, popular, upcoming }) => {
           <Slide
             key={movie.id}
             id={movie.id}
+            backDrop={movie.backdrop_path}
+            overView={movie.overview}
             poster={movie.poster_path}
             title={movie.original_title}
+            vote={movie.vote_average}
             year={movie.release_date}
-            overView={movie.overview}
-            backDrop={movie.backdrop_path}
           />
         ))}
       </ScrollSwiper>

@@ -31,11 +31,7 @@ const MovieContainer = () => {
   useEffect(() => {
     getData();
   }, []);
-  return (
-    <>
-      <MoviePresenter {...results} loading={loading} />
-    </>
-  );
+  return <MoviePresenter {...results} loading={loading} />;
 };
 
 export default MovieContainer;

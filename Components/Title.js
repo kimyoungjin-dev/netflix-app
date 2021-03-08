@@ -8,6 +8,7 @@ const TextContainer = styled.Text`
   color: white;
   margin: 20px 0px;
 `;
+
 const Title = ({ title }) => {
   const [loaded] = useFonts({
     Noto_Sans: require("../assets/fonts/Noto_Sans_JP/NotoSansJP-Bold.otf"),
@@ -16,6 +17,7 @@ const Title = ({ title }) => {
   if (!loaded) {
     return null;
   }
+
   return (
     <TextContainer style={{ fontFamily: "Noto_Sans" }}>{title}</TextContainer>
   );

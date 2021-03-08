@@ -1,13 +1,12 @@
 import React from "react";
 import styled from "styled-components/native";
 import { useFonts } from "expo-font";
-import { Text } from "react-native";
 
 const TextContainer = styled.Text`
   font-size: 24px;
   font-weight: bold;
   color: white;
-  margin-bottom: 20px;
+  margin: 20px 0px;
 `;
 const Title = ({ title }) => {
   const [loaded] = useFonts({

@@ -11,9 +11,13 @@ const Container = styled.View`
 const PosterContainer = styled.Image`
   height: 100px;
   width: 60px;
+  border-radius: 10px;
+  margin-right: 20px;
 `;
 
-const Contents = styled.View``;
+const Contents = styled.View`
+  width: 80%;
+`;
 
 const Title = styled.Text`
   color: white;

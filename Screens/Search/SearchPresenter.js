@@ -2,17 +2,13 @@ import React from "react";
 import styled from "styled-components/native";
 import ScrollHorizontal from "../../Components/SlideContents/ScrollHorizontal";
 import Horizontal from "../../Components/Horizontal";
-
-const Container = styled.View`
-  background-color: black;
-  height: 100%;
-  padding: 0px 20px;
-`;
+import ScrollContainer from "../../Components/SlideContents/ScrollContainer";
 
 const Form = styled.View`
-  background-color: black;
+  background-color: rgb(19, 18, 20);
   height: 30px;
   align-items: center;
+  margin: 50px 0px;
 `;
 
 const Input = styled.TextInput`
@@ -29,7 +25,7 @@ const SearchPresenter = ({
   results: { movieSearch, tvSearch },
 }) => {
   return (
-    <Container>
+    <ScrollContainer>
       <Form>
         <Input
           placeholder={"검색어를 입력하세요"}
@@ -39,30 +35,34 @@ const SearchPresenter = ({
         />
       </Form>
 
-      <ScrollHorizontal title={"Movie results"}>
-        {movieSearch.map((movie) => (
-          <Horizontal
-            key={movie.id}
-            id={movie.id}
-            poster={movie.poster_path}
-            title={movie.original_title}
-            vote={movie.vote_average}
-          />
-        ))}
-      </ScrollHorizontal>
+      {movieSearch.length > 0 && (
+        <ScrollHorizontal title={"Movie results"}>
+          {movieSearch.map((movie) => (
+            <Horizontal
+              key={movie.id}
+              id={movie.id}
+              poster={movie.poster_path}
+              title={movie.original_title}
+              vote={movie.vote_average}
+            />
+          ))}
+        </ScrollHorizontal>
+      )}
 
-      <ScrollHorizontal title={"show results"}>
-        {tvSearch.map((show) => (
-          <Horizontal
-            key={show.id}
-            id={show.id}
-            poster={show.poster_path}
-            title={show.original_name}
-            vote={show.vote_average}
-          />
-        ))}
-      </ScrollHorizontal>
-    </Container>
+      {tvSearch.length > 0 && (
+        <ScrollHorizontal title={"show results"}>
+          {tvSearch.map((show) => (
+            <Horizontal
+              key={show.id}
+              id={show.id}
+              poster={show.poster_path}
+              title={show.original_name}
+              vote={show.vote_average}
+            />
+          ))}
+        </ScrollHorizontal>
+      )}
+    </ScrollContainer>
   );
 };
 

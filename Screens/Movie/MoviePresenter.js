@@ -11,10 +11,6 @@ import ScrollSwiper from "../../Components/SlideContents/ScrollSwiper";
 import ScrollVertical from "../../Components/SlideContents/ScrollVertical";
 import ScrollHorizontal from "../../Components/SlideContents/ScrollHorizontal";
 
-const Container = styled.View`
-  margin-top: 20px;
-`;
-
 const MoviePresenter = ({ loading, nowPlaying, popular, upcoming }) => {
   return (
     <ScrollContainer loading={loading}>

@@ -2,6 +2,7 @@ import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import Tabs from "./Tabs";
 import Detail from "../Screens/Detail";
+
 import { useFonts } from "expo-font";
 
 const Stack = createStackNavigator();

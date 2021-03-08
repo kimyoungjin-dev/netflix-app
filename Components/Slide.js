@@ -90,7 +90,7 @@ const Slide = ({ backDrop, id, overView, poster, title, vote, year }) => {
           <Title>{title}</Title>
           <Year>{year}</Year>
           <Vote>⭐️ {vote} /10</Vote>
-          <OverView>{trimText(overView, 100)}</OverView>
+          <OverView>{trimText(overView, 60)}</OverView>
           <TouchableOpacity
             onPress={() =>
               navigation.navigate("Detail", {

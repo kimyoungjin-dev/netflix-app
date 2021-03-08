@@ -1,7 +1,8 @@
 import React from "react";
 
-const DetailContainer = (props) => {
-  console.log(props);
+const DetailContainer = ({ navigation, route }) => {
+  console.log(navigation, route);
+
   return <></>;
 };
 

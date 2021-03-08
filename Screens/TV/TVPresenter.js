@@ -8,7 +8,6 @@ import ScrollVertical from "../../Components/SlideContents/ScrollVertical";
 import Vertical from "../../Components/Vertical";
 
 const TVPresenter = ({ topRated, popular, airingToday, thisweek, loading }) => {
-  console.log(topRated);
   return (
     <ScrollContainer loading={loading}>
       <ScrollSwiper>

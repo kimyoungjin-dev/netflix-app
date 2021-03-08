@@ -12,7 +12,6 @@ import ScrollVertical from "../../Components/SlideContents/ScrollVertical";
 import ScrollHorizontal from "../../Components/SlideContents/ScrollHorizontal";
 
 const MoviePresenter = ({ loading, nowPlaying, popular, upcoming }) => {
-  console.log(nowPlaying);
   return (
     <ScrollContainer loading={loading}>
       <ScrollSwiper>

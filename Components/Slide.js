@@ -20,7 +20,7 @@ const PosterContainer = styled.Image`
 const Data = styled.View`
   justify-content: center;
   align-items: center;
-  top: 60;
+  top: 20;
   width: 100%;
   padding: 0px 80px;
 `;
@@ -33,7 +33,7 @@ const Title = styled.Text`
 `;
 
 const BottomData = styled.View`
-  top: 70;
+  top: 40;
   width: 100%;
   flex-direction: row;
   justify-content: space-around;

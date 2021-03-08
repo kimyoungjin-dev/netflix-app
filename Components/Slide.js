@@ -11,16 +11,18 @@ const Continaer = styled.View`
 `;
 
 const PosterContainer = styled.Image`
-  height: 300px;
-  width: 300px;
-  border-radius: 20px;
+  height: 100%;
+  width: 100%;
+  border-radius: 30px;
   position: absolute;
 `;
 
 const Data = styled.View`
   justify-content: center;
   align-items: center;
-  top: 40;
+  top: 60;
+  width: 100%;
+  padding: 0px 80px;
 `;
 
 const Title = styled.Text`
@@ -30,14 +32,8 @@ const Title = styled.Text`
   margin-bottom: 13px;
 `;
 
-const OverView = styled.Text`
-  font-size: 10px;
-  opacity: 0.8;
-  color: white;
-`;
-
 const BottomData = styled.View`
-  top: 100;
+  top: 70;
   width: 100%;
   flex-direction: row;
   justify-content: space-around;
@@ -61,7 +57,7 @@ const BackDropContainer = styled.Image`
   width: 50px;
 `;
 
-const Slide = ({ backDrop, id, poster, title, year, overView }) => {
+const Slide = ({ backDrop, id, poster, title, year }) => {
   return (
     <Continaer
       style={{
@@ -74,13 +70,12 @@ const Slide = ({ backDrop, id, poster, title, year, overView }) => {
       <PosterContainer source={{ uri: apiImage(poster) }} />
       <Data>
         <Title>{title}</Title>
-        <OverView>{trimText(overView, 40)}</OverView>
       </Data>
       <BottomData>
         <PlayNowContainer>
           <FontAwesome
-            name="play-circle"
-            size={22}
+            name="play-circle-o"
+            size={30}
             color={"white"}
             style={{ marginRight: 10 }}
           />

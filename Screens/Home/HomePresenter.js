@@ -3,25 +3,115 @@ import Horizontal from "../../Components/Horizontal";
 import ScrollContainer from "../../Components/SlideContents/ScrollContainer";
 import ScrollHorizontal from "../../Components/SlideContents/ScrollHorizontal";
 import styled from "styled-components/native";
+import { TouchableOpacity } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
-const CategoryContainer = styled.View``;
+const CategoryContainer = styled.View`
+  background-color: rgb(23, 25, 30);
+  padding: 10px 0px;
+`;
 
-const CategoryList = styled.View``;
+const CategoryList = styled.View`
+  flex-direction: row;
+  justify-content: space-around;
+`;
 
-const CategoryItem = styled.Text``;
+const CategoryItem = styled.Text`
+  color: white;
+  font-size: 20px;
+`;
 
-const MoviePresenter = ({ loading, nowPlaying, popular, upcoming }) => {
+const MoviePresenter = ({
+  loading,
+  nowPlaying,
+  popular,
+  upcoming,
+
+  topRated,
+  showPopular,
+  airingToday,
+  thisweek,
+}) => {
+  const navigation = useNavigation();
   return (
     <>
       <CategoryContainer>
         <CategoryList>
-          <CategoryItem>TV 프로그램</CategoryItem>
-          <CategoryItem>영화</CategoryItem>
-          <CategoryItem>카테고리</CategoryItem>
+          <TouchableOpacity onPress={() => navigation.navigate("TV")}>
+            <CategoryItem>TV 프로그램</CategoryItem>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => navigation.navigate("영화")}>
+            <CategoryItem>영화</CategoryItem>
+          </TouchableOpacity>
+          <TouchableOpacity>
+            <CategoryItem>카테고리</CategoryItem>
+          </TouchableOpacity>
         </CategoryList>
       </CategoryContainer>
+
       <ScrollContainer loading={loading}>
-        <ScrollHorizontal title={"신작 영화"}>
+        <ScrollHorizontal title={"Netflix 인기 콘텐츠"}>
+          {popular.map((movie) => (
+            <Horizontal
+              key={movie.id}
+              id={movie.id}
+              poster={movie.poster_path}
+              title={movie.original_title}
+              vote={movie.vote_average}
+            />
+          ))}
+
+          {showPopular.map((show) => (
+            <Horizontal
+              isTV={true}
+              key={show.id}
+              id={show.id}
+              poster={show.poster_path}
+              title={show.original_name}
+              vote={show.vote_average}
+            />
+          ))}
+        </ScrollHorizontal>
+
+        <ScrollHorizontal title={"오늘 방영 프로그램"}>
+          {airingToday.map((show) => (
+            <Horizontal
+              isTV={true}
+              key={show.id}
+              id={show.id}
+              poster={show.poster_path}
+              title={show.original_name}
+              vote={show.vote_average}
+            />
+          ))}
+        </ScrollHorizontal>
+
+        <ScrollHorizontal title={"방금 나온 신작영화"}>
+          {upcoming.map((movie) => (
+            <Horizontal
+              key={movie.id}
+              id={movie.id}
+              poster={movie.poster_path}
+              title={movie.original_title}
+              vote={movie.vote_average}
+            />
+          ))}
+        </ScrollHorizontal>
+
+        <ScrollHorizontal title={"Top10 TV프로그램"}>
+          {topRated.map((show) => (
+            <Horizontal
+              isTV={true}
+              key={show.id}
+              id={show.id}
+              poster={show.poster_path}
+              title={show.original_name}
+              vote={show.vote_average}
+            />
+          ))}
+        </ScrollHorizontal>
+
+        <ScrollHorizontal title={"지금 뜨고있는 영화"}>
           {nowPlaying.map((movie) => (
             <Horizontal
               key={movie.id}
@@ -44,26 +134,16 @@ const MoviePresenter = ({ loading, nowPlaying, popular, upcoming }) => {
             />
           ))}
         </ScrollHorizontal>
-        <ScrollHorizontal title={"방금 나온 신작영화"}>
-          {upcoming.map((movie) => (
-            <Horizontal
-              key={movie.id}
-              id={movie.id}
-              poster={movie.poster_path}
-              title={movie.original_title}
-              vote={movie.vote_average}
-            />
-          ))}
-        </ScrollHorizontal>
 
-        <ScrollHorizontal title={"아직안정함"}>
-          {popular.map((movie) => (
+        <ScrollHorizontal title={"이번주 인기 TV프로그램"}>
+          {thisweek.map((show) => (
             <Horizontal
-              key={movie.id}
-              id={movie.id}
-              poster={movie.poster_path}
-              title={movie.original_title}
-              vote={movie.vote_average}
+              isTV={true}
+              key={show.id}
+              id={show.id}
+              poster={show.poster_path}
+              title={show.original_name}
+              vote={show.vote_average}
             />
           ))}
         </ScrollHorizontal>

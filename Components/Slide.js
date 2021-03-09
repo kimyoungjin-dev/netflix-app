@@ -26,8 +26,9 @@ const Contents = styled.View`
 `;
 
 const PosterContainer = styled.Image`
-  height: 100px;
+  height: 150px;
   width: 100px;
+  border-radius: 5px;
 `;
 
 const Data = styled.View`
@@ -71,7 +72,16 @@ const ButtonText = styled.Text`
   color: white;
 `;
 
-const Slide = ({ backDrop, id, overView, poster, title, vote, year }) => {
+const Slide = ({
+  isTV = false,
+  backDrop,
+  id,
+  overView,
+  poster,
+  title,
+  vote,
+  year,
+}) => {
   const navigation = useNavigation();
 
   return (
@@ -101,6 +111,7 @@ const Slide = ({ backDrop, id, overView, poster, title, vote, year }) => {
                 title,
                 vote,
                 year,
+                isTV,
               })
             }
           >

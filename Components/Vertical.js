@@ -11,14 +11,14 @@ const Container = styled.View`
 `;
 
 const PosterContainer = styled.Image`
-  height: 100px;
-  width: 60px;
+  height: 130px;
+  width: 110px;
   border-radius: 10px;
   margin-right: 20px;
 `;
 
 const Contents = styled.View`
-  width: 80%;
+  width: 60%;
 `;
 
 const Title = styled.Text`
@@ -37,7 +37,7 @@ const OverView = styled.Text`
   font-size: 14px;
 `;
 
-const Vertical = ({ poster, title, vote, overView }) => {
+const Vertical = ({ isTV = false, poster, title, vote, overView }) => {
   const navigation = useNavigation();
   return (
     <TouchableOpacity
@@ -47,6 +47,7 @@ const Vertical = ({ poster, title, vote, overView }) => {
           title,
           vote,
           overView,
+          isTV,
         })
       }
     >

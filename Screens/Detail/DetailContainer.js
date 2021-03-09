@@ -4,23 +4,27 @@ import DetailPresenter from "./DetailPresenter";
 import * as WebBrowser from "expo-web-browser";
 
 const DetailContainer = ({ navigation, route: { params } }) => {
-  const { backDrop, id, overView, poster, title, vote, year } = params;
+  const { backDrop, id, overView, poster, title, vote, year, isTV } = params;
+
   const [loading, setLoading] = useState(true);
   const [results, setResults] = useState({
-    movies: [],
-    moviesError: null,
+    Detail: [],
+    DetailError: null,
   });
 
   const getData = async () => {
-    const [movies, moviesError] = await movieApi.movieDetail(id);
+    const [Detail, DetailError] = isTV
+      ? await tvApi.showDetail(id)
+      : await movieApi.movieDetail(id);
+
     setResults({
-      backDrop: movies.backdrop_path,
-      overView: movies.overview,
-      poster: movies.poster_path,
-      title: movies.original_title,
-      vote: movies.vote_average,
-      year: movies.release_date,
-      ...movies,
+      backDrop: Detail.backdrop_path,
+      overView: Detail.overview,
+      poster: Detail.poster_path,
+      title: Detail.original_title || Detail.original_name,
+      vote: Detail.vote_average,
+      year: Detail.release_date,
+      ...Detail,
     });
     setLoading(false);
   };
@@ -30,7 +34,7 @@ const DetailContainer = ({ navigation, route: { params } }) => {
   }, []);
 
   useLayoutEffect(() => {
-    navigation.setOptions({ title });
+    navigation.setOptions({ title: "" });
   }, []);
 
   const openBrowser = async (url) => {

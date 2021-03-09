@@ -3,8 +3,6 @@ import Horizontal from "../../Components/Horizontal";
 import ScrollContainer from "../../Components/SlideContents/ScrollContainer";
 import ScrollHorizontal from "../../Components/SlideContents/ScrollHorizontal";
 import styled from "styled-components/native";
-import { MaterialIcons } from "@expo/vector-icons";
-import { TouchableOpacity } from "react-native";
 
 const CategoryContainer = styled.View``;
 

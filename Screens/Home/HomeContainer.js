@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { movieApi } from "../../api";
-import MoviePresenter from "./MoviePresenter";
+import HomePresenter from "./HomePresenter";
 
 const MovieContainer = () => {
   const [loading, setLoading] = useState(true);
@@ -32,7 +32,7 @@ const MovieContainer = () => {
     getData();
   }, []);
 
-  return <MoviePresenter {...results} loading={loading} />;
+  return <HomePresenter {...results} loading={loading} />;
 };
 
 export default MovieContainer;

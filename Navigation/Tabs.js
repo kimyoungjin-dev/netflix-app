@@ -15,9 +15,7 @@ export default ({ navigation, route }) => {
 
   return (
     <Tabs.Navigator
-      activeColor="white"
-      barStyle={{ backgroundColor: "rgb(23,25,30)" }}
-      tabBarOptions={{ activeTintColor: "white", inactiveTintColor: "green" }}
+      barStyle={{ backgroundColor: "rgb(23,25,30)", padding: 15 }}
       screenOptions={({ route }) => ({
         tabBarIcon: ({ focused }) => {
           let iconName;
@@ -33,7 +31,7 @@ export default ({ navigation, route }) => {
           return (
             <Ionicons
               name={iconName}
-              size={route.name === "Search" ? 25 : 22}
+              size={route.name === "Search" ? 28 : 22}
               color={focused ? "white" : "rgb(232,238,248)"}
             />
           );

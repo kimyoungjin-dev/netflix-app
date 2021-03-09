@@ -10,10 +10,9 @@ const Tabs = createMaterialBottomTabNavigator();
 
 export default ({ navigation, route }) => {
   useLayoutEffect(() => {
-    navigation.setOptions({
-      title: route?.state?.routeNames[route?.state?.index] || "Movies",
-    });
-  });
+    navigation.setOptions({ title: "" });
+  }, [route]);
+
   return (
     <Tabs.Navigator
       activeColor="white"

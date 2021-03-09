@@ -1,10 +1,10 @@
 import React, { useLayoutEffect } from "react";
-import Movie from "../Screens/Movie";
+import Home from "../Screens/Home";
 import TV from "../Screens/TV";
 import Search from "../Screens/Search";
 import Discovery from "../Screens/Discovery";
-import { Ionicons } from "@expo/vector-icons";
 import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
+import { MaterialIcons } from "@expo/vector-icons";
 
 const Tabs = createMaterialBottomTabNavigator();
 
@@ -19,17 +19,18 @@ export default ({ navigation, route }) => {
       screenOptions={({ route }) => ({
         tabBarIcon: ({ focused }) => {
           let iconName;
-          if (route.name === "Movie") {
+          if (route.name === "홈") {
             iconName = focused ? "home" : "home-outline";
           } else if (route.name === "TV") {
-            iconName = focused ? "tv" : "tv-outline";
-          } else if (route.name === "Search") {
-            iconName = focused ? "search-circle" : "search-circle-outline";
-          } else if (route.name === "Discovery") {
-            iconName = focused ? "heart-circle" : "heart-circle-outline";
+            iconName = "tv";
+          } else if (route.name === "검색") {
+            iconName = "search";
+          } else if (route.name === "저장한 컨텐츠 목록") {
+            iconName = "save-alt";
           }
+
           return (
-            <Ionicons
+            <MaterialIcons
               name={iconName}
               size={route.name === "Search" ? 28 : 22}
               color={focused ? "white" : "rgb(232,238,248)"}
@@ -38,10 +39,10 @@ export default ({ navigation, route }) => {
         },
       })}
     >
-      <Tabs.Screen name="Movie" component={Movie} />
+      <Tabs.Screen name="홈" component={Home} />
       <Tabs.Screen name="TV" component={TV} />
-      <Tabs.Screen name="Search" component={Search} />
-      <Tabs.Screen name="Discovery" component={Discovery} />
+      <Tabs.Screen name="검색" component={Search} />
+      <Tabs.Screen name="저장한 컨텐츠 목록" component={Discovery} />
     </Tabs.Navigator>
   );
 };

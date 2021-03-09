@@ -31,6 +31,7 @@ const MovieContainer = () => {
   useEffect(() => {
     getData();
   }, []);
+
   return <MoviePresenter {...results} loading={loading} />;
 };
 

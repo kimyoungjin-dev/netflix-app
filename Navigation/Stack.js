@@ -13,8 +13,9 @@ const Container = styled.View`
 `;
 
 const Div = styled.View`
-  background-color: blue;
-  padding: 8px;
+  background-color: skyblue;
+  padding: 3px;
+  border-radius: 3px;
   opacity: 0.8;
 `;
 

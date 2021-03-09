@@ -8,6 +8,7 @@ import {
   Ionicons,
   FontAwesome,
   MaterialCommunityIcons,
+  MaterialIcons,
 } from "@expo/vector-icons";
 import Stack from "./Navigation//Stack";
 
@@ -33,7 +34,8 @@ const App = () => {
     const fonts = getFonts(
       [Ionicons.font],
       [FontAwesome.font],
-      [MaterialCommunityIcons.font]
+      [MaterialCommunityIcons.font],
+      [MaterialIcons.font]
     );
     return Promise.all([...images, ...fonts]);
   };

@@ -1,33 +1,63 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
-import { useFonts } from "expo-font";
+import { FontAwesome5, MaterialCommunityIcons } from "@expo/vector-icons";
 import Tabs from "./Tabs";
 import Detail from "../Screens/Detail";
+import styled from "styled-components/native";
+
+const Container = styled.View`
+  flex-direction: row;
+  justify-content: space-around;
+  width: 120px;
+  align-items: center;
+`;
+
+const Div = styled.View`
+  background-color: blue;
+  padding: 8px;
+  opacity: 0.8;
+`;
 
 const Stack = createStackNavigator();
 
 export default () => {
-  const [loaded] = useFonts({
-    Noto_Sans: require("../assets/fonts/Noto_Sans_JP/NotoSansJP-Bold.otf"),
-  });
-
-  if (!loaded) {
-    return null;
-  }
-
   return (
     <Stack.Navigator
       screenOptions={{
         headerStyle: {
-          backgroundColor: "black",
           borderBottomColor: "black",
           shadowColor: "black",
+          backgroundColor: "rgb(23,25,30)",
+          height: 100,
         },
-        headerTintColor: "white",
-        headerTitleStyle: { fontFamily: "Noto_Sans" },
       }}
     >
-      <Stack.Screen name="Tabs" component={Tabs} />
+      <Stack.Screen
+        name="Tabs"
+        component={Tabs}
+        options={{
+          headerLeft: () => (
+            <MaterialCommunityIcons
+              name="netflix"
+              size={50}
+              color="red"
+              style={{ paddingLeft: 20 }}
+            />
+          ),
+          headerRight: () => (
+            <Container>
+              <MaterialCommunityIcons
+                name="gift-outline"
+                size={30}
+                color="white"
+              />
+              <Div>
+                <FontAwesome5 name="smile" size={30} color="white" />
+              </Div>
+            </Container>
+          ),
+        }}
+      />
       <Stack.Screen name="Detail" component={Detail} />
     </Stack.Navigator>
   );

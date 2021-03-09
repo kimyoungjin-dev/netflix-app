@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { tvApi } from "../../api";
 import TVPresenter from "./TVPresenter";
 
-const MovieContainer = () => {
+const TVContainer = () => {
   const [loading, setLoading] = useState(true);
   const [results, setResults] = useState({
     topRated: [],
@@ -41,4 +41,4 @@ const MovieContainer = () => {
   return <TVPresenter {...results} loading={loading} />;
 };
 
-export default MovieContainer;
+export default TVContainer;

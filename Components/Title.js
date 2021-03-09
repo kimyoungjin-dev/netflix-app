@@ -6,7 +6,8 @@ const TextContainer = styled.Text`
   font-size: 24px;
   font-weight: bold;
   color: white;
-  margin: 20px 0px;
+  margin-bottom: 5px;
+  opacity: 0.8;
 `;
 
 const Title = ({ title }) => {

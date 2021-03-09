@@ -25,9 +25,9 @@ const BackDropContainer = styled.Image`
 const Container = styled.View`
   flex-direction: row;
   justify-content: space-around;
-  width: 80%;
-  top: 60;
-  right: 40;
+  width: 100%;
+  top: 30;
+  right: 10;
 `;
 
 const PosterContainer = styled.Image`
@@ -89,8 +89,6 @@ const DataValue = styled.Text`
 `;
 
 const DetailPresenter = ({ openBrowser, loading, results }) => {
-  console.log(results);
-
   return (
     <ScrollContainer loading={loading}>
       <Header>
@@ -98,9 +96,12 @@ const DetailPresenter = ({ openBrowser, loading, results }) => {
         <Container>
           <PosterContainer source={{ uri: apiImage(results.poster_path) }} />
           <Contents>
-            <Title>{results.original_title}</Title>
-            <Year>{results.release_date}</Year>
-            <RunTime>{results.runtime} minutes</RunTime>
+            <Title>{results.original_title || results.original_name}</Title>
+            <Year>{results.release_date || results.first_air_date}</Year>
+            <RunTime>
+              {results.runtime || results.episode_run_time?.map((time) => time)}{" "}
+              minutes
+            </RunTime>
             <Status>{results.status}</Status>
             <Vote>⭐️{results.vote_average} /10</Vote>
             <Icon

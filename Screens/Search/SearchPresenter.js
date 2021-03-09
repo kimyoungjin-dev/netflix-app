@@ -1,21 +1,19 @@
 import React from "react";
 import styled from "styled-components/native";
+import ScrollContainer from "../../Components/SlideContents/ScrollContainer";
+import { TextInput } from "react-native";
+import { FontAwesome } from "@expo/vector-icons";
 import ScrollHorizontal from "../../Components/SlideContents/ScrollHorizontal";
 import Horizontal from "../../Components/Horizontal";
-import ScrollContainer from "../../Components/SlideContents/ScrollContainer";
 
 const Form = styled.View`
-  background-color: rgb(19, 18, 20);
-  height: 30px;
+  background-color: rgb(23, 25, 30);
   align-items: center;
-  margin: 50px 0px;
-`;
-
-const Input = styled.TextInput`
-  background-color: white;
-  width: 80%;
-  height: 100%;
-  border-radius: 50px;
+  margin-top: 10px;
+  justify-content: flex-start;
+  height: 40px;
+  flex-direction: row;
+  border-radius: 4px;
 `;
 
 const SearchPresenter = ({
@@ -23,15 +21,26 @@ const SearchPresenter = ({
   onChange,
   word,
   results: { movieSearch, tvSearch },
+  popular,
 }) => {
   return (
     <ScrollContainer>
       <Form>
-        <Input
-          placeholder={"검색어를 입력하세요"}
-          onSubmitEditing={onSubmit}
-          onChangeText={onChange}
+        <FontAwesome
+          name="search"
+          size={22}
+          color="white"
+          style={{ marginRight: 10 }}
+        />
+
+        <TextInput
+          style={{ fontSize: 20, color: "white" }}
+          placeholder="검색"
+          placeholderTextColor="white"
           value={word}
+          onChangeText={onChange}
+          onSubmitEditing={onSubmit}
+          autoCapitalize="none"
         />
       </Form>
 
@@ -53,6 +62,7 @@ const SearchPresenter = ({
         <ScrollHorizontal title={"show results"}>
           {tvSearch.map((show) => (
             <Horizontal
+              isTV={true}
               key={show.id}
               id={show.id}
               poster={show.poster_path}

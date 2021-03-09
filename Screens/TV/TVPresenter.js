@@ -13,6 +13,7 @@ const TVPresenter = ({ topRated, popular, airingToday, thisweek, loading }) => {
       <ScrollSwiper>
         {topRated.map((show) => (
           <Slide
+            isTV={true}
             key={show.id}
             id={show.id}
             backDrop={show.backdrop_path}
@@ -25,9 +26,10 @@ const TVPresenter = ({ topRated, popular, airingToday, thisweek, loading }) => {
         ))}
       </ScrollSwiper>
 
-      <ScrollHorizontal title={"Popular show.."}>
+      <ScrollHorizontal title={"인기 TV프로그램"}>
         {popular.map((show) => (
           <Horizontal
+            isTV={true}
             key={show.id}
             id={show.id}
             poster={show.poster_path}
@@ -37,9 +39,10 @@ const TVPresenter = ({ topRated, popular, airingToday, thisweek, loading }) => {
         ))}
       </ScrollHorizontal>
 
-      <ScrollHorizontal title={"this week show!"}>
+      <ScrollHorizontal title={"이번주에 뜨는 TV프로그램"}>
         {thisweek.map((show) => (
           <Horizontal
+            isTV={true}
             key={show.id}
             id={show.id}
             poster={show.poster_path}
@@ -49,13 +52,14 @@ const TVPresenter = ({ topRated, popular, airingToday, thisweek, loading }) => {
         ))}
       </ScrollHorizontal>
 
-      <ScrollVertical title={"Today show"}>
+      <ScrollVertical title={"오늘 방영한 프로그램"}>
         {airingToday.map((show) => (
           <Vertical
+            isTV={true}
             key={show.id}
             id={show.id}
             poster={show.poster_path}
-            title={show.original_title}
+            title={show.original_name}
             vote={show.vote_average}
             overView={show.overview}
           />

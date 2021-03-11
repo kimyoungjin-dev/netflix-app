@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components/native";
-import { Dimensions } from "react-native";
+import { Dimensions, TouchableOpacity } from "react-native";
 import { apiImage } from "../../api";
 import {
   MaterialCommunityIcons,
@@ -8,6 +8,7 @@ import {
   FontAwesome,
 } from "@expo/vector-icons";
 import { useFonts } from "expo-font";
+import { useNavigation } from "@react-navigation/native";
 
 //file
 import ScrollContainer from "../../Components/SlideContents/ScrollContainer";
@@ -190,9 +191,24 @@ const OverViewContainer = styled.Text`
   font-family: "Noto_Sans";
 `;
 
-const DetailPresenter = ({ openBrowser, loading, results }) => {
-  console.log(results);
+const AppearanceContainer = styled.View`
+  flex-direction: row;
+`;
 
+const Appearance = styled.Text`
+  color: gray;
+  font-size: 14px;
+`;
+
+const AppearanceText = styled.Text`
+  color: white;
+  opacity: 0.8;
+  font-size: 16px;
+`;
+
+const DetailPresenter = ({ openBrowser, loading, results }) => {
+  //usenavigation
+  const navigation = useNavigation();
   //usefonts
   const [loaded] = useFonts({
     Noto_Sans: require("../../assets/fonts/Noto_Sans_JP/NotoSansJP-Black.otf"),
@@ -202,6 +218,7 @@ const DetailPresenter = ({ openBrowser, loading, results }) => {
     return null;
   }
 
+  console.log(results);
   return (
     <>
       <Header>
@@ -255,6 +272,26 @@ const DetailPresenter = ({ openBrowser, loading, results }) => {
         </PlaySaveContainer>
 
         <OverViewContainer>{results.overview}</OverViewContainer>
+        <AppearanceContainer>
+          <Appearance>
+            출연:
+            {results.cast &&
+              results.cast
+                .slice(0, 3)
+                .map((h, index) =>
+                  index === results.cast.length ? `${h.name}` : `, ${h.name}...`
+                )}
+          </Appearance>
+          <TouchableOpacity
+            onPress={() =>
+              navigation.navigate("Credit", {
+                results,
+              })
+            }
+          >
+            <AppearanceText>더 보기</AppearanceText>
+          </TouchableOpacity>
+        </AppearanceContainer>
       </ScrollContainer>
     </>
   );

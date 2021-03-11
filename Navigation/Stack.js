@@ -3,12 +3,12 @@ import { createStackNavigator } from "@react-navigation/stack";
 import {
   FontAwesome5,
   MaterialCommunityIcons,
-  Ionicons,
+  MaterialIcons,
 } from "@expo/vector-icons";
 import Tabs from "./Tabs";
 import Detail from "../Screens/Detail";
 import styled from "styled-components/native";
-import { Button } from "react-native";
+import Credit from "../Components/Detail/Credit";
 
 const Container = styled.View`
   flex-direction: row;
@@ -24,66 +24,80 @@ const Div = styled.View`
   opacity: 0.8;
 `;
 
+const CancelICon = styled.View``;
+
 const Stack = createStackNavigator();
+const RootStack = createStackNavigator();
 
 export default () => {
   return (
-    <Stack.Navigator
-      screenOptions={{
-        headerStyle: {
-          borderBottomColor: "rgb(23,25,30)",
-          shadowColor: "rgb(23,25,30)",
-          backgroundColor: "rgb(23,25,30)",
-          height: 100,
-        },
-      }}
-    >
-      <Stack.Screen
-        name="Tabs"
-        component={Tabs}
-        options={{
-          headerLeft: () => (
-            <MaterialCommunityIcons
-              name="netflix"
-              size={50}
-              color="red"
-              style={{ paddingLeft: 20 }}
-            />
-          ),
-          headerRight: () => (
-            <Container>
-              <MaterialCommunityIcons
-                name="gift-outline"
-                size={30}
-                color="white"
-              />
-              <Div>
-                <FontAwesome5 name="smile" size={30} color="white" />
-              </Div>
-            </Container>
-          ),
+    <>
+      <Stack.Navigator
+        screenOptions={{
+          headerStyle: {
+            borderBottomColor: "rgb(23,25,30)",
+            shadowColor: "rgb(23,25,30)",
+            backgroundColor: "rgb(23,25,30)",
+            height: 100,
+          },
         }}
-      />
-      <Stack.Screen
-        name="Detail"
-        component={Detail}
-        options={{
-          headerBackTitleVisible: false,
-          headerTintColor: "white",
-          headerRight: () => (
-            <Container>
+      >
+        <Stack.Screen
+          name="Tabs"
+          component={Tabs}
+          options={{
+            headerLeft: () => (
               <MaterialCommunityIcons
-                name="gift-outline"
-                size={30}
-                color="white"
+                name="netflix"
+                size={50}
+                color="red"
+                style={{ paddingLeft: 20 }}
               />
-              <Div>
-                <FontAwesome5 name="smile" size={30} color="white" />
-              </Div>
-            </Container>
-          ),
-        }}
-      />
-    </Stack.Navigator>
+            ),
+            headerRight: () => (
+              <Container>
+                <MaterialCommunityIcons
+                  name="gift-outline"
+                  size={30}
+                  color="white"
+                />
+                <Div>
+                  <FontAwesome5 name="smile" size={30} color="white" />
+                </Div>
+              </Container>
+            ),
+          }}
+        />
+        <Stack.Screen
+          name="Detail"
+          component={Detail}
+          options={{
+            headerBackTitleVisible: false,
+            headerTintColor: "white",
+            headerRight: () => (
+              <Container>
+                <MaterialCommunityIcons
+                  name="gift-outline"
+                  size={30}
+                  color="white"
+                />
+                <Div>
+                  <FontAwesome5 name="smile" size={30} color="white" />
+                </Div>
+              </Container>
+            ),
+          }}
+        />
+        <Stack.Screen
+          name="Credit"
+          component={Credit}
+          options={{
+            headerBackTitleVisible: false,
+            headerTintColor: "white",
+            headerTitleStyle: { fontSize: 24, fontWeight: "bold" },
+          }}
+        />
+      </Stack.Navigator>
+    </>
   );
 };

@@ -37,7 +37,7 @@ const OverView = styled.Text`
   font-size: 14px;
 `;
 
-const Vertical = ({ isTV = false, poster, title, vote, overView }) => {
+const Vertical = ({ isTV = false, poster, title, vote, overView, id }) => {
   const navigation = useNavigation();
   return (
     <TouchableOpacity
@@ -48,6 +48,7 @@ const Vertical = ({ isTV = false, poster, title, vote, overView }) => {
           vote,
           overView,
           isTV,
+          id,
         })
       }
     >

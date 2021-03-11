@@ -38,19 +38,19 @@ const Data = styled.View`
 
 const Title = styled.Text`
   color: white;
-  font-size: 18px;
+  font-size: 24px;
   font-weight: bold;
 `;
 
 const Year = styled.Text`
   color: white;
-  font-size: 14px;
+  font-size: 18px;
   margin: 5px 0px;
 `;
 
 const Vote = styled.Text`
-  color: white;
-  font-size: 14px;
+  color: gray;
+  font-size: 15px;
   margin-bottom: 5px;
 `;
 

@@ -82,6 +82,8 @@ const Top10Text = styled.Text`
 `;
 
 const Horizontal = ({ isTV = false, id, poster, title, vote, rank }) => {
+  const navigation = useNavigation();
+
   const [loaded] = useFonts({
     Noto_Sans_JP: require("../assets/fonts/Noto_Sans_JP/NotoSansJP-Black.otf"),
   });
@@ -89,9 +91,6 @@ const Horizontal = ({ isTV = false, id, poster, title, vote, rank }) => {
   if (!loaded) {
     return null;
   }
-  const navigation = useNavigation();
-
-  console.log(rank);
 
   return (
     <TouchableOpacity
@@ -109,7 +108,7 @@ const Horizontal = ({ isTV = false, id, poster, title, vote, rank }) => {
         <PosterBox>
           <PosterContainer source={{ uri: apiImage(poster) }} />
 
-          {rank === 1 && (
+          {rank === 0 && vote > 8.5 && (
             <Top10Container>
               <Top10Container>
                 <TopText>Top</TopText>
@@ -134,12 +133,12 @@ const Horizontal = ({ isTV = false, id, poster, title, vote, rank }) => {
           {vote > 8 && (
             <MaterialCommunityIcons
               name="netflix"
-              size={20}
+              size={24}
               color="red"
               style={{
                 paddingLeft: 20,
                 position: "absolute",
-                right: 5,
+                right: 0,
                 opacity: 0.8,
               }}
             />

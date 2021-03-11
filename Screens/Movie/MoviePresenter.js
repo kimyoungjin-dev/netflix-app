@@ -14,6 +14,7 @@ const MoviePresenter = ({
   movieTopRated,
   loading,
 }) => {
+  console.log(nowPlaying, popular, upcoming, movieTopRated);
   return (
     <ScrollContainer loading={loading}>
       <ScrollSwiper>

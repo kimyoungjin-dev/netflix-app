@@ -33,6 +33,7 @@ const MoviePresenter = ({
   thisweek,
 }) => {
   const navigation = useNavigation();
+
   return (
     <>
       <CategoryContainer>
@@ -51,17 +52,18 @@ const MoviePresenter = ({
 
       <ScrollContainer loading={loading}>
         <ScrollHorizontal title={"Netflix 인기 콘텐츠"}>
-          {popular.map((movie) => (
+          {popular.map((movie, index) => (
             <Horizontal
               key={movie.id}
               id={movie.id}
               poster={movie.poster_path}
               title={movie.original_title}
               vote={movie.vote_average}
+              rank={index}
             />
           ))}
 
-          {showPopular.map((show) => (
+          {showPopular.map((show, index) => (
             <Horizontal
               isTV={true}
               key={show.id}
@@ -69,12 +71,13 @@ const MoviePresenter = ({
               poster={show.poster_path}
               title={show.original_name}
               vote={show.vote_average}
+              rank={index}
             />
           ))}
         </ScrollHorizontal>
 
         <ScrollHorizontal title={"오늘 방영 프로그램"}>
-          {airingToday.map((show) => (
+          {airingToday.map((show, index) => (
             <Horizontal
               isTV={true}
               key={show.id}
@@ -82,24 +85,26 @@ const MoviePresenter = ({
               poster={show.poster_path}
               title={show.original_name}
               vote={show.vote_average}
+              rank={index}
             />
           ))}
         </ScrollHorizontal>
 
         <ScrollHorizontal title={"방금 나온 신작영화"}>
-          {upcoming.map((movie) => (
+          {upcoming.map((movie, index) => (
             <Horizontal
               key={movie.id}
               id={movie.id}
               poster={movie.poster_path}
               title={movie.original_title}
               vote={movie.vote_average}
+              rank={index}
             />
           ))}
         </ScrollHorizontal>
 
         <ScrollHorizontal title={"Top10 TV프로그램"}>
-          {topRated.map((show) => (
+          {topRated.map((show, index) => (
             <Horizontal
               isTV={true}
               key={show.id}
@@ -107,36 +112,39 @@ const MoviePresenter = ({
               poster={show.poster_path}
               title={show.original_name}
               vote={show.vote_average}
+              rank={index}
             />
           ))}
         </ScrollHorizontal>
 
         <ScrollHorizontal title={"지금 뜨고있는 영화"}>
-          {nowPlaying.map((movie) => (
+          {nowPlaying.map((movie, index) => (
             <Horizontal
               key={movie.id}
               id={movie.id}
               poster={movie.poster_path}
               title={movie.original_title}
               vote={movie.vote_average}
+              rank={index}
             />
           ))}
         </ScrollHorizontal>
 
         <ScrollHorizontal title={"인기 영화"}>
-          {popular.map((movie) => (
+          {popular.map((movie, index) => (
             <Horizontal
               key={movie.id}
               id={movie.id}
               poster={movie.poster_path}
               title={movie.original_title}
               vote={movie.vote_average}
+              rank={index}
             />
           ))}
         </ScrollHorizontal>
 
         <ScrollHorizontal title={"이번주 인기 TV프로그램"}>
-          {thisweek.map((show) => (
+          {thisweek.map((show, index) => (
             <Horizontal
               isTV={true}
               key={show.id}
@@ -144,6 +152,7 @@ const MoviePresenter = ({
               poster={show.poster_path}
               title={show.original_name}
               vote={show.vote_average}
+              rank={index}
             />
           ))}
         </ScrollHorizontal>

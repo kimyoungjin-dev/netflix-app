@@ -1,9 +1,14 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
-import { FontAwesome5, MaterialCommunityIcons } from "@expo/vector-icons";
+import {
+  FontAwesome5,
+  MaterialCommunityIcons,
+  Ionicons,
+} from "@expo/vector-icons";
 import Tabs from "./Tabs";
 import Detail from "../Screens/Detail";
 import styled from "styled-components/native";
+import { Button } from "react-native";
 
 const Container = styled.View`
   flex-direction: row;
@@ -59,7 +64,26 @@ export default () => {
           ),
         }}
       />
-      <Stack.Screen name="Detail" component={Detail} />
+      <Stack.Screen
+        name="Detail"
+        component={Detail}
+        options={{
+          headerBackTitleVisible: false,
+          headerTintColor: "white",
+          headerRight: () => (
+            <Container>
+              <MaterialCommunityIcons
+                name="gift-outline"
+                size={30}
+                color="white"
+              />
+              <Div>
+                <FontAwesome5 name="smile" size={30} color="white" />
+              </Div>
+            </Container>
+          ),
+        }}
+      />
     </Stack.Navigator>
   );
 };

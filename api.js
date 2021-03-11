@@ -30,6 +30,7 @@ export const movieApi = {
   discover: () => getAnything("/discover/movie"),
   search: (query) => getAnything("/search/movie", { query }),
   movieCredit: (id) => getAnything(`/movie/${id}/credits`),
+  movieGenre: () => getAnything("/genre/movie/list"),
   movieDetail: (id) =>
     getAnything(`/movie/${id}`, {
       append_to_response: "videos",
@@ -43,6 +44,7 @@ export const tvApi = {
   thisweek: () => getAnything("/tv/on_the_air"),
   search: (query) => getAnything("/search/tv", { query }),
   showCredit: (id) => getAnything(`/tv/${id}/credits`),
+  showGenre: () => getAnything("/genre/tv/list"),
   showDetail: (id) =>
     getAnything(`/tv/${id}`, {
       append_to_response: "videos",

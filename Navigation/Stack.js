@@ -1,14 +1,11 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
-import {
-  FontAwesome5,
-  MaterialCommunityIcons,
-  MaterialIcons,
-} from "@expo/vector-icons";
+import { FontAwesome5, MaterialCommunityIcons } from "@expo/vector-icons";
 import Tabs from "./Tabs";
 import Detail from "../Screens/Detail";
 import styled from "styled-components/native";
 import Credit from "../Components/Detail/Credit";
+import Category from "../Components/Detail/Category";
 
 const Container = styled.View`
   flex-direction: row;
@@ -24,10 +21,7 @@ const Div = styled.View`
   opacity: 0.8;
 `;
 
-const CancelICon = styled.View``;
-
 const Stack = createStackNavigator();
-const RootStack = createStackNavigator();
 
 export default () => {
   return (
@@ -98,6 +92,7 @@ export default () => {
           }}
         />
       </Stack.Navigator>
+      <Stack.Screen name="category" component={Category} />
     </>
   );
 };

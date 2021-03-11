@@ -1,5 +1,5 @@
 import React, { useLayoutEffect, useState, useEffect } from "react";
-import { movieApi, tvApi } from "../../api";
+import { creditApi, movieApi, tvApi } from "../../api";
 import DetailPresenter from "./DetailPresenter";
 import * as WebBrowser from "expo-web-browser";
 
@@ -17,6 +17,10 @@ const DetailContainer = ({ navigation, route: { params } }) => {
       ? await tvApi.showDetail(id)
       : await movieApi.movieDetail(id);
 
+    const [{ cast, crew }, getCreditError] = isTV
+      ? await tvApi.showCredit(id)
+      : await movieApi.movieCredit(id);
+
     setResults({
       backDrop: Detail.backdrop_path,
       overView: Detail.overview,
@@ -25,6 +29,8 @@ const DetailContainer = ({ navigation, route: { params } }) => {
       vote: Detail.vote_average,
       year: Detail.release_date,
       ...Detail,
+      cast,
+      crew,
     });
     setLoading(false);
   };

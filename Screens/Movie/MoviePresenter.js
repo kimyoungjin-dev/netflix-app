@@ -14,7 +14,7 @@ const MoviePresenter = ({
   movieTopRated,
   loading,
 }) => {
-  console.log(nowPlaying, popular, upcoming, movieTopRated);
+  console.log(nowPlaying);
   return (
     <ScrollContainer loading={loading}>
       <ScrollSwiper>
@@ -32,31 +32,33 @@ const MoviePresenter = ({
       </ScrollSwiper>
 
       <ScrollHorizontal title={"인기영화"}>
-        {popular.map((movie) => (
+        {popular.map((movie, index) => (
           <Horizontal
             key={movie.id}
             id={movie.id}
             poster={movie.poster_path}
             title={movie.original_title}
             vote={movie.vote_average}
+            rank={index}
           />
         ))}
       </ScrollHorizontal>
 
       <ScrollHorizontal title={"Top10 영화"}>
-        {movieTopRated.map((movie) => (
+        {movieTopRated.map((movie, index) => (
           <Horizontal
             key={movie.id}
             id={movie.id}
             poster={movie.poster_path}
             title={movie.original_name}
             vote={movie.vote_average}
+            rank={index}
           />
         ))}
       </ScrollHorizontal>
 
       <ScrollVertical title={"방금나온 영화"}>
-        {upcoming.map((movie) => (
+        {upcoming.map((movie, index) => (
           <Vertical
             key={movie.id}
             id={movie.id}
@@ -64,6 +66,7 @@ const MoviePresenter = ({
             title={movie.original_title}
             vote={movie.vote_average}
             overView={movie.overview}
+            rank={index}
           />
         ))}
       </ScrollVertical>

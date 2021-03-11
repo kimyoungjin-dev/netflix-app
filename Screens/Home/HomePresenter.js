@@ -31,6 +31,8 @@ const HomePresenter = ({
   airingToday,
   thisweek,
   loading,
+  movieCategory: { genres: movieGenre },
+  showCategory: { genres: tvGenre },
 }) => {
   const everyMovies = [
     ...nowPlaying,
@@ -55,8 +57,6 @@ const HomePresenter = ({
     return randomMovies;
   };
 
-  console.log(shuffleArray(randomMovies));
-
   return (
     <>
       <CategoryContainer>
@@ -67,7 +67,14 @@ const HomePresenter = ({
           <TouchableOpacity onPress={() => navigation.navigate("영화")}>
             <CategoryItem>영화</CategoryItem>
           </TouchableOpacity>
-          <TouchableOpacity>
+          <TouchableOpacity
+            onPress={() =>
+              navigation.navigate("Category", {
+                movieGenre,
+                tvGenre,
+              })
+            }
+          >
             <CategoryItem>카테고리</CategoryItem>
           </TouchableOpacity>
         </CategoryList>

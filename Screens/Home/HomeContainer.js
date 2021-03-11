@@ -8,7 +8,6 @@ const MovieContainer = () => {
     nowPlaying: [],
     popular: [],
     upcoming: [],
-
     nowPlayingError: null,
     popularError: null,
     upcomingError: null,

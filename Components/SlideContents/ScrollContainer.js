@@ -10,6 +10,7 @@ const ScrollContainer = ({ loading, children }) => {
         paddingLeft: 20,
         paddingRight: 20,
         paddingBottom: 80,
+        paddingTop: 10,
       }}
       style={{
         backgroundColor: "rgb(23,25,30)",

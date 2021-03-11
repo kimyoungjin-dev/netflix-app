@@ -49,7 +49,7 @@ const Year = styled.Text`
 `;
 
 const Vote = styled.Text`
-  color: gray;
+  color: white;
   font-size: 15px;
   margin-bottom: 5px;
 `;

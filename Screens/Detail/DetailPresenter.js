@@ -1,160 +1,262 @@
 import React from "react";
 import styled from "styled-components/native";
-import ScrollContainer from "../../Components/SlideContents/ScrollContainer";
-import { apiImage } from "../../api";
 import { Dimensions } from "react-native";
-import { TouchableOpacity } from "react-native";
-import { FontAwesome } from "@expo/vector-icons";
-import Icon from "../../Components/Icon";
+import { apiImage } from "../../api";
+import {
+  MaterialCommunityIcons,
+  MaterialIcons,
+  FontAwesome,
+} from "@expo/vector-icons";
+import { useFonts } from "expo-font";
 
-const { height: HEIGHT } = Dimensions.get("window");
+//file
+import ScrollContainer from "../../Components/SlideContents/ScrollContainer";
+
+const { width: WIDTH, height: HEIGHT } = Dimensions.get("window");
 
 const Header = styled.View`
-  height: ${HEIGHT / 3}px;
+  height: ${HEIGHT / 3.5};
+  align-items: flex-end;
   justify-content: flex-end;
-  align-items: center;
-`;
-
-const BackDropContainer = styled.Image`
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  opacity: 0.6;
-`;
-
-const Container = styled.View`
-  flex-direction: row;
-  justify-content: space-around;
-  width: 100%;
-  top: 30;
-  right: 10;
 `;
 
 const PosterContainer = styled.Image`
-  height: 180px;
-  width: 130px;
-  border-radius: 15px;
+  height: 100%;
+  width: 100%;
+  position: absolute;
 `;
 
-const Contents = styled.View`
-  align-items: flex-start;
-  justify-content: center;
-  margin-left: 20px;
+const HeaderBottomContainer = styled.View`
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  padding: 0px 10px;
 `;
+
+const ButtonContainer = styled.View`
+  background-color: black;
+  padding: 5px;
+  border-radius: 3px;
+  justify-content: center;
+  align-items: center;
+`;
+
+const ButtonText = styled.Text`
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  font-family: "Noto_Sans";
+`;
+
+const SpeakerContainer = styled.View`
+  padding: 5px;
+  background-color: black;
+  border-radius: 20px;
+  justify-content: center;
+  align-items: center;
+`;
+
+//contents
+
+const MovieInforMationContainer = styled.View``;
 
 const Title = styled.Text`
   color: white;
+  font-weight: bold;
+  font-family: "Noto_Sans";
+  font-size: 30px;
+`;
+
+const CenterContents = styled.View`
+  align-items: center;
+  flex-direction: row;
+  width: 60%;
+  margin: 10px 0px;
+  justify-content: space-between;
+`;
+
+const Year = styled.Text`
+  color: gray;
+  font-size: 22px;
+  font-family: "Noto_Sans";
+`;
+
+const AdultContainer = styled.View`
+  background-color: gray;
+  padding: 0px 5px;
+  border-radius: 4px;
+`;
+
+const Adult = styled.Text`
+  color: white;
+  font-size: 20px;
+  font-family: "Noto_Sans";
+`;
+
+const Runtime = styled.Text`
+  color: white;
+  font-size: 20px;
+  font-family: "Noto_Sans";
+`;
+
+const ScreenQualityContainer = styled.View`
+  border: 1px solid gray;
+  background-color: black;
+  border-radius: 5px;
+`;
+
+const ScreenQuality = styled.Text`
+  padding: 0px 5px;
+  color: white;
+  font-size: 20px;
+  font-family: "Noto_Sans";
+`;
+
+//RankContainer
+
+const RankContainer = styled.View`
+  flex-direction: row;
+  align-items: center;
+`;
+
+const Top10Container = styled.View`
+  border: 3px solid white;
+  background-color: black;
+  align-items: center;
+  padding: 5px;
+`;
+
+const TopText = styled.Text`
+  color: white;
+  font-family: "Noto_Sans";
   font-size: 18px;
   font-weight: bold;
 `;
 
-const Year = styled.Text`
-  color: white;
-  font-size: 14px;
-  font-weight: bold;
-  opacity: 0.8;
-  margin: 7px 0px;
-`;
-
-const RunTime = styled.Text`
-  color: orange;
-`;
-
-const Status = styled.Text`
-  color: white;
-  margin: 7px 0px;
-`;
-
-const Vote = styled.Text`
-  color: white;
-  font-size: 14px;
-  margin-bottom: 6px;
-`;
-
-const DataContainer = styled.View`
-  margin-top: 100px;
-`;
-
-const DataName = styled.Text`
+const Top10Text = styled.Text`
   color: white;
   font-weight: bold;
-  margin-bottom: 10px;
-  font-size: 20px;
-`;
-
-const DataValue = styled.Text`
-  color: white;
   font-size: 16px;
-  opacity: 0.7;
+  font-family: "Noto_Sans";
+`;
+
+const ContentRanking = styled.Text`
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  margin-left: 5px;
+  font-family: "Noto_Sans";
+`;
+
+const PlaySaveContainer = styled.View`
+  margin: 10px 0px;
+`;
+
+const PlayingContainer = styled.View`
+  background-color: white;
+  height: 40px;
+  border-radius: 8px;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+  flex-direction: row;
+`;
+
+const PlayingText = styled.Text`
+  font-size: 20px;
+  font-weight: bold;
+  margin-left: 13px;
+`;
+
+const SaveContainer = styled.View`
+  background-color: gray;
+  height: 40px;
+  border-radius: 8px;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+`;
+
+const SaveText = styled.Text`
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  margin-left: 10px;
+`;
+
+const OverViewContainer = styled.Text`
+  color: white;
+  font-family: "Noto_Sans";
 `;
 
 const DetailPresenter = ({ openBrowser, loading, results }) => {
+  console.log(results);
+
+  //usefonts
+  const [loaded] = useFonts({
+    Noto_Sans: require("../../assets/fonts/Noto_Sans_JP/NotoSansJP-Black.otf"),
+  });
+
+  if (!loaded) {
+    return null;
+  }
+
   return (
-    <ScrollContainer loading={loading}>
+    <>
       <Header>
-        <BackDropContainer source={{ uri: apiImage(results.backDrop) }} />
-        <Container>
-          <PosterContainer source={{ uri: apiImage(results.poster_path) }} />
-          <Contents>
-            <Title>{results.original_title || results.original_name}</Title>
-            <Year>{results.release_date || results.first_air_date}</Year>
-            <RunTime>
-              {results.runtime || results.episode_run_time?.map((time) => time)}{" "}
-              minutes
-            </RunTime>
-            <Status>{results.status}</Status>
-            <Vote>⭐️{results.vote_average} /10</Vote>
-            <Icon
-              text={"IMDB"}
-              name={"imdb"}
-              onPress={() =>
-                openBrowser(`https://www.imdb.com/title/${results.imdb_id}`)
-              }
+        <PosterContainer source={{ uri: apiImage(results.poster_path) }} />
+        <HeaderBottomContainer>
+          <ButtonContainer>
+            <ButtonText>미리보기 없음</ButtonText>
+          </ButtonContainer>
+          <SpeakerContainer>
+            <MaterialCommunityIcons
+              name="volume-mute"
+              size={24}
+              color="white"
             />
-          </Contents>
-        </Container>
+          </SpeakerContainer>
+        </HeaderBottomContainer>
       </Header>
+      <ScrollContainer loading={loading}>
+        <MovieInforMationContainer>
+          <Title>{results.original_title || results.original_name}</Title>
+          <CenterContents>
+            <Year>{results.release_date?.slice(0, 4)}</Year>
+            <AdultContainer>
+              <Adult>{results.adult === false ? "15+" : "19+"}</Adult>
+            </AdultContainer>
+            <Runtime>{results.runtime}분</Runtime>
+            <ScreenQualityContainer>
+              <ScreenQuality>HD</ScreenQuality>
+            </ScreenQualityContainer>
+          </CenterContents>
+        </MovieInforMationContainer>
 
-      <DataContainer>
-        <DataName>Homepage</DataName>
-        <DataValue onPress={() => openBrowser(results.homepage)}>
-          {results.homepage}
-        </DataValue>
-      </DataContainer>
+        <RankContainer>
+          <Top10Container>
+            <TopText>Top</TopText>
+            <Top10Text>10</Top10Text>
+          </Top10Container>
+          <ContentRanking>오늘 한국에서 콘텐츠 순위 3위</ContentRanking>
+        </RankContainer>
 
-      <DataContainer>
-        <DataName>OverView</DataName>
-        <DataValue>{results.overview}</DataValue>
-      </DataContainer>
+        <PlaySaveContainer>
+          <PlayingContainer>
+            <FontAwesome name="play" size={20} color="black" />
+            <PlayingText>재생</PlayingText>
+          </PlayingContainer>
+          <SaveContainer>
+            <MaterialIcons name="save-alt" size={24} color="white" />
 
-      <DataContainer>
-        <DataName>Spoken_Languages</DataName>
-        <DataValue>
-          {results.spoken_languages &&
-            results.spoken_languages.map((l, index) =>
-              index + 1 === results.spoken_languages.length
-                ? `${l.name}`
-                : `${l.name} , `
-            )}
-        </DataValue>
-      </DataContainer>
+            <SaveText>저장</SaveText>
+          </SaveContainer>
+        </PlaySaveContainer>
 
-      <DataContainer>
-        <DataName>Youtube</DataName>
-        <DataValue>
-          {results?.videos?.results.map((movie) => (
-            <Icon
-              key={movie.id}
-              name={"youtube-play"}
-              text={movie.name}
-              onPress={() =>
-                openBrowser(`https://www.youtube.com/watch?v=${movie.key}`)
-              }
-            />
-          ))}
-        </DataValue>
-      </DataContainer>
-    </ScrollContainer>
+        <OverViewContainer>{results.overview}</OverViewContainer>
+      </ScrollContainer>
+    </>
   );
 };
 

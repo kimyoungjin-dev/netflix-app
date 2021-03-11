@@ -50,7 +50,6 @@ const BotEpisodeText = styled.Text`
 
 const Horizontal = ({ isTV = false, id, poster, title, vote }) => {
   const navigation = useNavigation();
-  console.log(vote);
 
   return (
     <TouchableOpacity
@@ -79,7 +78,7 @@ const Horizontal = ({ isTV = false, id, poster, title, vote }) => {
           </>
         )}
 
-        {vote > 7 && (
+        {vote > 8 && (
           <MaterialCommunityIcons
             name="netflix"
             size={20}

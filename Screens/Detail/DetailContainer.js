@@ -6,11 +6,16 @@ import * as WebBrowser from "expo-web-browser";
 const DetailContainer = ({ navigation, route: { params } }) => {
   const { backDrop, id, overView, poster, title, vote, year, isTV } = params;
 
+  const [showVideos, setShowVideos] = useState(false);
+  const [video, setVideo] = useState(false);
   const [loading, setLoading] = useState(true);
   const [results, setResults] = useState({
     Detail: [],
     DetailError: null,
   });
+
+  const showToggle = () => setShowVideos((prev) => !prev);
+  const videoToggle = () => setVideo((prev) => !prev);
 
   const getData = async () => {
     const [Detail, DetailError] = isTV
@@ -52,6 +57,10 @@ const DetailContainer = ({ navigation, route: { params } }) => {
       results={results}
       loading={loading}
       openBrowser={openBrowser}
+      showVideos={showVideos}
+      video={video}
+      showToggle={showToggle}
+      videoToggle={videoToggle}
     />
   );
 };

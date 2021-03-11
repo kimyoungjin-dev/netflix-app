@@ -126,7 +126,7 @@ const SubInformation = ({ results }) => {
             results.cast
               .slice(0, 3)
               .map((h, index) =>
-                index === results.cast.length ? `${h.name}` : `, ${h.name}...`
+                index === results.cast.length ? `${h.name}` : `, ${h.name}.`
               )}
         </Appearance>
         <TouchableOpacity

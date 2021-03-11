@@ -5,6 +5,7 @@ import ScrollHorizontal from "../../Components/SlideContents/ScrollHorizontal";
 import styled from "styled-components/native";
 import { TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import uniq from "lodash.uniqby";
 
 const CategoryContainer = styled.View`
   background-color: rgb(23, 25, 30);
@@ -21,18 +22,40 @@ const CategoryItem = styled.Text`
   font-size: 20px;
 `;
 
-const MoviePresenter = ({
-  loading,
+const HomePresenter = ({
   nowPlaying,
   popular,
   upcoming,
-
   topRated,
   showPopular,
   airingToday,
   thisweek,
+  loading,
 }) => {
+  const everyMovies = [
+    ...nowPlaying,
+    ...popular,
+    ...upcoming,
+    ...topRated,
+    ...showPopular,
+    ...airingToday,
+    ...thisweek,
+  ];
+
+  const randomMovies = uniq(everyMovies, "id");
   const navigation = useNavigation();
+
+  const shuffleArray = (randomMovies) => {
+    for (let i = 0; i < randomMovies.length; i++) {
+      let j = Math.floor(Math.random() * (i + 1));
+      const x = randomMovies[i];
+      randomMovies[i] = randomMovies[j];
+      randomMovies[j] = x;
+    }
+    return randomMovies;
+  };
+
+  console.log(shuffleArray(randomMovies));
 
   return (
     <>
@@ -52,25 +75,13 @@ const MoviePresenter = ({
 
       <ScrollContainer loading={loading}>
         <ScrollHorizontal title={"Netflix 인기 콘텐츠"}>
-          {popular.map((movie, index) => (
+          {shuffleArray(randomMovies).map((movie, index) => (
             <Horizontal
               key={movie.id}
               id={movie.id}
               poster={movie.poster_path}
               title={movie.original_title}
               vote={movie.vote_average}
-              rank={index}
-            />
-          ))}
-
-          {showPopular.map((show, index) => (
-            <Horizontal
-              isTV={true}
-              key={show.id}
-              id={show.id}
-              poster={show.poster_path}
-              title={show.original_name}
-              vote={show.vote_average}
               rank={index}
             />
           ))}
@@ -161,4 +172,4 @@ const MoviePresenter = ({
   );
 };
 
-export default MoviePresenter;
+export default HomePresenter;

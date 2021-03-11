@@ -1,6 +1,4 @@
 import React from "react";
-import { TouchableOpacity } from "react-native";
-import styled from "styled-components/native";
 import Horizontal from "../../Components/Horizontal";
 import Slide from "../../Components/Slide";
 import ScrollContainer from "../../Components/SlideContents/ScrollContainer";
@@ -8,7 +6,9 @@ import ScrollHorizontal from "../../Components/SlideContents/ScrollHorizontal";
 import ScrollSwiper from "../../Components/SlideContents/ScrollSwiper";
 import ScrollVertical from "../../Components/SlideContents/ScrollVertical";
 import Vertical from "../../Components/Vertical";
+import { TouchableOpacity } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
+import styled from "styled-components/native";
 import { useNavigation } from "@react-navigation/native";
 
 const CategoryContainer = styled.View`
@@ -42,10 +42,11 @@ const TVPresenter = ({
   airingToday,
   thisweek,
   loading,
-  movieCategory: { movieGenre },
-  showCategory: { tvGenre },
+  movieCategory: { genres: movieGenre },
+  showCategory: { genres: tvGenre },
 }) => {
   const navigation = useNavigation();
+
   return (
     <>
       <CategoryContainer>

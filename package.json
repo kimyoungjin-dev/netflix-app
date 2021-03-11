@@ -31,7 +31,8 @@
     "react-native-web": "~0.13.12",
     "react-native-web-swiper": "^2.2.1",
     "styled-components": "^5.2.1",
-    "expo-web-browser": "~8.6.0"
+    "expo-web-browser": "~8.6.0",
+    "expo-blur": "~8.2.2"
   },
   "devDependencies": {
     "@babel/core": "~7.9.0"

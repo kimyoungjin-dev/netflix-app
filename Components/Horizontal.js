@@ -92,6 +92,8 @@ const Horizontal = ({ isTV = false, id, poster, title, vote, rank }) => {
     return null;
   }
 
+  const randomNumber = Math.floor(Math.random() * 3);
+
   return (
     <TouchableOpacity
       onPress={() =>
@@ -108,7 +110,7 @@ const Horizontal = ({ isTV = false, id, poster, title, vote, rank }) => {
         <PosterBox>
           <PosterContainer source={{ uri: apiImage(poster) }} />
 
-          {rank === 0 && vote > 8.5 && (
+          {rank === randomNumber && vote > 7.5 && (
             <Top10Container>
               <Top10Container>
                 <TopText>Top</TopText>

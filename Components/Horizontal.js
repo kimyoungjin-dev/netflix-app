@@ -92,7 +92,7 @@ const Horizontal = ({ isTV = false, id, poster, title, vote, rank }) => {
     return null;
   }
 
-  const randomNumber = Math.floor(Math.random() * 3);
+  const randomNumber = Math.floor(Math.random() * 10);
 
   return (
     <TouchableOpacity
@@ -110,7 +110,7 @@ const Horizontal = ({ isTV = false, id, poster, title, vote, rank }) => {
         <PosterBox>
           <PosterContainer source={{ uri: apiImage(poster) }} />
 
-          {rank === randomNumber && vote > 7.5 && (
+          {rank === randomNumber && (
             <Top10Container>
               <Top10Container>
                 <TopText>Top</TopText>
@@ -119,7 +119,7 @@ const Horizontal = ({ isTV = false, id, poster, title, vote, rank }) => {
             </Top10Container>
           )}
 
-          {isTV && vote > 8.5 && (
+          {isTV && vote > 9 && (
             <>
               <NewEpisode>
                 <TopEpisodeContents>

@@ -8,9 +8,11 @@ const MovieContainer = () => {
     nowPlaying: [],
     popular: [],
     upcoming: [],
+    movieCategory: [],
     nowPlayingError: null,
     popularError: null,
     upcomingError: null,
+    movieCategoryError: null,
   });
 
   const [showresult, setShowresult] = useState({
@@ -18,22 +20,26 @@ const MovieContainer = () => {
     showPopular: [],
     airingToday: [],
     thisweek: [],
+    showCategory: [],
 
     topRatedError: null,
     showPopularError: null,
     airingTodayError: null,
     thisweekError: null,
+    showCategoryError: null,
   });
 
   const getData = async () => {
     const [nowPlaying, nowPlayingError] = await movieApi.nowPlaying();
     const [popular, popularError] = await movieApi.popular();
     const [upcoming, upcomingError] = await movieApi.upcoming();
-
+    const [movieCategory, movieCategoryError] = await movieApi.movieGenre();
     const [topRated, topRatedError] = await tvApi.topRated();
     const [showPopular, showPopularError] = await tvApi.popular();
     const [airingToday, airingTodayError] = await tvApi.airingToday();
     const [thisweek, thisweekError] = await tvApi.thisweek();
+    const [showCategory, showCategoryError] = await tvApi.showGenre();
+    console.log(movieCategory, showCategory);
 
     setResults({
       nowPlaying,
@@ -42,6 +48,8 @@ const MovieContainer = () => {
       nowPlayingError,
       popularError,
       upcomingError,
+      movieCategory,
+      movieCategoryError,
     });
 
     setShowresult({
@@ -53,6 +61,8 @@ const MovieContainer = () => {
       airingTodayError,
       thisweek,
       thisweekError,
+      showCategory,
+      showCategoryError,
     });
     setLoading(false);
   };

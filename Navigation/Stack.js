@@ -25,74 +25,80 @@ const Stack = createStackNavigator();
 
 export default () => {
   return (
-    <>
-      <Stack.Navigator
-        screenOptions={{
-          headerStyle: {
-            borderBottomColor: "rgb(23,25,30)",
-            shadowColor: "rgb(23,25,30)",
-            backgroundColor: "rgb(23,25,30)",
-            height: 100,
-          },
-        }}
-      >
-        <Stack.Screen
-          name="Tabs"
-          component={Tabs}
-          options={{
-            headerLeft: () => (
+    <Stack.Navigator
+      screenOptions={{
+        headerStyle: {
+          borderBottomColor: "rgb(23,25,30)",
+          shadowColor: "rgb(23,25,30)",
+          backgroundColor: "rgb(23,25,30)",
+          height: 100,
+        },
+      }}
+    >
+      <Stack.Screen
+        name="Tabs"
+        component={Tabs}
+        options={{
+          headerLeft: () => (
+            <MaterialCommunityIcons
+              name="netflix"
+              size={50}
+              color="red"
+              style={{ paddingLeft: 20 }}
+            />
+          ),
+          headerRight: () => (
+            <Container>
               <MaterialCommunityIcons
-                name="netflix"
-                size={50}
-                color="red"
-                style={{ paddingLeft: 20 }}
+                name="gift-outline"
+                size={30}
+                color="white"
               />
-            ),
-            headerRight: () => (
-              <Container>
-                <MaterialCommunityIcons
-                  name="gift-outline"
-                  size={30}
-                  color="white"
-                />
-                <Div>
-                  <FontAwesome5 name="smile" size={30} color="white" />
-                </Div>
-              </Container>
-            ),
-          }}
-        />
-        <Stack.Screen
-          name="Detail"
-          component={Detail}
-          options={{
-            headerBackTitleVisible: false,
-            headerTintColor: "white",
-            headerRight: () => (
-              <Container>
-                <MaterialCommunityIcons
-                  name="gift-outline"
-                  size={30}
-                  color="white"
-                />
-                <Div>
-                  <FontAwesome5 name="smile" size={30} color="white" />
-                </Div>
-              </Container>
-            ),
-          }}
-        />
-        <Stack.Screen
-          name="Credit"
-          component={Credit}
-          options={{
-            headerBackTitleVisible: false,
-            headerTintColor: "white",
-            headerTitleStyle: { fontSize: 24, fontWeight: "bold" },
-          }}
-        />
-      </Stack.Navigator>
-      <Stack.Screen name="category" component={Category} />
-    </>
+              <Div>
+                <FontAwesome5 name="smile" size={30} color="white" />
+              </Div>
+            </Container>
+          ),
+        }}
+      />
+      <Stack.Screen
+        name="Detail"
+        component={Detail}
+        options={{
+          headerBackTitleVisible: false,
+          headerTintColor: "white",
+          headerRight: () => (
+            <Container>
+              <MaterialCommunityIcons
+                name="gift-outline"
+                size={30}
+                color="white"
+              />
+              <Div>
+                <FontAwesome5 name="smile" size={30} color="white" />
+              </Div>
+            </Container>
+          ),
+        }}
+      />
+      <Stack.Screen
+        name="Credit"
+        component={Credit}
+        options={{
+          headerBackTitleVisible: false,
+          headerTintColor: "white",
+          headerTitleStyle: { fontSize: 24, fontWeight: "bold" },
+        }}
+      />
+      <Stack.Screen
+        name="Category"
+        component={Category}
+        options={{
+          headerBackTitleVisible: false,
+          headerTintColor: "white",
+          headerTitleStyle: { color: "gray", fontSize: 20 },
+        }}
+      />
+    </Stack.Navigator>
   );
 };

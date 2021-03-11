@@ -1,8 +1,15 @@
-import React, { useLayoutEffect } from "react";
+import React from "react";
 import styled from "styled-components/native";
 import ScrollContainer from "../SlideContents/ScrollContainer";
+import { useNavigation } from "@react-navigation/native";
+import { MaterialIcons } from "@expo/vector-icons";
 
 const Container = styled.View`
+  flex-direction: row;
+  justify-content: space-around;
+`;
+
+const Contents = styled.View`
   align-items: center;
 `;
 
@@ -13,40 +20,61 @@ const Appearance = styled.Text`
   margin-bottom: 40px;
 `;
 
-const AppearanceList = styled.View`
+const GenresList = styled.View`
   justify-content: center;
   align-items: center;
 `;
 
-const AppearanceItem = styled.Text`
+const GenresItem = styled.Text`
   color: gray;
   margin-bottom: 20px;
   font-size: 20px;
 `;
 
-const Credit = ({ navigation, route }) => {
+const Category = ({ route }) => {
   const {
-    params: { results },
+    params: { movieGenre, tvGenre },
   } = route;
 
-  useLayoutEffect(() => {
-    navigation.setOptions({ title: route.params.results.original_title });
-  }, []);
-
-  console.log(results);
+  const navigation = useNavigation();
 
   return (
-    <ScrollContainer>
-      <Container>
-        <Appearance>출연</Appearance>
-        <AppearanceList>
-          {results.cast.map((movie) => (
-            <AppearanceItem key={movie.id}>{movie.name}</AppearanceItem>
-          ))}
-        </AppearanceList>
-      </Container>
-    </ScrollContainer>
+    <>
+      <ScrollContainer>
+        <Container>
+          <Contents>
+            <Appearance>Movie Genres</Appearance>
+            <GenresList>
+              {movieGenre.map((genre, index) => (
+                <GenresItem key={index}>{genre.name}</GenresItem>
+              ))}
+            </GenresList>
+          </Contents>
+
+          <Contents>
+            <Appearance>TV Genres</Appearance>
+            <GenresList>
+              {tvGenre.map((genre) => (
+                <GenresItem>{genre.name}</GenresItem>
+              ))}
+            </GenresList>
+          </Contents>
+        </Container>
+      </ScrollContainer>
+      <MaterialIcons
+        onPress={() => navigation.goBack()}
+        name="cancel"
+        color="white"
+        style={{
+          position: "absolute",
+          bottom: "10%",
+          fontSize: 100,
+          right: "35%",
+          opacity: 0.6,
+        }}
+      />
+    </>
   );
 };
 
-export default Credit;
+export default Category;

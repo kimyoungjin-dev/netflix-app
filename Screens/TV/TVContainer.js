@@ -9,14 +9,10 @@ const TVContainer = () => {
     popular: [],
     airingToday: [],
     thisweek: [],
-    movieCategory: [],
-    showCategory: [],
     topRatedError: null,
     popularError: null,
     airingTodayError: null,
     thisweekError: null,
-    movieCategoryError: null,
-    showCategoryError: null,
   });
 
   const getData = async () => {
@@ -24,8 +20,6 @@ const TVContainer = () => {
     const [popular, popularError] = await tvApi.popular();
     const [airingToday, airingTodayError] = await tvApi.airingToday();
     const [thisweek, thisweekError] = await tvApi.thisweek();
-    const [movieCategory, movieCategoryError] = await movieApi.movieGenre();
-    const [showCategory, showCategoryError] = await tvApi.showGenre();
 
     setResults({
       topRated,
@@ -36,10 +30,6 @@ const TVContainer = () => {
       airingTodayError,
       thisweek,
       thisweekError,
-      movieCategory,
-      movieCategoryError,
-      showCategory,
-      showCategoryError,
     });
     setLoading(false);
   };

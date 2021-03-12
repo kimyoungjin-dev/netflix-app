@@ -27,7 +27,10 @@ export const movieApi = {
   popular: () => getAnything("/movie/popular"),
   upcoming: () => getAnything("/movie/upcoming"),
   topRated: () => getAnything("/movie/top_rated"),
-  discover: () => getAnything("/discover/movie"),
+  discover: (with_genres) =>
+    getAnything("/discover/movie", {
+      with_genres,
+    }), //
   search: (query) => getAnything("/search/movie", { query }),
   movieCredit: (id) => getAnything(`/movie/${id}/credits`),
   movieGenre: () => getAnything("/genre/movie/list"),
@@ -45,6 +48,16 @@ export const tvApi = {
   search: (query) => getAnything("/search/tv", { query }),
   showCredit: (id) => getAnything(`/tv/${id}/credits`),
   showGenre: () => getAnything("/genre/tv/list"),
+  //Genres
+  showAnimation: (with_genres) =>
+    getAnything("/discover/tv", { with_genres, sort_by: "popularity.desc" }),
+
+  showVariety: (with_genres) =>
+    getAnything("/discover/tv", { with_genres, sort_by: "popularity.desc" }),
+
+  showTalk: (with_genres) =>
+    getAnything("/discover/tv", { with_genres, sort_by: "popularity.desc" }),
+
   showDetail: (id) =>
     getAnything(`/tv/${id}`, {
       append_to_response: "videos",

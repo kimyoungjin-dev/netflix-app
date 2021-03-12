@@ -14,11 +14,10 @@ const MoviePresenter = ({
   movieTopRated,
   loading,
 }) => {
-  console.log(nowPlaying);
   return (
     <ScrollContainer loading={loading}>
       <ScrollSwiper>
-        {nowPlaying.map((movie) => (
+        {nowPlaying.map((movie, index) => (
           <Slide
             key={movie.id}
             id={movie.id}

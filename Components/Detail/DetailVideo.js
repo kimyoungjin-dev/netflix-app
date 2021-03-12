@@ -71,8 +71,8 @@ const DetailVideo = ({
         <ShowVideosContainer>
           {results.seasons ? (
             <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-              {results.seasons?.map((season) => (
-                <SeasonContainer>
+              {results.seasons?.map((season, index) => (
+                <SeasonContainer key={index}>
                   <SeasonName>{season.name}</SeasonName>
                   <SeasonPosterContainer
                     source={{ uri: apiImage(season.poster_path) }}

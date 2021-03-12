@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components/native";
 import { ScrollView, Text, TouchableOpacity } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
-import { apiImage } from "../../api";
+import { apiImage } from "../../api/api";
 
 const ViewContens = styled.View`
   flex-direction: row;

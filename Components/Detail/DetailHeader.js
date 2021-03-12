@@ -2,7 +2,7 @@ import React from "react";
 import { Dimensions } from "react-native";
 import styled from "styled-components/native";
 import { WebView } from "react-native-webview";
-import { apiImage } from "../../api";
+import { apiImage } from "../../api/api";
 
 const { width: WIDTH, height: HEIGHT } = Dimensions.get("window");
 

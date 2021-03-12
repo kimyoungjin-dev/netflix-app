@@ -14,7 +14,6 @@ const CategoryContainer = styled.View`
 
 const CategoryList = styled.View`
   flex-direction: row;
-  justify-content: space-around;
 `;
 
 const CategoryItem = styled.Text`

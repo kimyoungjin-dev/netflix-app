@@ -54,8 +54,8 @@ const Category = ({ route }) => {
           <Contents>
             <Appearance>TV Genres</Appearance>
             <GenresList>
-              {tvGenre.map((genre) => (
-                <GenresItem>{genre.name}</GenresItem>
+              {tvGenre.map((genre, index) => (
+                <GenresItem key={index}>{genre.name}</GenresItem>
               ))}
             </GenresList>
           </Contents>

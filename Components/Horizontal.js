@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { TouchableOpacity } from "react-native";
 import styled from "styled-components/native";
 import { apiImage } from "../api";
@@ -92,8 +92,6 @@ const Horizontal = ({ isTV = false, id, poster, title, vote, rank }) => {
     return null;
   }
 
-  const randomNumber = Math.floor(Math.random() * 10);
-
   return (
     <TouchableOpacity
       onPress={() =>
@@ -103,6 +101,7 @@ const Horizontal = ({ isTV = false, id, poster, title, vote, rank }) => {
           title,
           vote,
           isTV,
+          rank,
         })
       }
     >
@@ -110,7 +109,7 @@ const Horizontal = ({ isTV = false, id, poster, title, vote, rank }) => {
         <PosterBox>
           <PosterContainer source={{ uri: apiImage(poster) }} />
 
-          {rank === randomNumber && (
+          {rank === 0 && (
             <Top10Container>
               <Top10Container>
                 <TopText>Top</TopText>
@@ -119,7 +118,7 @@ const Horizontal = ({ isTV = false, id, poster, title, vote, rank }) => {
             </Top10Container>
           )}
 
-          {isTV && vote > 8.5 && (
+          {isTV && vote > 8.3 && (
             <>
               <NewEpisode>
                 <TopEpisodeContents>
@@ -132,7 +131,7 @@ const Horizontal = ({ isTV = false, id, poster, title, vote, rank }) => {
             </>
           )}
 
-          {vote > 8.7 && (
+          {vote > 8.5 && (
             <MaterialCommunityIcons
               name="netflix"
               size={24}

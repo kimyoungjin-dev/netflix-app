@@ -92,6 +92,7 @@ const Vertical = ({
           overView,
           isTV,
           id,
+          rank,
         })
       }
     >

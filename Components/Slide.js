@@ -81,6 +81,7 @@ const Slide = ({
   title,
   vote,
   year,
+  rank,
 }) => {
   const navigation = useNavigation();
 
@@ -112,6 +113,7 @@ const Slide = ({
                 vote,
                 year,
                 isTV,
+                rank,
               })
             }
           >

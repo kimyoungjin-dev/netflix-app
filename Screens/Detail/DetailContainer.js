@@ -4,7 +4,17 @@ import DetailPresenter from "./DetailPresenter";
 import * as WebBrowser from "expo-web-browser";
 
 const DetailContainer = ({ navigation, route: { params } }) => {
-  const { backDrop, id, overView, poster, title, vote, year, isTV } = params;
+  const {
+    backDrop,
+    id,
+    overView,
+    poster,
+    title,
+    vote,
+    year,
+    isTV,
+    rank,
+  } = params;
 
   const [showVideos, setShowVideos] = useState(false);
   const [video, setVideo] = useState(false);
@@ -27,6 +37,7 @@ const DetailContainer = ({ navigation, route: { params } }) => {
       : await movieApi.movieCredit(id);
 
     setResults({
+      rank: rank + 1,
       backDrop: Detail.backdrop_path,
       overView: Detail.overview,
       poster: Detail.poster_path,

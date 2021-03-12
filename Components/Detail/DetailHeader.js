@@ -2,20 +2,14 @@ import React from "react";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { Dimensions } from "react-native";
 import styled from "styled-components/native";
-import { apiImage } from "../../api";
+import { WebView } from "react-native-webview";
 
-const { height: HEIGHT } = Dimensions.get("window");
+const { width: WIDTH, height: HEIGHT } = Dimensions.get("window");
 
 const Header = styled.View`
-  height: ${HEIGHT / 3.5};
+  height: ${HEIGHT / 2.5};
   align-items: flex-end;
   justify-content: flex-end;
-`;
-
-const PosterContainer = styled.Image`
-  height: 100%;
-  width: 100%;
-  position: absolute;
 `;
 
 const HeaderBottomContainer = styled.View`
@@ -24,6 +18,7 @@ const HeaderBottomContainer = styled.View`
   justify-content: space-between;
   margin-bottom: 10px;
   padding: 0px 10px;
+  position: absolute;
 `;
 
 const ButtonContainer = styled.View`
@@ -52,15 +47,16 @@ const SpeakerContainer = styled.View`
 const DetailHeader = ({ results }) => {
   return (
     <Header>
-      <PosterContainer source={{ uri: apiImage(results.poster_path) }} />
-      <HeaderBottomContainer>
-        <ButtonContainer>
-          <ButtonText>미리보기 없음</ButtonText>
-        </ButtonContainer>
-        <SpeakerContainer>
-          <MaterialCommunityIcons name="volume-mute" size={24} color="white" />
-        </SpeakerContainer>
-      </HeaderBottomContainer>
+      <WebView
+        style={{ width: WIDTH / 1 }}
+        mixedContentMode="always"
+        source={{
+          uri: `https://www.youtube.com/embed/${results.videos?.results?.[0].key}`,
+        }}
+        scrollEnabled={true}
+        javaScriptEnabled={true}
+        allowsFullscreenVideo={false}
+      />
     </Header>
   );
 };

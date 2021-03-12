@@ -5,6 +5,7 @@ import ScrollHorizontal from "../../Components/SlideContents/ScrollHorizontal";
 import styled from "styled-components/native";
 import { TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import TVGenre from "../../Components/Home/TVGenre";
 
 const CategoryContainer = styled.View`
   background-color: rgb(23, 25, 30);
@@ -23,17 +24,19 @@ const CategoryItem = styled.Text`
 `;
 
 const HomePresenter = ({
-  nowPlaying,
-  popular,
-  upcoming,
-  topRated,
+  moviePopular,
   showPopular,
-  airingToday,
-  thisweek,
   animation,
   variety,
   talk,
+  drama,
+  sfFantasy,
+  actionAdventure,
+  documentary,
+  comedy,
+  mystery,
   loading,
+
   movieCategory: { genres: movieGenre },
   showCategory: { genres: tvGenre },
 }) => {
@@ -58,7 +61,7 @@ const HomePresenter = ({
 
       <ScrollContainer loading={loading}>
         <ScrollHorizontal title={"Netflix 인기 콘텐츠"}>
-          {popular.map((movie, index) => (
+          {moviePopular.map((movie, index) => (
             <Horizontal
               key={movie.id}
               id={movie.id}
@@ -82,126 +85,17 @@ const HomePresenter = ({
           ))}
         </ScrollHorizontal>
 
-        <ScrollHorizontal title={"애니메이션"}>
-          {animation?.map((show, index) => (
-            <Horizontal
-              isTV={true}
-              key={show.id}
-              id={show.id}
-              poster={show.poster_path}
-              title={show.original_name}
-              vote={show.vote_average}
-              rank={index}
-            />
-          ))}
-        </ScrollHorizontal>
-
-        <ScrollHorizontal title={"리얼리티,버라이어티 & 토크쇼"}>
-          {variety?.map((show, index) => (
-            <Horizontal
-              isTV={true}
-              key={show.id}
-              id={show.id}
-              poster={show.poster_path}
-              title={show.original_name}
-              vote={show.vote_average}
-              rank={index}
-            />
-          ))}
-
-          {talk?.map((show, index) => (
-            <Horizontal
-              isTV={true}
-              key={show.id}
-              id={show.id}
-              poster={show.poster_path}
-              title={show.original_name}
-              vote={show.vote_average}
-              rank={index}
-            />
-          ))}
-        </ScrollHorizontal>
-
-        <ScrollHorizontal title={"오늘 방영 프로그램"}>
-          {airingToday.map((show, index) => (
-            <Horizontal
-              isTV={true}
-              key={show.id}
-              id={show.id}
-              poster={show.poster_path}
-              title={show.original_name}
-              vote={show.vote_average}
-              rank={index}
-            />
-          ))}
-        </ScrollHorizontal>
-
-        <ScrollHorizontal title={"방금 나온 신작영화"}>
-          {upcoming.map((movie, index) => (
-            <Horizontal
-              key={movie.id}
-              id={movie.id}
-              poster={movie.poster_path}
-              title={movie.original_title}
-              vote={movie.vote_average}
-              rank={index}
-            />
-          ))}
-        </ScrollHorizontal>
-
-        <ScrollHorizontal title={"Top10 TV프로그램"}>
-          {topRated.map((show, index) => (
-            <Horizontal
-              isTV={true}
-              key={show.id}
-              id={show.id}
-              poster={show.poster_path}
-              title={show.original_name}
-              vote={show.vote_average}
-              rank={index}
-            />
-          ))}
-        </ScrollHorizontal>
-
-        <ScrollHorizontal title={"지금 뜨고있는 영화"}>
-          {nowPlaying.map((movie, index) => (
-            <Horizontal
-              key={movie.id}
-              id={movie.id}
-              poster={movie.poster_path}
-              title={movie.original_title}
-              vote={movie.vote_average}
-              rank={index}
-            />
-          ))}
-        </ScrollHorizontal>
-
-        <ScrollHorizontal title={"인기 영화"}>
-          {popular.map((movie, index) => (
-            <Horizontal
-              key={movie.id}
-              id={movie.id}
-              poster={movie.poster_path}
-              title={movie.original_title}
-              vote={movie.vote_average}
-              rank={index}
-            />
-          ))}
-        </ScrollHorizontal>
-
-        <ScrollHorizontal title={"이번주 인기 TV프로그램"}>
-          {thisweek.map((show, index) => (
-            <Horizontal
-              isTV={true}
-              key={show.id}
-              id={show.id}
-              poster={show.poster_path}
-              title={show.original_name}
-              vote={show.vote_average}
-              rank={index}
-            />
-          ))}
-        </ScrollHorizontal>
+        <TVGenre
+          animation={animation}
+          variety={variety}
+          talk={talk}
+          drama={drama}
+          sfFantasy={sfFantasy}
+          actionAdventure={actionAdventure}
+          documentary={documentary}
+          comedy={comedy}
+          mystery={mystery}
+        />
       </ScrollContainer>
     </>
   );

@@ -1,78 +1,98 @@
 import React, { useState, useEffect } from "react";
-import { movieApi, tvApi } from "../../api";
+import { movieApi, tvApi } from "../../api/api";
+import { apiTVGenre } from "../../api/TVGenreApi";
 import HomePresenter from "./HomePresenter";
 
-const MovieContainer = () => {
+const HomeContainer = () => {
   const [loading, setLoading] = useState(true);
   const [results, setResults] = useState({
-    nowPlaying: [],
-    popular: [],
-    upcoming: [],
+    moviePopular: [],
     movieCategory: [],
-    nowPlayingError: null,
-    popularError: null,
-    upcomingError: null,
     movieCategoryError: null,
+    moviePopularError: null,
   });
 
   const [showresult, setShowresult] = useState({
-    topRated: [],
     showPopular: [],
-    airingToday: [],
-    thisweek: [],
     showCategory: [],
+    animation: [],
+    variety: [],
+    talk: [],
+    drama: [],
+    sfFantasy: [],
+    actionAdventure: [],
+    documentary: [],
+    comedy: [],
+    mystery: [],
 
-    topRatedError: null,
     showPopularError: null,
-    airingTodayError: null,
-    thisweekError: null,
     showCategoryError: null,
+    animationError: null,
+    varietyError: null,
+    talkError: null,
+    dramaError: null,
+    sfFantasyError: null,
+    actionAdventureError: null,
+    documentaryError: null,
+    comedyError: null,
+    mysteryError: null,
   });
 
   const getData = async () => {
-    const [nowPlaying, nowPlayingError] = await movieApi.nowPlaying();
-    const [popular, popularError] = await movieApi.popular();
-    const [upcoming, upcomingError] = await movieApi.upcoming();
+    //movie
+    const [moviePopular, moviePopularError] = await movieApi.popular();
     const [movieCategory, movieCategoryError] = await movieApi.movieGenre();
 
     //tv
-    const [topRated, topRatedError] = await tvApi.topRated();
     const [showPopular, showPopularError] = await tvApi.popular();
-    const [airingToday, airingTodayError] = await tvApi.airingToday();
-    const [thisweek, thisweekError] = await tvApi.thisweek();
     const [showCategory, showCategoryError] = await tvApi.showGenre();
-    const [animation, animationError] = await tvApi.showAnimation(16);
-    const [variety, varietyError] = await tvApi.showVariety(10764);
-    const [talk, talkError] = await tvApi.showTalk(10767);
+
+    //genre
+    const [animation, animationError] = await apiTVGenre.showAnimation(16);
+    const [variety, varietyError] = await apiTVGenre.showVariety(10764);
+    const [talk, talkError] = await apiTVGenre.showTalk(10767);
+    const [drama, dramaError] = await apiTVGenre.showDrama(18);
+    const [sfFantasy, sfFantasyError] = await apiTVGenre.showSfFantasy(10765);
+    const [
+      actionAdventure,
+      actionAdventureError,
+    ] = await apiTVGenre.showActionAdventure(10759);
+    const [documentary, documentaryError] = await apiTVGenre.showDocumentary(
+      99
+    );
+    const [comedy, comedyError] = await apiTVGenre.showComedy(35);
+    const [mystery, mysteryError] = await apiTVGenre.showMystery(9648);
 
     setResults({
-      nowPlaying,
-      popular,
-      upcoming,
-      nowPlayingError,
-      popularError,
-      upcomingError,
+      moviePopular,
+      moviePopularError,
       movieCategory,
       movieCategoryError,
     });
 
     setShowresult({
-      topRated,
       showPopular,
-      airingToday,
-      thisweek,
-      variety,
+      variety, //genre
       talk,
       animation,
-      topRatedError,
+      drama,
+      sfFantasy,
+      actionAdventure,
+      documentary,
+      comedy,
+      mystery,
       showPopularError,
-      airingTodayError,
-      thisweekError,
       showCategory,
       showCategoryError,
       animationError,
       varietyError,
       talkError,
+      dramaError,
+      sfFantasyError,
+      actionAdventureError,
+      documentaryError,
+      comedyError,
+      mysteryError,
     });
     setLoading(false);
   };
@@ -84,4 +104,4 @@ const MovieContainer = () => {
   return <HomePresenter {...results} loading={loading} {...showresult} />;
 };
 
-export default MovieContainer;
+export default HomeContainer;

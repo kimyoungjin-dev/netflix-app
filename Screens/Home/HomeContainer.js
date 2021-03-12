@@ -39,7 +39,6 @@ const MovieContainer = () => {
     const [airingToday, airingTodayError] = await tvApi.airingToday();
     const [thisweek, thisweekError] = await tvApi.thisweek();
     const [showCategory, showCategoryError] = await tvApi.showGenre();
-    console.log(movieCategory, showCategory);
 
     setResults({
       nowPlaying,

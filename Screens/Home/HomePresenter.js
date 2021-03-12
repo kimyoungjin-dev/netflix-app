@@ -14,11 +14,13 @@ const CategoryContainer = styled.View`
 
 const CategoryList = styled.View`
   flex-direction: row;
+  justify-content: flex-end;
 `;
 
 const CategoryItem = styled.Text`
   color: white;
   font-size: 20px;
+  padding-right: 20px;
 `;
 
 const HomePresenter = ({
@@ -60,12 +62,6 @@ const HomePresenter = ({
     <>
       <CategoryContainer>
         <CategoryList>
-          <TouchableOpacity onPress={() => navigation.navigate("TV")}>
-            <CategoryItem>TV 프로그램</CategoryItem>
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => navigation.navigate("영화")}>
-            <CategoryItem>영화</CategoryItem>
-          </TouchableOpacity>
           <TouchableOpacity
             onPress={() =>
               navigation.navigate("Category", {

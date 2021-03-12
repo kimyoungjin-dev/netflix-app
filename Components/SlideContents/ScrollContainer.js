@@ -13,7 +13,7 @@ const ScrollContainer = ({ loading, children }) => {
         paddingTop: 10,
       }}
       style={{
-        backgroundColor: "rgb(23,25,30)",
+        backgroundColor: "rgb(23, 25, 30)",
       }}
     >
       {loading ? (

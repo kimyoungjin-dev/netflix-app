@@ -119,7 +119,7 @@ const Horizontal = ({ isTV = false, id, poster, title, vote, rank }) => {
             </Top10Container>
           )}
 
-          {isTV && vote > 9 && (
+          {isTV && vote > 8.5 && (
             <>
               <NewEpisode>
                 <TopEpisodeContents>
@@ -132,7 +132,7 @@ const Horizontal = ({ isTV = false, id, poster, title, vote, rank }) => {
             </>
           )}
 
-          {vote > 8 && (
+          {vote > 8.7 && (
             <MaterialCommunityIcons
               name="netflix"
               size={24}

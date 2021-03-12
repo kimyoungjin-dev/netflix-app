@@ -6,10 +6,8 @@ import ScrollHorizontal from "../../Components/SlideContents/ScrollHorizontal";
 import ScrollSwiper from "../../Components/SlideContents/ScrollSwiper";
 import ScrollVertical from "../../Components/SlideContents/ScrollVertical";
 import Vertical from "../../Components/Vertical";
-import { useNavigation } from "@react-navigation/native";
 
 const TVPresenter = ({ topRated, popular, airingToday, thisweek, loading }) => {
-  const navigation = useNavigation();
   return (
     <ScrollContainer loading={loading}>
       <ScrollSwiper>

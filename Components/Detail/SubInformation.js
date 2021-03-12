@@ -95,7 +95,7 @@ const AppearanceText = styled.Text`
   font-size: 16px;
 `;
 
-const SubInformation = ({ results }) => {
+const SubInformation = ({ results, openBrowser }) => {
   const navigation = useNavigation();
 
   return (
@@ -105,18 +105,30 @@ const SubInformation = ({ results }) => {
           <TopText>Top</TopText>
           <Top10Text>10</Top10Text>
         </Top10Container>
-        <ContentRanking>오늘 한국에서 콘텐츠 순위 3위</ContentRanking>
+        <ContentRanking>
+          오늘 한국에서 콘텐츠 순위 {results.rank}위
+        </ContentRanking>
       </RankContainer>
       <PlaySaveContainer>
-        <PlayingContainer>
-          <FontAwesome name="play" size={20} color="black" />
-          <PlayingText>재생</PlayingText>
-        </PlayingContainer>
-        <SaveContainer>
-          <MaterialIcons name="save-alt" size={24} color="white" />
+        <TouchableOpacity
+          onPress={() =>
+            openBrowser(
+              `https://www.youtube.com/watch?v=${results.videos.results[0].key}`
+            )
+          }
+        >
+          <PlayingContainer>
+            <FontAwesome name="play" size={20} color="black" />
+            <PlayingText>재생</PlayingText>
+          </PlayingContainer>
+        </TouchableOpacity>
 
-          <SaveText>저장</SaveText>
-        </SaveContainer>
+        <TouchableOpacity>
+          <SaveContainer>
+            <MaterialIcons name="save-alt" size={24} color="white" />
+            <SaveText>저장</SaveText>
+          </SaveContainer>
+        </TouchableOpacity>
       </PlaySaveContainer>
       <OverViewContainer>{results.overview}</OverViewContainer>
       <AppearanceContainer>

@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components/native";
 import { ScrollView, Text, TouchableOpacity } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
+import { apiImage } from "../../api";
 
 const ViewContens = styled.View`
   flex-direction: row;
@@ -27,12 +28,6 @@ const SeasonPosterContainer = styled.Image`
   width: 70px;
 `;
 
-const VideoContainer = styled.View`
-  flex-direction: row;
-  align-items: center;
-  margin: 14px 0px;
-`;
-
 const VideoName = styled.Text`
   color: white;
   font-size: 17px;
@@ -40,12 +35,15 @@ const VideoName = styled.Text`
   margin-left: 10px;
 `;
 
+const ShowVideosContainer = styled.View``;
+
 const DetailVideo = ({
   results,
   showVideos,
   showToggle,
   video,
   videoToggle,
+  openBrowser,
 }) => {
   return (
     <>
@@ -69,26 +67,44 @@ const DetailVideo = ({
         </TouchableOpacity>
         <FontAwesome name="caret-down" size={18} color="white" />
       </ViewContens>
-
-      {showVideos && results.seasons && (
-        <ScrollView horizontal showsHorizontalScrollIndicator>
-          {results.seasons?.map((season, index) => (
-            <SeasonContainer key={index}>
-              <SeasonName>{season.name}</SeasonName>
-              <SeasonPosterContainer
-                source={{ uri: apiImage(season.poster_path) }}
-              />
-            </SeasonContainer>
-          ))}
-        </ScrollView>
+      {showVideos && (
+        <ShowVideosContainer>
+          {results.seasons ? (
+            <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+              {results.seasons?.map((season) => (
+                <SeasonContainer>
+                  <SeasonName>{season.name}</SeasonName>
+                  <SeasonPosterContainer
+                    source={{ uri: apiImage(season.poster_path) }}
+                  />
+                </SeasonContainer>
+              ))}
+            </ScrollView>
+          ) : (
+            <Text style={{ color: "white", marginTop: 5 }}>
+              시즌정보가 존재하지 않습니다.
+            </Text>
+          )}
+        </ShowVideosContainer>
       )}
 
       {video &&
         results.videos.results.map((video, index) => (
-          <VideoContainer key={index}>
-            <FontAwesome name="youtube-play" size={24} color="black" />
+          <TouchableOpacity
+            onPress={() =>
+              openBrowser(`https://www.youtube.com/watch?v=${video.key}`)
+            }
+            key={index}
+            style={{
+              flexDirection: "row",
+              alignItems: "center",
+              marginTop: 14,
+              marginBottom: 14,
+            }}
+          >
+            <FontAwesome name="youtube-play" size={24} color="white" />
             <VideoName>{video.name}</VideoName>
-          </VideoContainer>
+          </TouchableOpacity>
         ))}
     </>
   );

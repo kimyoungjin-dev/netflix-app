@@ -16,8 +16,6 @@ const DetailPresenter = ({
   videoToggle,
   video,
 }) => {
-  console.log(results);
-  //usefonts
   const [loaded] = useFonts({
     Noto_Sans: require("../../assets/fonts/Noto_Sans_JP/NotoSansJP-Black.otf"),
   });
@@ -31,13 +29,14 @@ const DetailPresenter = ({
       <DetailHeader results={results} />
       <ScrollContainer loading={loading}>
         <MovieInformation results={results} />
-        <SubInformation results={results} />
+        <SubInformation results={results} openBrowser={openBrowser} />
         <DetailVideo
           results={results}
           showVideos={showVideos}
           showToggle={showToggle}
           video={video}
           videoToggle={videoToggle}
+          openBrowser={openBrowser}
         />
       </ScrollContainer>
     </>

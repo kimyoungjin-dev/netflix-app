@@ -1,5 +1,5 @@
 import React, { useLayoutEffect, useState, useEffect } from "react";
-import { creditApi, movieApi, tvApi } from "../../api";
+import { movieApi, tvApi } from "../../api";
 import DetailPresenter from "./DetailPresenter";
 import * as WebBrowser from "expo-web-browser";
 
@@ -23,9 +23,6 @@ const DetailContainer = ({ navigation, route: { params } }) => {
     Detail: [],
     DetailError: null,
   });
-
-  const showToggle = () => setShowVideos((prev) => !prev);
-  const videoToggle = () => setVideo((prev) => !prev);
 
   const getData = async () => {
     const [Detail, DetailError] = isTV
@@ -62,6 +59,9 @@ const DetailContainer = ({ navigation, route: { params } }) => {
   const openBrowser = async (url) => {
     await WebBrowser.openBrowserAsync(url);
   };
+
+  const showToggle = () => setShowVideos((prev) => !prev);
+  const videoToggle = () => setVideo((prev) => !prev);
 
   return (
     <DetailPresenter

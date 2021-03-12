@@ -35,28 +35,7 @@ const HomePresenter = ({
   movieCategory: { genres: movieGenre },
   showCategory: { genres: tvGenre },
 }) => {
-  const everyMovies = [
-    ...nowPlaying,
-    ...popular,
-    ...upcoming,
-    ...topRated,
-    ...showPopular,
-    ...airingToday,
-    ...thisweek,
-  ];
-
-  const randomMovies = uniq(everyMovies, "id");
   const navigation = useNavigation();
-
-  const shuffleArray = (randomMovies) => {
-    for (let i = 0; i < randomMovies.length; i++) {
-      let j = Math.floor(Math.random() * (i + 1));
-      const x = randomMovies[i];
-      randomMovies[i] = randomMovies[j];
-      randomMovies[j] = x;
-    }
-    return randomMovies;
-  };
 
   return (
     <>
@@ -77,7 +56,7 @@ const HomePresenter = ({
 
       <ScrollContainer loading={loading}>
         <ScrollHorizontal title={"Netflix 인기 콘텐츠"}>
-          {shuffleArray(randomMovies).map((movie, index) => (
+          {popular.map((movie, index) => (
             <Horizontal
               key={movie.id}
               id={movie.id}
@@ -85,6 +64,18 @@ const HomePresenter = ({
               title={movie.original_title}
               vote={movie.vote_average}
               rank={index}
+            />
+          ))}
+
+          {showPopular.map((show, index) => (
+            <Horizontal
+              key={show.id}
+              id={show.id}
+              poster={show.poster_path}
+              title={show.original_name}
+              vote={show.vote_average}
+              rank={index}
+              isTV={true}
             />
           ))}
         </ScrollHorizontal>

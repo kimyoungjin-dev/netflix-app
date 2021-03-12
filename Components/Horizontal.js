@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { TouchableOpacity } from "react-native";
 import styled from "styled-components/native";
-import { apiImage } from "../api";
+import { apiImage } from "../api/api";
 import { useNavigation } from "@react-navigation/native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { useFonts } from "expo-font";
 
 const Container = styled.View`
   margin-right: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 4px;
 `;
 
 const PosterBox = styled.View`
@@ -19,7 +19,7 @@ const PosterBox = styled.View`
 const PosterContainer = styled.Image`
   height: 100%;
   width: 100%;
-  border-radius: 10px;
+  border-radius: 4px;
 `;
 
 const NewEpisode = styled.View`
@@ -83,7 +83,7 @@ const Top10Text = styled.Text`
 
 const Horizontal = ({ isTV = false, id, poster, title, vote, rank }) => {
   const navigation = useNavigation();
-
+  const randomNumber = Math.floor(Math.random() * 2);
   const [loaded] = useFonts({
     Noto_Sans_JP: require("../assets/fonts/Noto_Sans_JP/NotoSansJP-Black.otf"),
   });
@@ -109,7 +109,7 @@ const Horizontal = ({ isTV = false, id, poster, title, vote, rank }) => {
         <PosterBox>
           <PosterContainer source={{ uri: apiImage(poster) }} />
 
-          {rank === 0 && (
+          {rank === randomNumber && (
             <Top10Container>
               <Top10Container>
                 <TopText>Top</TopText>
@@ -131,10 +131,10 @@ const Horizontal = ({ isTV = false, id, poster, title, vote, rank }) => {
             </>
           )}
 
-          {vote > 8.5 && (
+          {vote > 8 && (
             <MaterialCommunityIcons
               name="netflix"
-              size={24}
+              size={30}
               color="red"
               style={{
                 paddingLeft: 20,

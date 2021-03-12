@@ -5,7 +5,6 @@ import ScrollHorizontal from "../../Components/SlideContents/ScrollHorizontal";
 import styled from "styled-components/native";
 import { TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import uniq from "lodash.uniqby";
 
 const CategoryContainer = styled.View`
   background-color: rgb(23, 25, 30);
@@ -31,6 +30,9 @@ const HomePresenter = ({
   showPopular,
   airingToday,
   thisweek,
+  animation,
+  variety,
+  talk,
   loading,
   movieCategory: { genres: movieGenre },
   showCategory: { genres: tvGenre },
@@ -76,6 +78,46 @@ const HomePresenter = ({
               vote={show.vote_average}
               rank={index}
               isTV={true}
+            />
+          ))}
+        </ScrollHorizontal>
+
+        <ScrollHorizontal title={"애니메이션"}>
+          {animation?.map((show, index) => (
+            <Horizontal
+              isTV={true}
+              key={show.id}
+              id={show.id}
+              poster={show.poster_path}
+              title={show.original_name}
+              vote={show.vote_average}
+              rank={index}
+            />
+          ))}
+        </ScrollHorizontal>
+
+        <ScrollHorizontal title={"리얼리티,버라이어티 & 토크쇼"}>
+          {variety?.map((show, index) => (
+            <Horizontal
+              isTV={true}
+              key={show.id}
+              id={show.id}
+              poster={show.poster_path}
+              title={show.original_name}
+              vote={show.vote_average}
+              rank={index}
+            />
+          ))}
+
+          {talk?.map((show, index) => (
+            <Horizontal
+              isTV={true}
+              key={show.id}
+              id={show.id}
+              poster={show.poster_path}
+              title={show.original_name}
+              vote={show.vote_average}
+              rank={index}
             />
           ))}
         </ScrollHorizontal>

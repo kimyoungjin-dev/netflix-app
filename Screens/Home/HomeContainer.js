@@ -34,11 +34,16 @@ const MovieContainer = () => {
     const [popular, popularError] = await movieApi.popular();
     const [upcoming, upcomingError] = await movieApi.upcoming();
     const [movieCategory, movieCategoryError] = await movieApi.movieGenre();
+
+    //tv
     const [topRated, topRatedError] = await tvApi.topRated();
     const [showPopular, showPopularError] = await tvApi.popular();
     const [airingToday, airingTodayError] = await tvApi.airingToday();
     const [thisweek, thisweekError] = await tvApi.thisweek();
     const [showCategory, showCategoryError] = await tvApi.showGenre();
+    const [animation, animationError] = await tvApi.showAnimation(16);
+    const [variety, varietyError] = await tvApi.showVariety(10764);
+    const [talk, talkError] = await tvApi.showTalk(10767);
 
     setResults({
       nowPlaying,
@@ -53,15 +58,21 @@ const MovieContainer = () => {
 
     setShowresult({
       topRated,
-      topRatedError,
       showPopular,
-      showPopularError,
       airingToday,
-      airingTodayError,
       thisweek,
+      variety,
+      talk,
+      animation,
+      topRatedError,
+      showPopularError,
+      airingTodayError,
       thisweekError,
       showCategory,
       showCategoryError,
+      animationError,
+      varietyError,
+      talkError,
     });
     setLoading(false);
   };

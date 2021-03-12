@@ -5,6 +5,7 @@ const makeRequest = (path, params) => {
     params: {
       ...params,
       api_key: "84746f07785a093ed42c3cee12d5a642",
+      language: "ko-KR",
     },
   });
 };
@@ -48,16 +49,6 @@ export const tvApi = {
   search: (query) => getAnything("/search/tv", { query }),
   showCredit: (id) => getAnything(`/tv/${id}/credits`),
   showGenre: () => getAnything("/genre/tv/list"),
-  //Genres
-  showAnimation: (with_genres) =>
-    getAnything("/discover/tv", { with_genres, sort_by: "popularity.desc" }),
-
-  showVariety: (with_genres) =>
-    getAnything("/discover/tv", { with_genres, sort_by: "popularity.desc" }),
-
-  showTalk: (with_genres) =>
-    getAnything("/discover/tv", { with_genres, sort_by: "popularity.desc" }),
-
   showDetail: (id) =>
     getAnything(`/tv/${id}`, {
       append_to_response: "videos",

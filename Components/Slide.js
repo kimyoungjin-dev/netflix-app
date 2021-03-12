@@ -1,7 +1,7 @@
 import React from "react";
 import { TouchableOpacity } from "react-native";
 import styled from "styled-components/native";
-import { apiImage } from "../api";
+import { apiImage } from "../api/api";
 import { trimText } from "./utils";
 import { useNavigation } from "@react-navigation/native";
 
@@ -56,7 +56,8 @@ const Vote = styled.Text`
 
 const OverView = styled.Text`
   color: white;
-  font-size: 15px;
+  font-weight: bold;
+  font-size: 17px;
   opacity: 0.8;
   margin-bottom: 5px;
 `;

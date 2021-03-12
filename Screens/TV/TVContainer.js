@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { tvApi, movieApi } from "../../api";
+import { tvApi, movieApi } from "../../api/api";
 import TVPresenter from "./TVPresenter";
 
 const TVContainer = () => {

@@ -1,5 +1,5 @@
 import React, { useLayoutEffect, useState, useEffect } from "react";
-import { movieApi, tvApi } from "../../api";
+import { movieApi, tvApi } from "../../api/api";
 import DetailPresenter from "./DetailPresenter";
 import * as WebBrowser from "expo-web-browser";
 

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { movieApi } from "../../api";
+import { movieApi } from "../../api/api";
 import MoviePresenter from "./MoviePresenter";
 
 const MovieContainer = () => {

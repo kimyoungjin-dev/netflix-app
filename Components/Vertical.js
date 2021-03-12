@@ -2,7 +2,7 @@ import React from "react";
 import { Text, TouchableOpacity } from "react-native";
 import styled from "styled-components/native";
 import { useNavigation } from "@react-navigation/native";
-import { apiImage } from "../api";
+import { apiImage } from "../api/api";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 const Container = styled.View`
@@ -80,6 +80,7 @@ const Vertical = ({
   vote,
   overView,
   id,
+  popularity,
 }) => {
   const navigation = useNavigation();
   return (

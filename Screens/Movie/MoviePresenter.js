@@ -27,6 +27,7 @@ const MoviePresenter = ({
             poster={movie.poster_path}
             title={movie.original_title}
             vote={movie.vote_average}
+            rank={index}
           />
         ))}
       </ScrollSwiper>

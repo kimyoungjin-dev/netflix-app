@@ -1,7 +1,6 @@
 import React from "react";
 import { ScrollView, Text } from "react-native";
 import styled from "styled-components/native";
-import FormContainer from "../../Screens/Search/FromContainer";
 import ScrollContainer from "../SlideContents/ScrollContainer";
 import BeforeVertical from "./BeforeVertical";
 
@@ -9,17 +8,9 @@ const Container = styled.View`
   background-color: rgb(23, 25, 30);
 `;
 
-const BeforeContainer = ({
-  onSubmit,
-  onChange,
-  word,
-  moviePopular,
-  showPopular,
-  loading,
-}) => {
+const BeforeContainer = ({ moviePopular, showPopular, loading }) => {
   return (
     <Container>
-      <FormContainer onSubmit={onSubmit} onChange={onChange} word={word} />
       <ScrollContainer loading={loading}>
         <Text
           style={{

@@ -3,28 +3,40 @@ import styled from "styled-components/native";
 import { FontAwesome } from "@expo/vector-icons";
 import { TextInput } from "react-native";
 
-const Form = styled.View`
-  background-color: rgb(23, 25, 30);
+const Container = styled.View`
+  width: 100%;
+  height: 40px;
+  background-color: black;
   align-items: center;
   justify-content: flex-start;
-  height: 40px;
-  flex-direction: row;
-  padding-left: 20px;
 `;
 
-const FromContainer = ({ onSubmit, onChange, word }) => {
+const Form = styled.View`
+  align-items: center;
+  justify-content: center;
+  height: 30px;
+  flex-direction: row;
+  width: 90%;
+  background-color: gray;
+  border-radius: 5px;
+`;
+
+const FormContainer = ({ onSubmit, onChange, word }) => {
   return (
-    <>
+    <Container>
       <Form>
         <FontAwesome
           name="search"
-          size={22}
+          size={17}
           color="white"
           style={{ marginRight: 10 }}
         />
 
         <TextInput
-          style={{ fontSize: 20, color: "white" }}
+          style={{
+            fontSize: 17,
+            color: "white",
+          }}
           placeholder="검색"
           placeholderTextColor="white"
           value={word}
@@ -33,8 +45,8 @@ const FromContainer = ({ onSubmit, onChange, word }) => {
           autoCapitalize="none"
         />
       </Form>
-    </>
+    </Container>
   );
 };
 
-export default FromContainer;
+export default FormContainer;

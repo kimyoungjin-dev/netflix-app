@@ -8,10 +8,10 @@ const Container = styled.View`
   background-color: rgb(23, 25, 30);
 `;
 
-const BeforeContainer = ({ moviePopular, showPopular, loading }) => {
+const BeforeContainer = ({ moviePopular, showPopular, loading, onSubmit }) => {
   return (
     <Container>
-      <ScrollContainer loading={loading}>
+      <ScrollContainer loading={loading} refreshing={onSubmit}>
         <Text
           style={{
             color: "white",

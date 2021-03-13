@@ -13,10 +13,10 @@ const SearchRow = styled.View`
   flex-direction: row;
 `;
 
-const AfterContainer = ({ movieSearch, tvSearch, loading }) => {
+const AfterContainer = ({ movieSearch, tvSearch, loading, onSubmit }) => {
   return (
     <Container>
-      <ScrollContainer loading={loading}>
+      <ScrollContainer loading={loading} refreshing={onSubmit}>
         <SearchRow>
           <ScrollView>
             {movieSearch.map((movie, index) => (

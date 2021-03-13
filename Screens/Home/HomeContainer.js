@@ -101,7 +101,14 @@ const HomeContainer = () => {
     getData();
   }, []);
 
-  return <HomePresenter {...results} loading={loading} {...showresult} />;
+  return (
+    <HomePresenter
+      {...results}
+      loading={loading}
+      {...showresult}
+      refreshing={getData}
+    />
+  );
 };
 
 export default HomeContainer;

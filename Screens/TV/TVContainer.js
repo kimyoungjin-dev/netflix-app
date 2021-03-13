@@ -38,7 +38,7 @@ const TVContainer = () => {
     getData();
   }, []);
 
-  return <TVPresenter {...results} loading={loading} />;
+  return <TVPresenter {...results} loading={loading} refreshing={getData} />;
 };
 
 export default TVContainer;

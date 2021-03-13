@@ -16,12 +16,10 @@ const SearchPresenter = ({
   return (
     <>
       <FormContainer onSubmit={onSubmit} onChange={onChange} word={word} />
-      <ScrollContainer>
+      <ScrollContainer refreshing={onSubmit}>
         {movieSearch.length > 0 && tvSearch.length > 0 ? (
           <AfterContainer
             onSubmit={onSubmit}
-            onChange={onChange}
-            word={word}
             movieSearch={movieSearch}
             tvSearch={tvSearch}
             loading={loading}
@@ -30,9 +28,6 @@ const SearchPresenter = ({
           <BeforeContainer
             loading={loading}
             onSubmit={onSubmit}
-            onChange={onChange}
-            word={word}
-            loading={loading}
             moviePopular={moviePopular}
             showPopular={showPopular}
           />

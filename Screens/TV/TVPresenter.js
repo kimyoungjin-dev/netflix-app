@@ -7,10 +7,17 @@ import ScrollSwiper from "../../Components/SlideContents/ScrollSwiper";
 import ScrollVertical from "../../Components/SlideContents/ScrollVertical";
 import Vertical from "../../Components/Vertical";
 
-const TVPresenter = ({ topRated, popular, airingToday, thisweek, loading }) => {
+const TVPresenter = ({
+  topRated,
+  popular,
+  airingToday,
+  thisweek,
+  loading,
+  refreshing,
+}) => {
   return (
     <>
-      <ScrollContainer loading={loading}>
+      <ScrollContainer loading={loading} refreshing={refreshing}>
         <ScrollSwiper>
           {topRated.map((show, index) => (
             <Slide

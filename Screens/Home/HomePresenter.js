@@ -53,7 +53,7 @@ const HomePresenter = ({
         </CategoryList>
 
         <CategoryList>
-          <TouchableOpacity onPress={() => navigation.navigate("영화")}>
+          <TouchableOpacity onPress={() => navigation.navigate("Movie")}>
             <CategoryItem>영화</CategoryItem>
           </TouchableOpacity>
         </CategoryList>

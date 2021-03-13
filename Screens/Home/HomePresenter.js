@@ -8,8 +8,10 @@ import { useNavigation } from "@react-navigation/native";
 import TVGenre from "../../Components/Home/TVGenre";
 
 const CategoryContainer = styled.View`
-  background-color: black;
   padding: 10px 0px;
+  flex-direction: row;
+  background-color: black;
+  justify-content: space-around;
 `;
 
 const CategoryList = styled.View`
@@ -36,7 +38,6 @@ const HomePresenter = ({
   comedy,
   mystery,
   loading,
-
   movieCategory: { genres: movieGenre },
   showCategory: { genres: tvGenre },
 }) => {
@@ -45,6 +46,18 @@ const HomePresenter = ({
   return (
     <>
       <CategoryContainer>
+        <CategoryList>
+          <TouchableOpacity onPress={() => navigation.navigate("TV")}>
+            <CategoryItem>TV 프로그램</CategoryItem>
+          </TouchableOpacity>
+        </CategoryList>
+
+        <CategoryList>
+          <TouchableOpacity onPress={() => navigation.navigate("영화")}>
+            <CategoryItem>영화</CategoryItem>
+          </TouchableOpacity>
+        </CategoryList>
+
         <CategoryList>
           <TouchableOpacity
             onPress={() =>

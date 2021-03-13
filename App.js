@@ -10,7 +10,7 @@ import {
   MaterialCommunityIcons,
   MaterialIcons,
 } from "@expo/vector-icons";
-import Stack from "./Navigation//Stack";
+import Stack from "./Navigation/Stack";
 
 const getImages = (images) =>
   images.map((image) => {

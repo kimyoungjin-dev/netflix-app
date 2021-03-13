@@ -3,8 +3,9 @@ import { TouchableOpacity } from "react-native";
 import styled from "styled-components/native";
 import { apiImage } from "../api/api";
 import { useNavigation } from "@react-navigation/native";
+import { useFonts } from "expo-font";
 
-const Continaer = styled.View`
+const Container = styled.View`
   justify-content: flex-end;
   align-items: center;
   height: 100%;
@@ -21,10 +22,18 @@ const Title = styled.Text`
   font-size: 40px;
   font-weight: bold;
   bottom: 50;
+  font-family: "Ranchers";
 `;
 
 const Slide = ({ isTV = false, backDrop, id, title }) => {
   const navigation = useNavigation();
+  const [loaded] = useFonts({
+    Ranchers: require("../assets/fonts/Ranchers/Ranchers-Regular.ttf"),
+  });
+
+  if (!loaded) {
+    return null;
+  }
 
   return (
     <TouchableOpacity
@@ -35,17 +44,10 @@ const Slide = ({ isTV = false, backDrop, id, title }) => {
         })
       }
     >
-      <Continaer
-        style={{
-          shadowOpacity: 18.75,
-          shadowRadius: 5,
-          shadowColor: "black",
-          shadowOffset: { height: 10, width: 10 },
-        }}
-      >
+      <Container>
         <BackDropContainer source={{ uri: apiImage(backDrop) }} />
         <Title>{title}</Title>
-      </Continaer>
+      </Container>
     </TouchableOpacity>
   );
 };

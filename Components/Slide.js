@@ -5,7 +5,7 @@ import { apiImage } from "../api/api";
 import { useNavigation } from "@react-navigation/native";
 
 const Continaer = styled.View`
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
   height: 100%;
 `;
@@ -15,7 +15,15 @@ const BackDropContainer = styled.Image`
   width: 100%;
   position: absolute;
 `;
-const Slide = ({ isTV = false, backDrop, id }) => {
+
+const Title = styled.Text`
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  bottom: 50;
+`;
+
+const Slide = ({ isTV = false, backDrop, id, title }) => {
   const navigation = useNavigation();
 
   return (
@@ -36,6 +44,7 @@ const Slide = ({ isTV = false, backDrop, id }) => {
         }}
       >
         <BackDropContainer source={{ uri: apiImage(backDrop) }} />
+        <Title>{title}</Title>
       </Continaer>
     </TouchableOpacity>
   );

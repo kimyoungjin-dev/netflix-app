@@ -92,7 +92,7 @@ const BeforeVertical = ({ rank, isTV = false, vote, poster, title, id }) => {
           <PosterBox>
             <PosterContainer source={{ uri: apiImage(poster) }} />
 
-            {rank === 1 && (
+            {rank === 0 && (
               <Top10Container>
                 <Top10Container>
                   <TopText>Top</TopText>
@@ -100,7 +100,7 @@ const BeforeVertical = ({ rank, isTV = false, vote, poster, title, id }) => {
                 </Top10Container>
               </Top10Container>
             )}
-            {vote > 8 && (
+            {vote > 7.5 && (
               <MaterialCommunityIcons
                 name="netflix"
                 size={24}

@@ -1,11 +1,11 @@
 import React, { useLayoutEffect } from "react";
 import Home from "../Screens/Home";
-import Movie from "../Screens/Movie";
-import TV from "../Screens/TV";
+
+import Open from "../Screens/Open";
 import Search from "../Screens/Search";
 import Discovery from "../Screens/Discovery";
 import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
-import { MaterialIcons } from "@expo/vector-icons";
+import { FontAwesome } from "@expo/vector-icons";
 
 const Tabs = createMaterialBottomTabNavigator();
 
@@ -22,18 +22,16 @@ export default ({ navigation, route }) => {
           let iconName;
           if (route.name === "홈") {
             iconName = "home";
-          } else if (route.name === "영화") {
-            iconName = "movie";
-          } else if (route.name === "TV") {
-            iconName = "tv";
+          } else if (route.name === "공개예정") {
+            iconName = "fighter-jet";
           } else if (route.name === "검색") {
             iconName = "search";
           } else if (route.name === "저장한 컨텐츠 목록") {
-            iconName = "save-alt";
+            iconName = "save";
           }
 
           return (
-            <MaterialIcons
+            <FontAwesome
               name={iconName}
               size={route.name === "Search" ? 30 : 25}
               color={focused ? "white" : "rgb(232,238,248)"}
@@ -43,8 +41,7 @@ export default ({ navigation, route }) => {
       })}
     >
       <Tabs.Screen name="홈" component={Home} />
-      <Tabs.Screen name="영화" component={Movie} />
-      <Tabs.Screen name="TV" component={TV} />
+      <Tabs.Screen name="Open" component={Open} />
       <Tabs.Screen name="검색" component={Search} />
       <Tabs.Screen name="저장한 컨텐츠 목록" component={Discovery} />
     </Tabs.Navigator>

@@ -1,6 +1,4 @@
 import React from "react";
-import { useFonts } from "expo-font";
-//file
 import ScrollContainer from "../../Components/SlideContents/ScrollContainer";
 import DetailHeader from "../../Components/Detail/DetailHeader";
 import MovieInformation from "../../Components/Detail/MovieInformation";
@@ -16,13 +14,6 @@ const DetailPresenter = ({
   videoToggle,
   video,
 }) => {
-  const [loaded] = useFonts({
-    Noto_Sans: require("../../assets/fonts/Noto_Sans_JP/NotoSansJP-Black.otf"),
-  });
-
-  if (!loaded) {
-    return null;
-  }
   return (
     <>
       <DetailHeader results={results} />

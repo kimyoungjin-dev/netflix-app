@@ -71,28 +71,17 @@ const TopText = styled.Text`
   color: white;
   font-size: 14px;
   font-weight: bold;
-  font-family: "Noto_Sans_JP";
 `;
 
 const Top10Text = styled.Text`
   color: white;
   font-weight: bold;
   font-size: 19px;
-  font-family: "Noto_Sans_JP";
 `;
 
 const Horizontal = ({ isTV = false, id, poster, title, vote, rank }) => {
   const navigation = useNavigation();
-
   const randomNumber = Math.floor(Math.random() * 3);
-
-  const [loaded] = useFonts({
-    Noto_Sans_JP: require("../assets/fonts/Noto_Sans_JP/NotoSansJP-Black.otf"),
-  });
-
-  if (!loaded) {
-    return null;
-  }
 
   return (
     <TouchableOpacity

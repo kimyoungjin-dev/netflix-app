@@ -6,7 +6,6 @@ const MovieInforMationContainer = styled.View``;
 const Title = styled.Text`
   color: white;
   font-weight: bold;
-  font-family: "Noto_Sans";
   font-size: 30px;
 `;
 
@@ -21,7 +20,6 @@ const CenterContents = styled.View`
 const Year = styled.Text`
   color: gray;
   font-size: 22px;
-  font-family: "Noto_Sans";
 `;
 
 const AdultContainer = styled.View`
@@ -33,13 +31,11 @@ const AdultContainer = styled.View`
 const Adult = styled.Text`
   color: white;
   font-size: 20px;
-  font-family: "Noto_Sans";
 `;
 
 const Runtime = styled.Text`
   color: white;
   font-size: 20px;
-  font-family: "Noto_Sans";
 `;
 
 const ScreenQualityContainer = styled.View`
@@ -52,7 +48,6 @@ const ScreenQuality = styled.Text`
   padding: 0px 5px;
   color: white;
   font-size: 20px;
-  font-family: "Noto_Sans";
 `;
 
 const MovieInformation = ({ results }) => {

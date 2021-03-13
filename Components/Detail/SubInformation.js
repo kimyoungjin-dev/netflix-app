@@ -18,7 +18,6 @@ const Top10Container = styled.View`
 
 const TopText = styled.Text`
   color: white;
-  font-family: "Noto_Sans";
   font-size: 18px;
   font-weight: bold;
 `;
@@ -27,7 +26,6 @@ const Top10Text = styled.Text`
   color: white;
   font-weight: bold;
   font-size: 16px;
-  font-family: "Noto_Sans";
 `;
 
 const ContentRanking = styled.Text`
@@ -35,7 +33,6 @@ const ContentRanking = styled.Text`
   font-weight: bold;
   color: white;
   margin-left: 5px;
-  font-family: "Noto_Sans";
 `;
 
 const PlaySaveContainer = styled.View`
@@ -76,7 +73,6 @@ const SaveText = styled.Text`
 
 const OverViewContainer = styled.Text`
   color: white;
-  font-family: "Noto_Sans";
 `;
 
 const AppearanceContainer = styled.View`

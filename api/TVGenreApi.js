@@ -45,36 +45,30 @@ export const apiTVGenre = {
   showDrama: (with_genres) =>
     getAnything("/discover/tv", {
       with_genres,
-      sorty_by: "popularity.desc",
     }),
 
   showSfFantasy: (with_genres) =>
     getAnything("/discover/tv", {
       with_genres,
-      sorty_by: "popularity.desc",
     }),
 
   showActionAdventure: (with_genres) =>
     getAnything("/discover/tv", {
       with_genres,
-      sorty_by: "popularity.desc",
     }),
 
   showDocumentary: (with_genres) =>
     getAnything("/discover/tv", {
       with_genres,
-      sorty_by: "popularity.desc",
     }),
 
   showComedy: (with_genres) =>
     getAnything("/discover/tv", {
       with_genres,
-      sorty_by: "popularity.desc",
     }),
 
   showMystery: (with_genres) =>
     getAnything("/discover/tv", {
       with_genres,
-      sorty_by: "popularity.desc",
     }),
 };

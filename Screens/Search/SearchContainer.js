@@ -38,6 +38,9 @@ const SearchContainer = () => {
 
   const onChange = (text) => setWord(text);
   const onSubmit = async () => {
+    if (word === "") {
+      return;
+    }
     const [movieSearch, movieSearchError] = await movieApi.search(word);
     const [tvSearch, tvSearchError] = await tvApi.search(word);
 

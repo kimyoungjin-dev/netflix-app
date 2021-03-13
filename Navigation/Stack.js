@@ -2,12 +2,11 @@ import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import { FontAwesome5, MaterialCommunityIcons } from "@expo/vector-icons";
 import Tabs from "./Tabs";
-import Movie from "../Screens/Movie";
-import TV from "../Screens/TV";
 import Detail from "../Screens/Detail";
 import styled from "styled-components/native";
 import Credit from "../Components/Detail/Credit";
 import Category from "../Components/Detail/Category";
+import Open from "../Screens/Open";
 
 const Container = styled.View`
   flex-direction: row;
@@ -105,65 +104,7 @@ export default () => {
           headerTitleStyle: { color: "gray", fontSize: 20 },
         }}
       />
-      <Stack.Screen
-        component={Movie}
-        name="Movie"
-        options={{
-          headerBackTitleVisible: false,
-          headerTitleStyle: { color: "black" },
-          headerLeft: () => (
-            <MaterialCommunityIcons
-              name="netflix"
-              size={50}
-              color="red"
-              style={{ paddingLeft: 20 }}
-            />
-          ),
-
-          headerRight: () => (
-            <Container>
-              <MaterialCommunityIcons
-                name="gift-outline"
-                size={30}
-                color="white"
-              />
-              <Div>
-                <FontAwesome5 name="smile" size={30} color="white" />
-              </Div>
-            </Container>
-          ),
-        }}
-      />
-      <Stack.Screen
-        component={TV}
-        name="TV"
-        options={{
-          headerBackTitleVisible: false,
-          headerTitleStyle: { color: "black" },
-
-          headerLeft: () => (
-            <MaterialCommunityIcons
-              name="netflix"
-              size={50}
-              color="red"
-              style={{ paddingLeft: 20 }}
-            />
-          ),
-
-          headerRight: () => (
-            <Container>
-              <MaterialCommunityIcons
-                name="gift-outline"
-                size={30}
-                color="white"
-              />
-              <Div>
-                <FontAwesome5 name="smile" size={30} color="white" />
-              </Div>
-            </Container>
-          ),
-        }}
-      />
+      <Stack.Screen name="Open" component={Open} />
     </Stack.Navigator>
   );
 };

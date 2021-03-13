@@ -72,6 +72,38 @@ const Top10Text = styled.Text`
   font-family: "Noto_Sans_JP";
 `;
 
+const NewEpisode = styled.View`
+  width: 60%;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 10;
+  left: 26;
+`;
+
+const TopEpisodeContents = styled.View`
+  background-color: white;
+  opacity: 0.7;
+  width: 100%;
+`;
+
+const BotEpisodeContents = styled.View`
+  background-color: red;
+  width: 100%;
+`;
+
+const TopEpisodeText = styled.Text`
+  font-size: 10px;
+  color: black;
+  text-align: center;
+`;
+
+const BotEpisodeText = styled.Text`
+  color: white;
+  text-align: center;
+  font-size: 10;
+`;
+
 const Vertical = ({
   rank,
   isTV = false,
@@ -102,16 +134,14 @@ const Vertical = ({
         <PosterBox>
           <PosterContainer source={{ uri: apiImage(poster) }} />
 
-          {
-            (rank = randomNumber && (
+          {rank === randomNumber && (
+            <Top10Container>
               <Top10Container>
-                <Top10Container>
-                  <TopText>Top</TopText>
-                  <Top10Text>10</Top10Text>
-                </Top10Container>
+                <TopText>Top</TopText>
+                <Top10Text>10</Top10Text>
               </Top10Container>
-            ))
-          }
+            </Top10Container>
+          )}
 
           {isTV && vote > 8.3 && (
             <>

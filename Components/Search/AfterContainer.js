@@ -1,7 +1,7 @@
 import React from "react";
 import { ScrollView } from "react-native";
 import styled from "styled-components/native";
-import FormContainer from "../../Screens/Search/FromContainer";
+import FormContainer from "../../Screens/Search/FormContainer";
 import ScrollContainer from "../SlideContents/ScrollContainer";
 import AfterVertical from "./AfterVertical";
 
@@ -13,17 +13,9 @@ const SearchRow = styled.View`
   flex-direction: row;
 `;
 
-const AfterContainer = ({
-  onSubmit,
-  onChange,
-  word,
-  movieSearch,
-  tvSearch,
-  loading,
-}) => {
+const AfterContainer = ({ movieSearch, tvSearch, loading }) => {
   return (
     <Container>
-      <FormContainer onSubmit={onSubmit} onChange={onChange} word={word} />
       <ScrollContainer loading={loading}>
         <SearchRow>
           <ScrollView>

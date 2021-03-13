@@ -108,6 +108,7 @@ const Vertical = ({
               </Top10Container>
             </Top10Container>
           )}
+
           {vote > 8 && (
             <MaterialCommunityIcons
               name="netflix"

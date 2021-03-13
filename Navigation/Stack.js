@@ -8,7 +8,6 @@ import Detail from "../Screens/Detail";
 import styled from "styled-components/native";
 import Credit from "../Components/Detail/Credit";
 import Category from "../Components/Detail/Category";
-import { floor } from "react-native-reanimated";
 
 const Container = styled.View`
   flex-direction: row;
@@ -110,6 +109,17 @@ export default () => {
         component={Movie}
         name="Movie"
         options={{
+          headerBackTitleVisible: false,
+          headerTitleStyle: { color: "black" },
+          headerLeft: () => (
+            <MaterialCommunityIcons
+              name="netflix"
+              size={50}
+              color="red"
+              style={{ paddingLeft: 20 }}
+            />
+          ),
+
           headerRight: () => (
             <Container>
               <MaterialCommunityIcons

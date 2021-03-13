@@ -30,7 +30,7 @@ export default () => {
         headerStyle: {
           borderBottomColor: "rgb(23,25,30)",
           shadowColor: "rgb(23,25,30)",
-          backgroundColor: "rgb(23,25,30)",
+          backgroundColor: "black",
           height: 100,
         },
       }}

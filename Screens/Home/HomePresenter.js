@@ -8,7 +8,7 @@ import { useNavigation } from "@react-navigation/native";
 import TVGenre from "../../Components/Home/TVGenre";
 
 const CategoryContainer = styled.View`
-  background-color: rgb(23, 25, 30);
+  background-color: black;
   padding: 10px 0px;
 `;
 

@@ -9,9 +9,10 @@ const ScrollContainer = ({ loading, children }) => {
         flex: loading ? 1 : "auto",
         paddingLeft: 5,
         paddingBottom: 80,
+        paddingTop: 10,
       }}
       style={{
-        backgroundColor: "rgb(23, 25, 30)",
+        backgroundColor: "black",
       }}
     >
       {loading ? (

@@ -23,7 +23,6 @@ const DetailPresenter = ({
   if (!loaded) {
     return null;
   }
-  console.log(results);
   return (
     <>
       <DetailHeader results={results} />

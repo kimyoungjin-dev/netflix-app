@@ -31,7 +31,8 @@ export const movieApi = {
   discover: (with_genres) =>
     getAnything("/discover/movie", {
       with_genres,
-    }), //
+    }),
+
   search: (query) => getAnything("/search/movie", { query }),
   movieCredit: (id) => getAnything(`/movie/${id}/credits`),
   movieGenre: () => getAnything("/genre/movie/list"),

@@ -80,7 +80,6 @@ const Vertical = ({
   vote,
   overView,
   id,
-  popularity,
 }) => {
   const navigation = useNavigation();
   return (

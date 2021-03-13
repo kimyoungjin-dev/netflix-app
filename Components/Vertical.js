@@ -81,6 +81,8 @@ const Vertical = ({
   overView,
   id,
 }) => {
+  const randomNumber = Math.floor(Math.random() * 3);
+
   const navigation = useNavigation();
   return (
     <TouchableOpacity
@@ -100,13 +102,28 @@ const Vertical = ({
         <PosterBox>
           <PosterContainer source={{ uri: apiImage(poster) }} />
 
-          {rank === 1 && (
-            <Top10Container>
+          {
+            (rank = randomNumber && (
               <Top10Container>
-                <TopText>Top</TopText>
-                <Top10Text>10</Top10Text>
+                <Top10Container>
+                  <TopText>Top</TopText>
+                  <Top10Text>10</Top10Text>
+                </Top10Container>
               </Top10Container>
-            </Top10Container>
+            ))
+          }
+
+          {isTV && vote > 8.3 && (
+            <>
+              <NewEpisode>
+                <TopEpisodeContents>
+                  <TopEpisodeText>매주</TopEpisodeText>
+                </TopEpisodeContents>
+                <BotEpisodeContents>
+                  <BotEpisodeText>새로운 에피소드</BotEpisodeText>
+                </BotEpisodeContents>
+              </NewEpisode>
+            </>
           )}
 
           {vote > 8 && (

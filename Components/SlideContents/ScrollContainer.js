@@ -7,10 +7,8 @@ const ScrollContainer = ({ loading, children }) => {
       contentContainerStyle={{
         justifyContent: loading ? "center" : "flex-start",
         flex: loading ? 1 : "auto",
-        paddingLeft: 20,
-        paddingRight: 20,
+        paddingLeft: 5,
         paddingBottom: 80,
-        paddingTop: 10,
       }}
       style={{
         backgroundColor: "rgb(23, 25, 30)",

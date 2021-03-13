@@ -83,7 +83,9 @@ const Top10Text = styled.Text`
 
 const Horizontal = ({ isTV = false, id, poster, title, vote, rank }) => {
   const navigation = useNavigation();
-  const randomNumber = Math.floor(Math.random() * 2);
+
+  const randomNumber = Math.floor(Math.random() * 3);
+
   const [loaded] = useFonts({
     Noto_Sans_JP: require("../assets/fonts/Noto_Sans_JP/NotoSansJP-Black.otf"),
   });

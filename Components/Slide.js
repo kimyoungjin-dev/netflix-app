@@ -2,7 +2,6 @@ import React from "react";
 import { TouchableOpacity } from "react-native";
 import styled from "styled-components/native";
 import { apiImage } from "../api/api";
-import { trimText } from "./utils";
 import { useNavigation } from "@react-navigation/native";
 
 const Continaer = styled.View`
@@ -16,115 +15,29 @@ const BackDropContainer = styled.Image`
   width: 100%;
   position: absolute;
 `;
-
-const Contents = styled.View`
-  flex-direction: row;
-  width: 100%;
-  justify-content: space-around;
-  height: 100%;
-  align-items: center;
-`;
-
-const PosterContainer = styled.Image`
-  height: 150px;
-  width: 100px;
-  border-radius: 5px;
-`;
-
-const Data = styled.View`
-  width: 50%;
-  align-items: flex-start;
-`;
-
-const Title = styled.Text`
-  color: white;
-  font-size: 24px;
-  font-weight: bold;
-`;
-
-const Year = styled.Text`
-  color: white;
-  font-size: 18px;
-  margin: 5px 0px;
-`;
-
-const Vote = styled.Text`
-  color: white;
-  font-size: 15px;
-  margin-bottom: 5px;
-`;
-
-const OverView = styled.Text`
-  color: white;
-  font-weight: bold;
-  font-size: 17px;
-  opacity: 0.8;
-  margin-bottom: 5px;
-`;
-
-const ButtonContainer = styled.View`
-  padding: 5px;
-  background-color: red;
-  opacity: 0.8;
-  border-radius: 5px;
-`;
-
-const ButtonText = styled.Text`
-  color: white;
-`;
-
-const Slide = ({
-  isTV = false,
-  backDrop,
-  id,
-  overView,
-  poster,
-  title,
-  vote,
-  year,
-  rank,
-}) => {
+const Slide = ({ isTV = false, backDrop, id }) => {
   const navigation = useNavigation();
 
   return (
-    <Continaer
-      style={{
-        shadowOpacity: 18.75,
-        shadowRadius: 5,
-        shadowColor: "black",
-        shadowOffset: { height: 10, width: 10 },
-      }}
+    <TouchableOpacity
+      onPress={() =>
+        navigation.navigate("Detail", {
+          id,
+          isTV,
+        })
+      }
     >
-      <BackDropContainer source={{ uri: apiImage(backDrop) }} />
-      <Contents>
-        <PosterContainer source={{ uri: apiImage(poster) }} />
-        <Data>
-          <Title>{title}</Title>
-          <Year>{year}</Year>
-          <Vote>⭐️ {vote} /10</Vote>
-          <OverView>{trimText(overView, 60)}</OverView>
-          <TouchableOpacity
-            onPress={() =>
-              navigation.navigate("Detail", {
-                backDrop,
-                id,
-                overView,
-                poster,
-                title,
-                vote,
-                year,
-                isTV,
-                rank,
-              })
-            }
-          >
-            <ButtonContainer>
-              <ButtonText>Detail</ButtonText>
-            </ButtonContainer>
-          </TouchableOpacity>
-        </Data>
-      </Contents>
-    </Continaer>
+      <Continaer
+        style={{
+          shadowOpacity: 18.75,
+          shadowRadius: 5,
+          shadowColor: "black",
+          shadowOffset: { height: 10, width: 10 },
+        }}
+      >
+        <BackDropContainer source={{ uri: apiImage(backDrop) }} />
+      </Continaer>
+    </TouchableOpacity>
   );
 };
 

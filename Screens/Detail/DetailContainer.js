@@ -53,7 +53,7 @@ const DetailContainer = ({ navigation, route: { params } }) => {
   }, []);
 
   useLayoutEffect(() => {
-    navigation.setOptions({ title: "" });
+    navigation.setOptions({ title });
   }, []);
 
   const openBrowser = async (url) => {

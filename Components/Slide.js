@@ -19,10 +19,9 @@ const BackDropContainer = styled.Image`
 
 const Title = styled.Text`
   color: white;
-  font-size: 40px;
+  font-size: 30px;
   font-weight: bold;
   bottom: 50;
-  font-family: "Ranchers";
 `;
 
 const Slide = ({ isTV = false, backDrop, id, title }) => {

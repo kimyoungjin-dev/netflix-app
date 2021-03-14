@@ -23,8 +23,6 @@ const PosterContainer = styled.Image`
   width: 100%;
 `;
 
-///////styles
-
 const styles = {
   top: 30,
   height: HEIGHT / 1.5,

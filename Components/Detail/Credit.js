@@ -33,8 +33,6 @@ const Credit = ({ navigation, route }) => {
     navigation.setOptions({ title: route.params.results.original_title });
   }, []);
 
-  console.log(results);
-
   return (
     <ScrollContainer>
       <Container>

@@ -6,7 +6,6 @@ import ScrollHorizontal from "../SlideContents/ScrollHorizontal";
 const SMovieGenre = () => {
   const [loading, setLoading] = useState(true);
   const [movieGenreResult, setMovieGenreResult] = useState({
-    //genre
     action: [],
     adventure: [],
     horror: [],

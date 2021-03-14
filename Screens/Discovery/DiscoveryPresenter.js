@@ -77,12 +77,12 @@ const DiscoveryPresenter = ({ discovery }) => {
 
   const secondCardOpacity = position.x.interpolate({
     inputRange: [-255, 0, 255],
-    outputRange: [1, 0.2, 1],
+    outputRange: [0.8, 0.1, 0.8],
   });
 
   const secondCardScale = position.x.interpolate({
     inputRange: [-255, 0, 255],
-    outputRange: [1, 0.8, 1],
+    outputRange: [0.8, 0.6, 0.8],
   });
 
   ///return

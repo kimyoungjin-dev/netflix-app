@@ -41,6 +41,16 @@ const DiscoveryPresenter = ({ discovery }) => {
     onPanResponderMove: (event, { dx, dy }) => {
       position.setValue({ x: dx, y: dy });
     },
+    onPanResponderRelease: () => {
+      Animated.spring(position, {
+        toValue: {
+          x: 0,
+          y: 0,
+        },
+        bounciness: 10,
+        friction: 10,
+      }).start();
+    },
   });
 
   return (

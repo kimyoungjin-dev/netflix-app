@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Dimensions, PanResponder, Animated } from "react-native";
 import { event } from "react-native-reanimated";
 import styled from "styled-components/native";
@@ -35,6 +35,9 @@ const styles = {
 
 ///////components
 const DiscoveryPresenter = ({ discovery }) => {
+  console.log(discovery);
+  const [topIndex, setTopIndex] = useState(0);
+
   const position = new Animated.ValueXY();
   const panResponder = PanResponder.create({
     onStartShouldSetPanResponder: () => true,
@@ -47,26 +50,40 @@ const DiscoveryPresenter = ({ discovery }) => {
           x: 0,
           y: 0,
         },
-        bounciness: 10,
-        friction: 10,
       }).start();
     },
   });
 
   return (
     <Container>
-      {discovery.reverse().map((movie) => (
-        <Animated.View
-          style={{
-            ...styles,
-            transform: [...position.getTranslateTransform()],
-          }}
-          key={movie.id}
-          {...panResponder.panHandlers}
-        >
-          <PosterContainer source={{ uri: apiImage(movie.poster_path) }} />
-        </Animated.View>
-      ))}
+      {discovery.reverse().map((movie, index) => {
+        if (index === topIndex) {
+          return (
+            <Animated.View
+              style={{
+                ...styles,
+                zIndex: 1,
+                transform: [...position.getTranslateTransform()],
+              }}
+              key={movie.id}
+              {...panResponder.panHandlers}
+            >
+              <PosterContainer source={{ uri: apiImage(movie.poster_path) }} />
+            </Animated.View>
+          );
+        }
+        return (
+          <Animated.View
+            style={{
+              ...styles,
+            }}
+            key={movie.id}
+            {...panResponder.panHandlers}
+          >
+            <PosterContainer source={{ uri: apiImage(movie.poster_path) }} />
+          </Animated.View>
+        );
+      })}
     </Container>
   );
 };

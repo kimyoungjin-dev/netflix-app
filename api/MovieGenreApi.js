@@ -24,54 +24,8 @@ const getAnything = async (path, params = {}) => {
 };
 
 export const apiMovieGenre = {
-  movieAction: (with_genres) =>
+  discoverGenre: (with_genres) =>
     getAnything("/discover/movie", {
       with_genres,
-    }),
-
-  movieAdventure: (with_genres) =>
-    getAnything("/discover/movie", {
-      with_genres,
-    }),
-
-  movieHorror: (with_genres) =>
-    getAnything("/discover/movie", {
-      with_genres,
-    }),
-
-  movieMystery: (with_genres) =>
-    getAnything("/discover/movie", {
-      with_genres,
-      sorty_by: "popularity.desc",
-    }),
-
-  movieSf: (with_genres) =>
-    getAnything("/discover/movie", {
-      with_genres,
-      sorty_by: "popularity.desc",
-    }),
-
-  movieThriller: (with_genres) =>
-    getAnything("/discover/movie", {
-      with_genres,
-      sorty_by: "popularity.desc",
-    }),
-
-  movieCrime: (with_genres) =>
-    getAnything("/discover/movie", {
-      with_genres,
-      sorty_by: "popularity.desc",
-    }),
-
-  movieFantasy: (with_genres) =>
-    getAnything("/discover/movie", {
-      with_genres,
-      sorty_by: "popularity.desc",
-    }),
-
-  movieRomance: (with_genres) =>
-    getAnything("/discover/movie", {
-      with_genres,
-      sorty_by: "popularity.desc",
     }),
 };

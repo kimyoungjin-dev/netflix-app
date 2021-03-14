@@ -76,12 +76,13 @@ const TopText = styled.Text`
 const Top10Text = styled.Text`
   color: white;
   font-weight: bold;
-  font-size: 19px;
+  font-size: 20px;
 `;
+
+const randomNumber = Math.floor(Math.random() * 3);
 
 const Horizontal = ({ isTV = false, id, poster, title, vote, rank }) => {
   const navigation = useNavigation();
-  const randomNumber = Math.floor(Math.random() * 3);
 
   return (
     <TouchableOpacity

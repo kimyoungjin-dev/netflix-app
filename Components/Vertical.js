@@ -102,6 +102,8 @@ const BotEpisodeText = styled.Text`
   font-size: 10;
 `;
 
+const randomNumber = Math.floor(Math.random() * 3);
+
 const Vertical = ({
   rank,
   isTV = false,
@@ -111,8 +113,6 @@ const Vertical = ({
   overView,
   id,
 }) => {
-  const randomNumber = Math.floor(Math.random() * 3);
-
   const navigation = useNavigation();
   return (
     <TouchableOpacity

@@ -6,7 +6,7 @@ const MovieInforMationContainer = styled.View``;
 const Title = styled.Text`
   color: white;
   font-weight: bold;
-  font-size: 30px;
+  font-size: 24px;
 `;
 
 const CenterContents = styled.View`
@@ -19,7 +19,7 @@ const CenterContents = styled.View`
 
 const Year = styled.Text`
   color: gray;
-  font-size: 22px;
+  font-size: 15px;
 `;
 
 const AdultContainer = styled.View`
@@ -30,12 +30,12 @@ const AdultContainer = styled.View`
 
 const Adult = styled.Text`
   color: white;
-  font-size: 20px;
+  font-size: 16px;
 `;
 
 const Runtime = styled.Text`
   color: white;
-  font-size: 20px;
+  font-size: 16px;
 `;
 
 const ScreenQualityContainer = styled.View`
@@ -47,10 +47,11 @@ const ScreenQualityContainer = styled.View`
 const ScreenQuality = styled.Text`
   padding: 0px 5px;
   color: white;
-  font-size: 20px;
+  font-size: 16px;
 `;
 
 const MovieInformation = ({ results }) => {
+  console.log(results);
   return (
     <MovieInforMationContainer>
       <Title>{results.original_title || results.original_name}</Title>
@@ -62,9 +63,7 @@ const MovieInformation = ({ results }) => {
         <AdultContainer>
           <Adult>{results.adult === false ? "15+" : "19+"}</Adult>
         </AdultContainer>
-        <Runtime>
-          {results.runtime || results.episode_run_time?.map((tv) => tv)}분
-        </Runtime>
+        <Runtime>{results.runtime || results.episode_run_time[0]}분</Runtime>
         <ScreenQualityContainer>
           <ScreenQuality>HD</ScreenQuality>
         </ScreenQualityContainer>

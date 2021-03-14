@@ -7,7 +7,7 @@ const CategoryContainer = styled.View`
   padding: 10px 0px;
   flex-direction: row;
   background-color: black;
-  justify-content: space-around;
+  justify-content: flex-end;
 `;
 
 const CategoryList = styled.View`

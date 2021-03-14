@@ -76,7 +76,6 @@ const DiscoveryPresenter = ({ discovery }) => {
             <Animated.View
               style={{
                 ...styles,
-                zIndex: 1,
                 transform: [
                   ...position.getTranslateTransform(),
                   { rotate: rotationValues },
@@ -93,7 +92,7 @@ const DiscoveryPresenter = ({ discovery }) => {
             <Animated.View
               style={{
                 ...styles,
-                zIndex: -index,
+                zIndex: -1,
                 opacity: secondCardOpacity,
                 transform: [{ scale: secondCardScale }],
               }}

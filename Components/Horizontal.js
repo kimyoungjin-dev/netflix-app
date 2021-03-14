@@ -1,14 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { TouchableOpacity } from "react-native";
 import styled from "styled-components/native";
 import { apiImage } from "../api/api";
 import { useNavigation } from "@react-navigation/native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import { useFonts } from "expo-font";
 
 const Container = styled.View`
   margin-right: 10px;
-  margin-bottom: 4px;
+  margin-bottom: 20px;
 `;
 
 const PosterBox = styled.View`
@@ -69,14 +68,14 @@ const Top10Container = styled.View`
 
 const TopText = styled.Text`
   color: white;
-  font-size: 14px;
+  font-size: 10px;
   font-weight: bold;
 `;
 
 const Top10Text = styled.Text`
   color: white;
   font-weight: bold;
-  font-size: 20px;
+  font-size: 14px;
 `;
 
 const randomNumber = Math.floor(Math.random() * 3);

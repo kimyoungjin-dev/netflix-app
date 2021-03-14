@@ -3,7 +3,7 @@ import { Dimensions, PanResponder, Animated } from "react-native";
 import styled from "styled-components/native";
 import { apiImage } from "../../api/api";
 
-const { height: HEIGHT } = Dimensions.get("window");
+const { width: WIDTH, height: HEIGHT } = Dimensions.get("window");
 
 const Container = styled.View`
   flex: 1;
@@ -35,6 +35,7 @@ const styles = {
 ///////components
 const DiscoveryPresenter = ({ discovery }) => {
   const [topIndex, setTopIndex] = useState(0);
+  const nextCard = () => setTopIndex((card) => card + 1);
 
   const position = new Animated.ValueXY();
   const panResponder = PanResponder.create({
@@ -42,13 +43,29 @@ const DiscoveryPresenter = ({ discovery }) => {
     onPanResponderMove: (event, { dx, dy }) => {
       position.setValue({ x: dx, y: dy });
     },
-    onPanResponderRelease: () => {
-      Animated.spring(position, {
-        toValue: {
-          x: 0,
-          y: 0,
-        },
-      }).start();
+    onPanResponderRelease: (event, { dx, dy }) => {
+      if (dx >= 250) {
+        Animated.spring(position, {
+          toValue: {
+            x: WIDTH + 100,
+            y: dy,
+          },
+        }).start(nextCard);
+      } else if (dx <= -250) {
+        Animated.spring(position, {
+          toValue: {
+            x: -WIDTH - 100,
+            y: dy,
+          },
+        }).start(nextCard);
+      } else {
+        Animated.spring(position, {
+          toValue: {
+            x: 0,
+            y: 0,
+          },
+        }).start();
+      }
     },
   });
 
@@ -68,10 +85,13 @@ const DiscoveryPresenter = ({ discovery }) => {
     outputRange: [1, 0.8, 1],
   });
 
+  ///return
   return (
     <Container>
       {discovery.map((movie, index) => {
-        if (index === topIndex) {
+        if (index < topIndex) {
+          return null;
+        } else if (index === topIndex) {
           return (
             <Animated.View
               style={{

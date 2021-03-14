@@ -62,7 +62,7 @@ const Category = ({ route }) => {
         </Container>
       </ScrollContainer>
       <MaterialIcons
-        onPress={() => navigation.goBack()}
+        onPress={() => navigation.navigate("홈")}
         name="cancel"
         color="white"
         style={{

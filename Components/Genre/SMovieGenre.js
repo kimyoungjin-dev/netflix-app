@@ -4,7 +4,6 @@ import Horizontal from "../Horizontal";
 import ScrollHorizontal from "../SlideContents/ScrollHorizontal";
 
 const SMovieGenre = () => {
-  const [loading, setLoading] = useState(true);
   const [movieGenreResult, setMovieGenreResult] = useState({
     action: [],
     adventure: [],
@@ -61,7 +60,6 @@ const SMovieGenre = () => {
       fantasyError,
       romanceError,
     });
-    setLoading(false);
   };
 
   useEffect(() => {

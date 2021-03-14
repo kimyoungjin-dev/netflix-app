@@ -14,7 +14,7 @@ const CenterContents = styled.View`
   flex-direction: row;
   width: 60%;
   margin: 10px 0px;
-  justify-content: space-between;
+  justify-content: flex-start;
 `;
 
 const Year = styled.Text`
@@ -26,6 +26,7 @@ const AdultContainer = styled.View`
   background-color: gray;
   padding: 0px 5px;
   border-radius: 4px;
+  margin: 0px 10px;
 `;
 
 const Adult = styled.Text`
@@ -36,6 +37,7 @@ const Adult = styled.Text`
 const Runtime = styled.Text`
   color: white;
   font-size: 16px;
+  margin-right: 10px;
 `;
 
 const ScreenQualityContainer = styled.View`
@@ -51,7 +53,6 @@ const ScreenQuality = styled.Text`
 `;
 
 const MovieInformation = ({ results }) => {
-  console.log(results);
   return (
     <MovieInforMationContainer>
       <Title>{results.original_title || results.original_name}</Title>

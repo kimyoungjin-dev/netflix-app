@@ -4,7 +4,6 @@ import ScrollHorizontal from "../SlideContents/ScrollHorizontal";
 import Horizontal from "../Horizontal";
 
 const STVGenre = () => {
-  const [loading, setLoading] = useState(true);
   const [showGenreResult, setShowGenreResult] = useState({
     animation: [],
     variety: [],
@@ -30,20 +29,18 @@ const STVGenre = () => {
   });
 
   const getData = async () => {
-    const [animation, animationError] = await apiTVGenre.showAnimation(16);
-    const [variety, varietyError] = await apiTVGenre.showVariety(10764);
-    const [talk, talkError] = await apiTVGenre.showTalk(10767);
-    const [drama, dramaError] = await apiTVGenre.showDrama(18);
-    const [sfFantasy, sfFantasyError] = await apiTVGenre.showSfFantasy(10765);
+    const [animation, animationError] = await apiTVGenre.discoveryGenre(16);
+    const [variety, varietyError] = await apiTVGenre.discoveryGenre(10764);
+    const [talk, talkError] = await apiTVGenre.discoveryGenre(10767);
+    const [drama, dramaError] = await apiTVGenre.discoveryGenre(18);
+    const [sfFantasy, sfFantasyError] = await apiTVGenre.discoveryGenre(10765);
     const [
       actionAdventure,
       actionAdventureError,
-    ] = await apiTVGenre.showActionAdventure(10759);
-    const [documentary, documentaryError] = await apiTVGenre.showDocumentary(
-      99
-    );
-    const [comedy, comedyError] = await apiTVGenre.showComedy(35);
-    const [mystery, mysteryError] = await apiTVGenre.showMystery(9648);
+    ] = await apiTVGenre.discoveryGenre(10759);
+    const [documentary, documentaryError] = await apiTVGenre.discoveryGenre(99);
+    const [comedy, comedyError] = await apiTVGenre.discoveryGenre(35);
+    const [mystery, mysteryError] = await apiTVGenre.discoveryGenre(9648);
 
     setShowGenreResult({
       variety,
@@ -66,7 +63,6 @@ const STVGenre = () => {
       comedyError,
       mysteryError,
     });
-    setLoading(false);
   };
 
   useEffect(() => {

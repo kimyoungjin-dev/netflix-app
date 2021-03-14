@@ -24,50 +24,7 @@ const getAnything = async (path, params = {}) => {
 };
 
 export const apiTVGenre = {
-  showAnimation: (with_genres) =>
-    getAnything("/discover/tv", {
-      with_genres,
-      sort_by: "popularity.desc",
-    }),
-
-  showVariety: (with_genres) =>
-    getAnything("/discover/tv", {
-      with_genres,
-      sort_by: "popularity.desc",
-    }),
-
-  showTalk: (with_genres) =>
-    getAnything("/discover/tv", {
-      with_genres,
-      sort_by: "popularity.desc",
-    }),
-
-  showDrama: (with_genres) =>
-    getAnything("/discover/tv", {
-      with_genres,
-    }),
-
-  showSfFantasy: (with_genres) =>
-    getAnything("/discover/tv", {
-      with_genres,
-    }),
-
-  showActionAdventure: (with_genres) =>
-    getAnything("/discover/tv", {
-      with_genres,
-    }),
-
-  showDocumentary: (with_genres) =>
-    getAnything("/discover/tv", {
-      with_genres,
-    }),
-
-  showComedy: (with_genres) =>
-    getAnything("/discover/tv", {
-      with_genres,
-    }),
-
-  showMystery: (with_genres) =>
+  discoveryGenre: (with_genres) =>
     getAnything("/discover/tv", {
       with_genres,
     }),

@@ -6,7 +6,6 @@ import Detail from "../Screens/Detail";
 import styled from "styled-components/native";
 import Credit from "../Components/Detail/Credit";
 import Category from "../Components/Detail/Category";
-import Open from "../Screens/Open";
 
 const Container = styled.View`
   flex-direction: row;
@@ -104,7 +103,6 @@ export default () => {
           headerTitleStyle: { color: "gray", fontSize: 20 },
         }}
       />
-      <Stack.Screen name="Open" component={Open} />
     </Stack.Navigator>
   );
 };

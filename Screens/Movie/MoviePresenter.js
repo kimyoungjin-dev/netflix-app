@@ -15,47 +15,49 @@ const MoviePresenter = ({
   movieTopRated,
 }) => {
   return (
-    <ScrollContainer loading={loading} refreshing={refreshing}>
-      <ScrollSwiper>
-        {nowPlaying.map((movie, index) => (
-          <Slide
-            key={movie.id}
-            id={movie.id}
-            backDrop={movie.backdrop_path}
-            overView={movie.overview}
-            poster={movie.poster_path}
-            title={movie.original_title}
-            vote={movie.vote_average}
-            rank={index}
-          />
-        ))}
-      </ScrollSwiper>
-      <ScrollHorizontal title={"현재 인기영화"}>
-        {popular.map((movie, index) => (
-          <Horizontal
-            key={movie.id}
-            id={movie.id}
-            poster={movie.poster_path}
-            title={movie.original_title}
-            vote={movie.vote_average}
-            rank={index}
-          />
-        ))}
-      </ScrollHorizontal>
-      <ScrollHorizontal title={"현재 Top10"}>
-        {movieTopRated.map((movie, index) => (
-          <Horizontal
-            key={movie.id}
-            id={movie.id}
-            poster={movie.poster_path}
-            title={movie.original_name}
-            vote={movie.vote_average}
-            rank={index}
-          />
-        ))}
-      </ScrollHorizontal>
-      <SMovieGenre />
-    </ScrollContainer>
+    <>
+      <ScrollContainer loading={loading} refreshing={refreshing}>
+        <ScrollSwiper>
+          {nowPlaying.map((movie, index) => (
+            <Slide
+              key={movie.id}
+              id={movie.id}
+              backDrop={movie.backdrop_path}
+              overView={movie.overview}
+              poster={movie.poster_path}
+              title={movie.original_title}
+              vote={movie.vote_average}
+              rank={index}
+            />
+          ))}
+        </ScrollSwiper>
+        <ScrollHorizontal title={"현재 인기영화"}>
+          {popular.map((movie, index) => (
+            <Horizontal
+              key={movie.id}
+              id={movie.id}
+              poster={movie.poster_path}
+              title={movie.original_title}
+              vote={movie.vote_average}
+              rank={index}
+            />
+          ))}
+        </ScrollHorizontal>
+        <ScrollHorizontal title={"현재 Top10"}>
+          {movieTopRated.map((movie, index) => (
+            <Horizontal
+              key={movie.id}
+              id={movie.id}
+              poster={movie.poster_path}
+              title={movie.original_name}
+              vote={movie.vote_average}
+              rank={index}
+            />
+          ))}
+        </ScrollHorizontal>
+        <SMovieGenre />
+      </ScrollContainer>
+    </>
   );
 };
 

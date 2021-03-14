@@ -59,7 +59,7 @@ const SearchContainer = () => {
     <SearchPresenter
       onChange={onChange}
       onSubmit={onSubmit}
-      results={results}
+      {...results}
       word={word}
       {...contents}
       loading={loading}

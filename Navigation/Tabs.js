@@ -42,11 +42,11 @@ export default ({ navigation, route }) => {
         },
       })}
     >
+      <Tabs.Screen name="저장한 컨텐츠 목록" component={Discovery} />
       <Tabs.Screen name="홈" component={Home} />
       <Tabs.Screen name="Movie" component={Movie} />
       <Tabs.Screen name="TV" component={TV} />
       <Tabs.Screen name="검색" component={Search} />
-      <Tabs.Screen name="저장한 컨텐츠 목록" component={Discovery} />
     </Tabs.Navigator>
   );
 };

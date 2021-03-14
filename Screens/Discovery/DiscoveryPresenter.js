@@ -33,6 +33,7 @@ const styles = {
 };
 
 ///////components
+
 const DiscoveryPresenter = ({ discovery }) => {
   const [topIndex, setTopIndex] = useState(0);
   const nextCard = () => setTopIndex((card) => card + 1);

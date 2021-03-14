@@ -2,21 +2,13 @@ import React from "react";
 import Horizontal from "../../Components/Horizontal";
 import ScrollContainer from "../../Components/SlideContents/ScrollContainer";
 import ScrollHorizontal from "../../Components/SlideContents/ScrollHorizontal";
-import TVGenre from "../../Components/Home/TVGenre";
 import Category from "../../Components/Home/Category";
+import SMovieGenre from "../../Components/Genre/SMovieGenre";
+import STVGenre from "../../Components/Genre/STVGenre";
 
 const HomePresenter = ({
   moviePopular,
   showPopular,
-  animation,
-  variety,
-  talk,
-  drama,
-  sfFantasy,
-  actionAdventure,
-  documentary,
-  comedy,
-  mystery,
   loading,
   movieCategory: { genres: movieGenre },
   showCategory: { genres: tvGenre },
@@ -51,17 +43,8 @@ const HomePresenter = ({
           ))}
         </ScrollHorizontal>
 
-        <TVGenre
-          animation={animation}
-          variety={variety}
-          talk={talk}
-          drama={drama}
-          sfFantasy={sfFantasy}
-          actionAdventure={actionAdventure}
-          documentary={documentary}
-          comedy={comedy}
-          mystery={mystery}
-        />
+        <SMovieGenre />
+        <STVGenre />
       </ScrollContainer>
     </>
   );

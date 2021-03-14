@@ -102,7 +102,7 @@ const MovieContainer = () => {
   useEffect(() => {
     getData();
   }, []);
-  console.log(results);
+
   return <MoviePresenter {...results} loading={loading} refreshing={getData} />;
 };
 

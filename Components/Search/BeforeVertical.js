@@ -25,7 +25,7 @@ const PosterContainer = styled.Image`
 const Contents = styled.View`
   width: 90%;
   flex-direction: row;
-  margin-left: 20px;
+  margin-left: 10px;
 `;
 
 const TitleContainer = styled.View`
@@ -35,7 +35,7 @@ const TitleContainer = styled.View`
 
 const IconContainer = styled.View`
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   width: 20%;
 `;
 

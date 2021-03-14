@@ -53,7 +53,7 @@ const BotEpisodeText = styled.Text`
   font-size: 10;
 `;
 
-const Top10Container = styled.View`
+const Top3Container = styled.View`
   background-color: red;
   align-items: center;
   justify-content: center;
@@ -72,7 +72,7 @@ const TopText = styled.Text`
   font-weight: bold;
 `;
 
-const Top10Text = styled.Text`
+const Top3 = styled.Text`
   color: white;
   font-weight: bold;
   font-size: 14px;
@@ -101,12 +101,10 @@ const Horizontal = ({ isTV = false, id, poster, title, vote, rank }) => {
           <PosterContainer source={{ uri: apiImage(poster) }} />
 
           {rank === randomNumber && (
-            <Top10Container>
-              <Top10Container>
-                <TopText>Top</TopText>
-                <Top10Text>10</Top10Text>
-              </Top10Container>
-            </Top10Container>
+            <Top3Container>
+              <TopText>Top</TopText>
+              <Top3>3</Top3>
+            </Top3Container>
           )}
 
           {isTV && vote > 8.3 && (

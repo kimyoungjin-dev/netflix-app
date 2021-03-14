@@ -1,8 +1,8 @@
 import React from "react";
 import { Dimensions } from "react-native";
 import styled from "styled-components/native";
-import { WebView } from "react-native-webview";
 import { apiImage } from "../../api/api";
+import { WebView } from "react-native-webview";
 
 const { width: WIDTH, height: HEIGHT } = Dimensions.get("window");
 
@@ -20,7 +20,6 @@ const PosterContainer = styled.Image`
 `;
 
 const DetailHeader = ({ results }) => {
-  console.log(results);
   return (
     <Container>
       {results?.videos?.results[0] ? (

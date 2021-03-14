@@ -4,8 +4,7 @@ import Slide from "../../Components/Slide";
 import ScrollContainer from "../../Components/SlideContents/ScrollContainer";
 import ScrollHorizontal from "../../Components/SlideContents/ScrollHorizontal";
 import ScrollSwiper from "../../Components/SlideContents/ScrollSwiper";
-import ScrollVertical from "../../Components/SlideContents/ScrollVertical";
-import Vertical from "../../Components/Vertical";
+import STVGenre from "../../Components/Genre/STVGenre";
 
 const TVPresenter = ({
   topRated,
@@ -21,7 +20,6 @@ const TVPresenter = ({
         <ScrollSwiper>
           {topRated.map((show, index) => (
             <Slide
-              isTV={true}
               key={show.id}
               id={show.id}
               backDrop={show.backdrop_path}
@@ -29,7 +27,6 @@ const TVPresenter = ({
               poster={show.poster_path}
               title={show.original_name}
               vote={show.vote_average}
-              year={show.first_air_date}
               rank={index}
             />
           ))}
@@ -63,20 +60,21 @@ const TVPresenter = ({
           ))}
         </ScrollHorizontal>
 
-        <ScrollVertical title={"오늘 방영한 프로그램"}>
+        <ScrollHorizontal title={"오늘 방영한 TV프로그램"}>
           {airingToday.map((show, index) => (
-            <Vertical
+            <Horizontal
               isTV={true}
               key={show.id}
               id={show.id}
               poster={show.poster_path}
               title={show.original_name}
               vote={show.vote_average}
-              overView={show.overview}
               rank={index}
             />
           ))}
-        </ScrollVertical>
+        </ScrollHorizontal>
+
+        <STVGenre />
       </ScrollContainer>
     </>
   );

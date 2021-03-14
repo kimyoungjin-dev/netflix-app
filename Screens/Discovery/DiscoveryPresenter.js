@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Dimensions, PanResponder, Animated } from "react-native";
-import { event } from "react-native-reanimated";
 import styled from "styled-components/native";
 import { apiImage } from "../../api/api";
 
@@ -35,7 +34,6 @@ const styles = {
 
 ///////components
 const DiscoveryPresenter = ({ discovery }) => {
-  console.log(discovery);
   const [topIndex, setTopIndex] = useState(0);
 
   const position = new Animated.ValueXY();
@@ -54,16 +52,50 @@ const DiscoveryPresenter = ({ discovery }) => {
     },
   });
 
+  const rotationValues = position.x.interpolate({
+    inputRange: [-100, 0, 100],
+    outputRange: ["-10deg", "0deg", "10deg"],
+    extrapolate: "clamp",
+  });
+
+  const secondCardOpacity = position.x.interpolate({
+    inputRange: [-255, 0, 255],
+    outputRange: [1, 0.2, 1],
+  });
+
+  const secondCardScale = position.x.interpolate({
+    inputRange: [-255, 0, 255],
+    outputRange: [1, 0.8, 1],
+  });
+
   return (
     <Container>
-      {discovery.reverse().map((movie, index) => {
+      {discovery.map((movie, index) => {
         if (index === topIndex) {
           return (
             <Animated.View
               style={{
                 ...styles,
                 zIndex: 1,
-                transform: [...position.getTranslateTransform()],
+                transform: [
+                  ...position.getTranslateTransform(),
+                  { rotate: rotationValues },
+                ],
+              }}
+              key={movie.id}
+              {...panResponder.panHandlers}
+            >
+              <PosterContainer source={{ uri: apiImage(movie.poster_path) }} />
+            </Animated.View>
+          );
+        } else if (index === topIndex + 1) {
+          return (
+            <Animated.View
+              style={{
+                ...styles,
+                zIndex: -index,
+                opacity: secondCardOpacity,
+                transform: [{ scale: secondCardScale }],
               }}
               key={movie.id}
               {...panResponder.panHandlers}
@@ -76,6 +108,8 @@ const DiscoveryPresenter = ({ discovery }) => {
           <Animated.View
             style={{
               ...styles,
+              zIndex: -index,
+              opacity: 0,
             }}
             key={movie.id}
             {...panResponder.panHandlers}

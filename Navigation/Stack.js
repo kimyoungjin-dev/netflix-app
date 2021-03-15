@@ -1,26 +1,13 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
-import { FontAwesome5, MaterialCommunityIcons } from "@expo/vector-icons";
 import Tabs from "./Tabs";
+import Search from "../Screens/Search";
 import Detail from "../Screens/Detail";
-import styled from "styled-components/native";
 import Credit from "../Components/Detail/Credit";
 import DetailCategory from "../Components/Detail/DetailCategory";
 import CategoryNavigation from "../Components/Genre/CategoryNavigation";
-
-const Container = styled.View`
-  flex-direction: row;
-  justify-content: space-around;
-  width: 120px;
-  align-items: center;
-`;
-
-const Div = styled.View`
-  background-color: skyblue;
-  padding: 3px;
-  border-radius: 3px;
-  opacity: 0.8;
-`;
+import HeaderRightStyle from "./HeaderRightStyle";
+import HeaderLeftStyle from "./HeaderLeftStyle";
 
 const Stack = createStackNavigator();
 
@@ -31,8 +18,8 @@ export default () => {
         headerStyle: {
           borderBottomColor: "rgb(23,25,30)",
           shadowColor: "rgb(23,25,30)",
-          backgroundColor: "black",
           height: 100,
+          backgroundColor: "black",
         },
       }}
     >
@@ -40,26 +27,19 @@ export default () => {
         name="Tabs"
         component={Tabs}
         options={{
-          headerLeft: () => (
-            <MaterialCommunityIcons
-              name="netflix"
-              size={50}
-              color="red"
-              style={{ paddingLeft: 20 }}
-            />
-          ),
-          headerRight: () => (
-            <Container>
-              <MaterialCommunityIcons
-                name="gift-outline"
-                size={30}
-                color="white"
-              />
-              <Div>
-                <FontAwesome5 name="smile" size={30} color="white" />
-              </Div>
-            </Container>
-          ),
+          headerLeft: () => <HeaderLeftStyle />,
+          headerRight: () => <HeaderRightStyle />,
+        }}
+      />
+
+      <Stack.Screen
+        name="Search"
+        component={Search}
+        options={{
+          headerBackTitleVisible: false,
+          headerTintColor: "white",
+          headerTitleStyle: { color: "black" },
+          headerLeftContainerStyle: { paddingLeft: 15 },
         }}
       />
       <Stack.Screen
@@ -67,23 +47,9 @@ export default () => {
         component={Detail}
         options={{
           headerBackTitleVisible: false,
-          headerTitleContainerStyle: {
-            width: "80%",
-          },
           headerTitleStyle: { fontSize: 18 },
           headerTintColor: "white",
-          headerRight: () => (
-            <Container>
-              <MaterialCommunityIcons
-                name="gift-outline"
-                size={30}
-                color="white"
-              />
-              <Div>
-                <FontAwesome5 name="smile" size={30} color="white" />
-              </Div>
-            </Container>
-          ),
+          headerRight: () => <HeaderRightStyle />,
         }}
       />
       <Stack.Screen
@@ -110,26 +76,8 @@ export default () => {
         component={CategoryNavigation}
         options={{
           headerTitleStyle: { color: "white" },
-          headerLeft: () => (
-            <MaterialCommunityIcons
-              name="netflix"
-              size={50}
-              color="red"
-              style={{ paddingLeft: 20 }}
-            />
-          ),
-          headerRight: () => (
-            <Container>
-              <MaterialCommunityIcons
-                name="gift-outline"
-                size={30}
-                color="white"
-              />
-              <Div>
-                <FontAwesome5 name="smile" size={30} color="white" />
-              </Div>
-            </Container>
-          ),
+          headerLeft: () => <HeaderLeftStyle />,
+          headerRight: () => <HeaderRightStyle />,
         }}
       />
     </Stack.Navigator>

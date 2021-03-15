@@ -29,7 +29,7 @@ const Category = ({ movieGenre, tvGenre }) => {
       <CategoryList>
         <TouchableOpacity
           onPress={() =>
-            navigation.navigate("Category", {
+            navigation.navigate("DetailCategory", {
               movieGenre,
               tvGenre,
             })

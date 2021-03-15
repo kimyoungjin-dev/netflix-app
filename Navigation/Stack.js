@@ -5,7 +5,8 @@ import Tabs from "./Tabs";
 import Detail from "../Screens/Detail";
 import styled from "styled-components/native";
 import Credit from "../Components/Detail/Credit";
-import Category from "../Components/Detail/Category";
+import DetailCategory from "../Components/Detail/DetailCategory";
+import CategoryNavigation from "../Components/Genre/CategoryNavigation";
 
 const Container = styled.View`
   flex-direction: row;
@@ -95,12 +96,40 @@ export default () => {
         }}
       />
       <Stack.Screen
-        name="Category"
-        component={Category}
+        name="DetailCategory"
+        component={DetailCategory}
         options={{
           headerBackTitleVisible: false,
           headerTintColor: "white",
           headerTitleStyle: { color: "gray", fontSize: 20 },
+        }}
+      />
+
+      <Stack.Screen
+        name="CategoryNavigation"
+        component={CategoryNavigation}
+        options={{
+          headerTitleStyle: { color: "white" },
+          headerLeft: () => (
+            <MaterialCommunityIcons
+              name="netflix"
+              size={50}
+              color="red"
+              style={{ paddingLeft: 20 }}
+            />
+          ),
+          headerRight: () => (
+            <Container>
+              <MaterialCommunityIcons
+                name="gift-outline"
+                size={30}
+                color="white"
+              />
+              <Div>
+                <FontAwesome5 name="smile" size={30} color="white" />
+              </Div>
+            </Container>
+          ),
         }}
       />
     </Stack.Navigator>

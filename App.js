@@ -29,7 +29,7 @@ const App = () => {
   const loadAssets = () => {
     const images = getImages([
       "https://images.unsplash.com/photo-1615149956009-f9fa32fc75e5?ixid=MXwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw1fHx8ZW58MHx8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
-      require("./assets/loading.gif"),
+      require("./assets/splash.gif"),
     ]);
     const fonts = getFonts(
       [Ionicons.font],

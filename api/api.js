@@ -58,5 +58,5 @@ export const tvApi = {
 
 export const apiImage = (
   path,
-  defaultPath = "https://images.unsplash.com/photo-1607292599083-8597c3f43860?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NTh8fG1vdmllfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60"
+  defaultPath = "https://lh3.googleusercontent.com/proxy/Rr9Tr5xE6s5tzq-CfnBqDfBLWnYAnjfbWMZnMdgaOUeCVb8HBlIzuwd5OQf9VdKcsjsCzUV_MiC2aNRW1lUK23UW8zXcgQe1kxfUksgVu7EptapY2oGd3RI"
 ) => (path ? `https://image.tmdb.org/t/p/original${path}` : defaultPath);

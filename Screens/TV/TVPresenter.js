@@ -5,6 +5,7 @@ import ScrollContainer from "../../Components/SlideContents/ScrollContainer";
 import ScrollHorizontal from "../../Components/SlideContents/ScrollHorizontal";
 import ScrollSwiper from "../../Components/SlideContents/ScrollSwiper";
 import STVGenre from "../../Components/Genre/STVGenre";
+import Category from "../../Components/Home/Category";
 
 const TVPresenter = ({
   topRated,
@@ -13,9 +14,12 @@ const TVPresenter = ({
   thisweek,
   loading,
   refreshing,
+  movieCategory: { genres: movieGenre },
+  showCategory: { genres: tvGenre },
 }) => {
   return (
     <>
+      <Category movieGenre={movieGenre} tvGenre={tvGenre} />
       <ScrollContainer loading={loading} refreshing={refreshing}>
         <ScrollSwiper>
           {topRated.map((show, index) => (

@@ -1,18 +1,19 @@
 import React, { useState, useEffect } from "react";
 import { Text, TouchableOpacity } from "react-native";
-import { Ionicons } from "@expo/vector-icons";
 import ScrollContainer from "../SlideContents/ScrollContainer";
 import { apiMovieGenre } from "../../api/MovieGenreApi";
 import { apiTVGenre } from "../../api/TVGenreApi";
 import Vertical from "../Vertical";
+import { Ionicons } from "@expo/vector-icons";
+import styled from "styled-components/native";
 
-const goBackStyles = {
-  flexDirection: "row",
-  backgroundColor: "black",
-  paddingLeft: 25,
-  alignItems: "center",
-  paddingTop: 5,
-};
+const ButtonContainer = styled.View`
+  flex-direction: row;
+  background-color: black;
+  padding-left: 25px;
+  align-items: center;
+  padding-top: 5px;
+`;
 
 const CategoryNavigation = ({ navigation, route }) => {
   const {
@@ -51,13 +52,19 @@ const CategoryNavigation = ({ navigation, route }) => {
 
   return (
     <>
-      <TouchableOpacity
-        style={{ ...goBackStyles }}
-        onPress={() => navigation.navigate("홈")}
-      >
-        <Ionicons name="caret-back-sharp" size={16} color="white" />
-        <Text style={{ color: "white", marginLeft: 5 }}>뒤로가기</Text>
-      </TouchableOpacity>
+      <ButtonContainer>
+        <TouchableOpacity
+          onPress={() => navigation.navigate("홈")}
+          style={{
+            flexDirection: "row",
+            alignItems: "center",
+          }}
+        >
+          <Ionicons name="chevron-back-outline" size={24} color="white" />
+          <Text style={{ color: "white" }}>뒤로가기</Text>
+        </TouchableOpacity>
+      </ButtonContainer>
+
       <ScrollContainer loading={loading} refreshing={getData}>
         {array.data &&
           array.data.map((value, index) => (

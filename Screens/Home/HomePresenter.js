@@ -14,11 +14,12 @@ const HomePresenter = ({
   showCategory: { genres: tvGenre },
   refreshing,
 }) => {
+  console.log(loading);
   return (
     <>
       <Category movieGenre={movieGenre} tvGenre={tvGenre} />
       <ScrollContainer loading={loading} refreshing={refreshing}>
-        <ScrollHorizontal title={"Netflix 인기 콘텐츠"}>
+        <ScrollHorizontal title={"Netflix 오리지날"}>
           {moviePopular.map((movie, index) => (
             <Horizontal
               key={movie.id}

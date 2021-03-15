@@ -100,7 +100,7 @@ const Horizontal = ({ isTV = false, id, poster, title, vote, rank }) => {
         <PosterBox>
           <PosterContainer source={{ uri: apiImage(poster) }} />
 
-          {rank === randomNumber && (
+          {rank < 3 && vote > 8.4 && (
             <Top3Container>
               <TopText>Top</TopText>
               <Top3>3</Top3>

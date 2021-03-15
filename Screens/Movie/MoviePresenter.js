@@ -9,7 +9,7 @@ import SMovieGenre from "../../Components/Genre/SMovieGenre";
 const MoviePresenter = ({
   nowPlaying,
   popular,
-  upcoming, //later
+  upcoming,
   refreshing,
   loading,
   movieTopRated,

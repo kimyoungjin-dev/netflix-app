@@ -14,7 +14,6 @@ const HomePresenter = ({
   showCategory: { genres: tvGenre },
   refreshing,
 }) => {
-  console.log(loading);
   return (
     <>
       <Category movieGenre={movieGenre} tvGenre={tvGenre} />

@@ -7,7 +7,8 @@ import { TouchableOpacity } from "react-native";
 
 const Container = styled.View`
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
+  padding: 0px 5px;
 `;
 
 const Contents = styled.View`
@@ -16,7 +17,7 @@ const Contents = styled.View`
 
 const Appearance = styled.Text`
   color: white;
-  font-size: 24px;
+  font-size: 20px;
   font-weight: bold;
   margin-bottom: 40px;
 `;
@@ -44,7 +45,7 @@ const DetailCategory = ({ route }) => {
       <ScrollContainer>
         <Container>
           <Contents>
-            <Appearance>Movie Genres</Appearance>
+            <Appearance>영화 장르</Appearance>
             <GenresList>
               {movieGenre.map((genre, index) => (
                 <TouchableOpacity
@@ -63,7 +64,7 @@ const DetailCategory = ({ route }) => {
           </Contents>
 
           <Contents>
-            <Appearance>TV Genres</Appearance>
+            <Appearance>프로그램 장르</Appearance>
             <GenresList>
               {tvGenre.map((genre, index) => (
                 <TouchableOpacity
@@ -90,8 +91,8 @@ const DetailCategory = ({ route }) => {
         style={{
           position: "absolute",
           bottom: "10%",
-          fontSize: 100,
-          right: "35%",
+          fontSize: 70,
+          right: "40%",
           opacity: 0.6,
         }}
       />

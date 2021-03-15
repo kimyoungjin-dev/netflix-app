@@ -17,7 +17,7 @@ const CategoryList = styled.View`
 
 const CategoryItem = styled.Text`
   color: white;
-  font-size: 20px;
+  font-size: 15px;
   padding-right: 20px;
 `;
 

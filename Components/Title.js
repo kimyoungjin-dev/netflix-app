@@ -1,9 +1,8 @@
 import React from "react";
 import styled from "styled-components/native";
-import { useFonts } from "expo-font";
 
 const TextContainer = styled.Text`
-  font-size: 24px;
+  font-size: 18px;
   font-weight: bold;
   color: white;
   margin-bottom: 5px;

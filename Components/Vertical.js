@@ -18,7 +18,7 @@ const PosterBox = styled.View`
 const PosterContainer = styled.Image`
   height: 100%;
   width: 100%;
-  border-radius: 10px;
+  border-radius: 1px;
   margin-right: 20px;
 `;
 
@@ -29,19 +29,19 @@ const Contents = styled.View`
 
 const Title = styled.Text`
   color: white;
-  font-size: 22px;
+  font-size: 18px;
   font-weight: bold;
 `;
 
 const Vote = styled.Text`
   color: white;
-  font-size: 16px;
+  font-size: 12px;
   margin: 4px 0px;
 `;
 
 const OverView = styled.Text`
   color: white;
-  font-size: 16px;
+  font-size: 12px;
   opacity: 0.7;
 `;
 
@@ -50,7 +50,7 @@ const Top3Container = styled.View`
   align-items: center;
   justify-content: center;
   align-items: center;
-  padding: 3px;
+  padding: 2px;
   position: absolute;
   top: 0;
   left: 0;
@@ -60,14 +60,14 @@ const Top3Container = styled.View`
 
 const TopText = styled.Text`
   color: white;
-  font-size: 14px;
+  font-size: 10px;
   font-weight: bold;
 `;
 
 const Top3 = styled.Text`
   color: white;
   font-weight: bold;
-  font-size: 19px;
+  font-size: 13px;
 `;
 
 const NewEpisode = styled.View`
@@ -171,7 +171,7 @@ const Vertical = ({
           <Title>{title}</Title>
           <Vote>⭐️ {vote} /10</Vote>
           {overView ? (
-            <OverView numberOfLines={3}>{overView}</OverView>
+            <OverView numberOfLines={4}>{overView}</OverView>
           ) : (
             <Text style={{ color: "white", marginTop: 10 }}>
               "줄거리가 존재하지않습니다."

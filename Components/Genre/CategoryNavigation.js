@@ -6,9 +6,16 @@ import { apiMovieGenre } from "../../api/MovieGenreApi";
 import { apiTVGenre } from "../../api/TVGenreApi";
 import Vertical from "../Vertical";
 
+const goBackStyles = {
+  flexDirection: "row",
+  backgroundColor: "black",
+  paddingLeft: 25,
+  alignItems: "center",
+  paddingTop: 5,
+};
+
 const CategoryNavigation = ({ navigation, route }) => {
   const {
-    params,
     params: {
       genre: { name, id },
       isTV,
@@ -16,7 +23,7 @@ const CategoryNavigation = ({ navigation, route }) => {
   } = route;
 
   useEffect(() => {
-    navigation.setOptions({ title: name });
+    navigation.setOptions({ title: `장르 : ${name}` });
   }, []);
 
   const [loading, setLoading] = useState(true);
@@ -45,14 +52,10 @@ const CategoryNavigation = ({ navigation, route }) => {
   return (
     <>
       <TouchableOpacity
-        style={{
-          flexDirection: "row",
-          backgroundColor: "black",
-          alignItems: "center",
-        }}
+        style={{ ...goBackStyles }}
         onPress={() => navigation.navigate("홈")}
       >
-        <Ionicons name="arrow-back" size={24} color="white" />
+        <Ionicons name="caret-back-sharp" size={16} color="white" />
         <Text style={{ color: "white", marginLeft: 5 }}>뒤로가기</Text>
       </TouchableOpacity>
       <ScrollContainer loading={loading} refreshing={getData}>

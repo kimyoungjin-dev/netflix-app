@@ -7,12 +7,12 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 const Container = styled.View`
   margin-right: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 `;
 
 const PosterBox = styled.View`
-  height: 160px;
-  width: 130px;
+  height: 140px;
+  width: 110px;
 `;
 
 const PosterContainer = styled.Image`
@@ -58,7 +58,7 @@ const Top3Container = styled.View`
   align-items: center;
   justify-content: center;
   align-items: center;
-  padding: 5px;
+  padding: 2px;
   position: absolute;
   top: 0;
   left: 0;
@@ -120,10 +120,10 @@ const Horizontal = ({ isTV = false, id, poster, title, vote, rank }) => {
             </>
           )}
 
-          {vote > 8 && (
+          {vote > 7 && (
             <MaterialCommunityIcons
               name="netflix"
-              size={30}
+              size={24}
               color="red"
               style={{
                 paddingLeft: 20,

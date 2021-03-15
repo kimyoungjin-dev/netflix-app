@@ -3,6 +3,7 @@ import styled from "styled-components/native";
 import ScrollContainer from "../SlideContents/ScrollContainer";
 import { useNavigation } from "@react-navigation/native";
 import { MaterialIcons } from "@expo/vector-icons";
+import { TouchableOpacity } from "react-native";
 
 const Container = styled.View`
   flex-direction: row;
@@ -31,7 +32,7 @@ const GenresItem = styled.Text`
   font-size: 20px;
 `;
 
-const Category = ({ route }) => {
+const DetailCategory = ({ route }) => {
   const {
     params: { movieGenre, tvGenre },
   } = route;
@@ -46,7 +47,17 @@ const Category = ({ route }) => {
             <Appearance>Movie Genres</Appearance>
             <GenresList>
               {movieGenre.map((genre, index) => (
-                <GenresItem key={index}>{genre.name}</GenresItem>
+                <TouchableOpacity
+                  key={index}
+                  onPress={() =>
+                    navigation.navigate("CategoryNavigation", {
+                      genre,
+                      isTV: false,
+                    })
+                  }
+                >
+                  <GenresItem>{genre.name}</GenresItem>
+                </TouchableOpacity>
               ))}
             </GenresList>
           </Contents>
@@ -55,7 +66,17 @@ const Category = ({ route }) => {
             <Appearance>TV Genres</Appearance>
             <GenresList>
               {tvGenre.map((genre, index) => (
-                <GenresItem key={index}>{genre.name}</GenresItem>
+                <TouchableOpacity
+                  key={index}
+                  onPress={() =>
+                    navigation.navigate("CategoryNavigation", {
+                      genre,
+                      isTV: true,
+                    })
+                  }
+                >
+                  <GenresItem>{genre.name}</GenresItem>
+                </TouchableOpacity>
               ))}
             </GenresList>
           </Contents>
@@ -78,4 +99,4 @@ const Category = ({ route }) => {
   );
 };
 
-export default Category;
+export default DetailCategory;

@@ -24,7 +24,7 @@ const getAnything = async (path, params = {}) => {
 };
 
 export const apiMovieGenre = {
-  discoverGenre: (with_genres) =>
+  discoveryGenre: (with_genres) =>
     getAnything("/discover/movie", {
       with_genres,
     }),

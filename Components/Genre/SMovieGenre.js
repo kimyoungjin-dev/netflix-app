@@ -28,17 +28,18 @@ const SMovieGenre = () => {
   });
 
   const getData = async () => {
-    const [action, actionError] = await apiMovieGenre.discoverGenre(28);
-    const [adventure, adventureError] = await apiMovieGenre.discoverGenre(12);
-    const [horror, horrorError] = await apiMovieGenre.discoverGenre(27);
-    const [movieMystery, movieMysteryError] = await apiMovieGenre.discoverGenre(
-      9648
-    );
-    const [sf, sfError] = await apiMovieGenre.discoverGenre(878);
-    const [thriller, thrillerError] = await apiMovieGenre.discoverGenre(53);
-    const [crime, crimeError] = await apiMovieGenre.discoverGenre(80);
-    const [fantasy, fantasyError] = await apiMovieGenre.discoverGenre(14);
-    const [romance, romanceError] = await apiMovieGenre.discoverGenre(10752);
+    const [action, actionError] = await apiMovieGenre.discoveryGenre(28);
+    const [adventure, adventureError] = await apiMovieGenre.discoveryGenre(12);
+    const [horror, horrorError] = await apiMovieGenre.discoveryGenre(27);
+    const [
+      movieMystery,
+      movieMysteryError,
+    ] = await apiMovieGenre.discoveryGenre(9648);
+    const [sf, sfError] = await apiMovieGenre.discoveryGenre(878);
+    const [thriller, thrillerError] = await apiMovieGenre.discoveryGenre(53);
+    const [crime, crimeError] = await apiMovieGenre.discoveryGenre(80);
+    const [fantasy, fantasyError] = await apiMovieGenre.discoveryGenre(14);
+    const [romance, romanceError] = await apiMovieGenre.discoveryGenre(10752);
 
     setMovieGenreResult({
       action,

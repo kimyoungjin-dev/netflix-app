@@ -8,13 +8,11 @@ const Container = styled.View`
   height: 40px;
   background-color: black;
   align-items: center;
-  justify-content: flex-start;
 `;
 
 const Form = styled.View`
   align-items: center;
-  justify-content: center;
-  height: 30px;
+  height: 35px;
   flex-direction: row;
   width: 90%;
   background-color: gray;
@@ -27,14 +25,14 @@ const FormContainer = ({ onSubmit, onChange, word }) => {
       <Form>
         <FontAwesome
           name="search"
-          size={17}
+          size={18}
           color="white"
-          style={{ marginRight: 10 }}
+          style={{ marginRight: 10, marginLeft: 5 }}
         />
 
         <TextInput
           style={{
-            fontSize: 17,
+            fontSize: 18,
             color: "white",
           }}
           placeholder="검색"

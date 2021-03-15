@@ -22,12 +22,12 @@ const PosterContainer = styled.Image`
 `;
 
 const NewEpisode = styled.View`
-  width: 50%;
+  width: 60%;
   justify-content: center;
   align-items: center;
   position: absolute;
   bottom: 10;
-  left: 30;
+  left: 25;
 `;
 
 const TopEpisodeContents = styled.View`
@@ -55,7 +55,6 @@ const BotEpisodeText = styled.Text`
 
 const Top3Container = styled.View`
   background-color: red;
-  align-items: center;
   justify-content: center;
   align-items: center;
   padding: 2px;
@@ -120,7 +119,7 @@ const Horizontal = ({ isTV = false, id, poster, title, vote, rank }) => {
             </>
           )}
 
-          {vote > 7 && (
+          {vote > 8 && (
             <MaterialCommunityIcons
               name="netflix"
               size={24}

@@ -8,6 +8,7 @@ import { MaterialCommunityIcons, FontAwesome } from "@expo/vector-icons";
 const Container = styled.View`
   flex-direction: row;
   margin-bottom: 10px;
+  justify-content: space-between;
 `;
 
 const PosterBox = styled.View`
@@ -35,28 +36,27 @@ const TitleContainer = styled.View`
 
 const IconContainer = styled.View`
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   width: 20%;
 `;
 
 const Title = styled.Text`
   color: white;
   font-weight: bold;
-  font-size: 20px;
+  font-size: 18px;
   justify-content: center;
 `;
 
 const Top10Container = styled.View`
-  background-color: red;
   align-items: center;
   justify-content: center;
   align-items: center;
-  padding: 3px;
   position: absolute;
   top: 0;
   left: 0;
   border-top-left-radius: 10px;
   border-bottom-left-radius: 15px;
+  background-color: red;
 `;
 
 const TopText = styled.Text`

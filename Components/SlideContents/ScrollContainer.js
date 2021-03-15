@@ -27,8 +27,8 @@ const ScrollContainer = ({
       contentContainerStyle={{
         justifyContent: loading ? "center" : "flex-start",
         flex: loading ? 1 : "auto",
-        paddingLeft: 25,
-        paddingRight: 25,
+        paddingLeft: 10,
+        paddingRight: 10,
         paddingBottom: 80,
         paddingTop: 10,
         ...contentContainerStyle,

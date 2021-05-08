@@ -92,6 +92,7 @@ const AppearanceText = styled.Text`
 `;
 
 const SubInformation = ({ results, openBrowser }) => {
+  console.log(results);
   const navigation = useNavigation();
 
   return (
@@ -109,7 +110,7 @@ const SubInformation = ({ results, openBrowser }) => {
         <TouchableOpacity
           onPress={() =>
             openBrowser(
-              `https://www.youtube.com/watch?v=${results.videos.results[0].key}`
+              `https://www.youtube.com/watch?v=${results?.videos?.results[0]?.key}`
             )
           }
         >

@@ -5,6 +5,7 @@ import { Dimensions, ScrollView, Text } from "react-native";
 import { apiImage } from "../../api/api";
 import { FontAwesome, Ionicons } from "@expo/vector-icons";
 import Category from "../../Components/Home/Category";
+import { TouchableOpacity } from "react-native-gesture-handler";
 
 const { height: HEIGHT } = Dimensions.get("window");
 
@@ -65,19 +66,23 @@ const OpenPresenter = ({
               <Contents>
                 <Title>{movie.title}</Title>
                 <IconContainer>
-                  <IconBox>
-                    <FontAwesome name="bell-o" size={24} color="white" />
-                    <Text style={{ color: "white" }}>알림 받기</Text>
-                  </IconBox>
+                  <TouchableOpacity>
+                    <IconBox>
+                      <FontAwesome name="bell-o" size={24} color="white" />
+                      <Text style={{ color: "white" }}>알림 받기</Text>
+                    </IconBox>
+                  </TouchableOpacity>
 
-                  <IconBox>
-                    <Ionicons
-                      name="information-circle-outline"
-                      size={24}
-                      color="white"
-                    />
-                    <Text style={{ color: "white" }}>정보</Text>
-                  </IconBox>
+                  <TouchableOpacity>
+                    <IconBox>
+                      <Ionicons
+                        name="information-circle-outline"
+                        size={24}
+                        color="white"
+                      />
+                      <Text style={{ color: "white" }}>정보</Text>
+                    </IconBox>
+                  </TouchableOpacity>
                 </IconContainer>
               </Contents>
               <Text style={{ color: "gray", fontSize: 16 }}>

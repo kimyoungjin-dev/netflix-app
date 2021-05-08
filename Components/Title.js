@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components/native";
 
 const TextContainer = styled.Text`
-  font-size: 18px;
+  font-size: 16px;
   font-weight: bold;
   color: white;
   margin-bottom: 5px;

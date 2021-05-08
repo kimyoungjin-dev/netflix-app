@@ -25,7 +25,7 @@ const Category = ({ movieGenre, tvGenre }) => {
     <CategoryContainer>
       <CategoryList>
         <TouchableOpacity onPress={() => navigation.navigate("Search")}>
-          <FontAwesome5 name="search" size={24} color="white" />
+          <FontAwesome5 name="search" size={18} color="white" />
         </TouchableOpacity>
 
         <TouchableOpacity
@@ -36,7 +36,7 @@ const Category = ({ movieGenre, tvGenre }) => {
             })
           }
         >
-          <Text style={{ color: "white", fontSize: 15 }}>카테고리</Text>
+          <Text style={{ color: "white", fontSize: 13 }}>카테고리</Text>
         </TouchableOpacity>
       </CategoryList>
     </CategoryContainer>

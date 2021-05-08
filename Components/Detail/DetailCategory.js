@@ -7,7 +7,7 @@ import { TouchableOpacity } from "react-native";
 
 const Container = styled.View`
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
   padding: 0px 5px;
 `;
 

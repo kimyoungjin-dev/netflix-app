@@ -8,14 +8,11 @@ const MovieContainer = () => {
     //public
     nowPlaying: [],
     popular: [],
-    upcoming: [],
     movieTopRated: [],
     movieCategory: [],
     showCategory: [],
-
     nowPlayingError: null,
     popularError: null,
-    upcomingError: null,
     movieTopRatedError: null,
     movieCategoryError: null,
     showCategoryError: null,
@@ -24,7 +21,6 @@ const MovieContainer = () => {
   const getData = async () => {
     const [nowPlaying, nowPlayingError] = await movieApi.nowPlaying();
     const [popular, popularError] = await movieApi.popular();
-    const [upcoming, upcomingError] = await movieApi.upcoming();
     const [movieTopRated, movieTopRatedError] = await movieApi.topRated();
     const [movieCategory, movieCategoryError] = await movieApi.movieGenre();
     const [showCategory, showCategoryError] = await tvApi.showGenre();
@@ -33,15 +29,12 @@ const MovieContainer = () => {
       //public
       nowPlaying,
       popular,
-      upcoming,
       movieTopRated,
       movieCategory,
       showCategory,
-
       //error
       nowPlayingError,
       popularError,
-      upcomingError,
       movieTopRatedError,
       movieCategoryError,
       showCategoryError,

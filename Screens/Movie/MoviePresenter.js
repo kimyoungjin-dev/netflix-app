@@ -10,7 +10,6 @@ import Category from "../../Components/Home/Category";
 const MoviePresenter = ({
   nowPlaying,
   popular,
-  upcoming,
   refreshing,
   loading,
   movieTopRated,

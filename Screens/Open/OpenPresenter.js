@@ -92,8 +92,14 @@ const OpenPresenter = ({
               <Text style={{ color: "white", marginTop: 10, fontSize: 17 }}>
                 {movie.original_title}
               </Text>
-              <Text style={{ color: "gray", marginTop: 5, marginBottom: 50 }}>
-                {movie.overview}
+              <Text style={{ color: "gray", marginTop: 8, marginBottom: 50 }}>
+                {movie.overview ? (
+                  movie.overview
+                ) : (
+                  <Text style={{ marginTop: 8 }}>
+                    영화 줄거리가 존재하지않습니다.
+                  </Text>
+                )}
               </Text>
             </Container>
           ))}

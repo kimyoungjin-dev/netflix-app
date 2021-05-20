@@ -24,7 +24,7 @@ const getImages = (images) =>
 const getFonts = (fonts) => fonts.map((font) => [Font.loadAsync(font)]);
 
 const App = () => {
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   const loadAssets = () => {
     const images = getImages([
@@ -39,23 +39,22 @@ const App = () => {
     );
     return Promise.all([...images, ...fonts]);
   };
-  const onFinish = () => setLoading(true);
+  const onFinish = () => setLoading(false);
+
+  if (loading) {
+    <AppLoading
+      startAsync={loadAssets}
+      onError={console.error}
+      onFinish={onFinish}
+    />;
+  }
+
   return (
     <>
-      {loading ? (
-        <>
-          <StatusBar barStyle="light-content" />
-          <NavigationContainer>
-            <Stack />
-          </NavigationContainer>
-        </>
-      ) : (
-        <AppLoading
-          startAsync={loadAssets}
-          onError={console.error}
-          onFinish={onFinish}
-        />
-      )}
+      <StatusBar barStyle="light-content" />
+      <NavigationContainer>
+        <Stack />
+      </NavigationContainer>
     </>
   );
 };

@@ -88,7 +88,7 @@ const DetailVideo = ({
         </ShowVideosContainer>
       )}
 
-      {video ? (
+      {video &&
         results.videos.results.map((video, index) => (
           <TouchableOpacity
             onPress={() =>
@@ -105,12 +105,7 @@ const DetailVideo = ({
             <FontAwesome name="youtube-play" size={24} color="white" />
             <VideoName>{video.name}</VideoName>
           </TouchableOpacity>
-        ))
-      ) : (
-        <Text style={{ color: "white", marginTop: 8 }}>
-          비디오가 존재하지 않습니다.
-        </Text>
-      )}
+        ))}
     </>
   );
 };

@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components/native";
-import { TouchableOpacity } from "react-native";
+import { Text, TouchableOpacity } from "react-native";
 import { MaterialIcons, FontAwesome } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 
@@ -55,7 +55,7 @@ const PlayingText = styled.Text`
   margin-left: 13px;
 `;
 
-const SaveContainer = styled.View`
+const SaveContainer = styled.TouchableOpacity`
   background-color: gray;
   height: 40px;
   border-radius: 8px;
@@ -71,10 +71,6 @@ const SaveText = styled.Text`
   margin-left: 10px;
 `;
 
-const OverViewContainer = styled.Text`
-  color: white;
-`;
-
 const AppearanceContainer = styled.View`
   flex-direction: row;
   margin: 20px 0px;
@@ -88,11 +84,11 @@ const Appearance = styled.Text`
 const AppearanceText = styled.Text`
   color: white;
   opacity: 0.8;
-  font-size: 16px;
+  font-size: 13px;
+  margin-left: 10px;
 `;
 
-const SubInformation = ({ results, openBrowser }) => {
-  console.log(results);
+export default function SubInformation({ results, openBrowser }) {
   const navigation = useNavigation();
 
   return (
@@ -102,6 +98,7 @@ const SubInformation = ({ results, openBrowser }) => {
           <TopText>Top</TopText>
           <Top10Text>10</Top10Text>
         </Top10Container>
+
         <ContentRanking>
           오늘 한국에서 콘텐츠 순위 {results.rank}위
         </ContentRanking>
@@ -120,22 +117,22 @@ const SubInformation = ({ results, openBrowser }) => {
           </PlayingContainer>
         </TouchableOpacity>
 
-        <TouchableOpacity>
-          <SaveContainer>
-            <MaterialIcons name="save-alt" size={24} color="white" />
-            <SaveText>저장</SaveText>
-          </SaveContainer>
-        </TouchableOpacity>
+        <SaveContainer>
+          <MaterialIcons name="save-alt" size={24} color="white" />
+          <SaveText>저장</SaveText>
+        </SaveContainer>
       </PlaySaveContainer>
-      <OverViewContainer>{results.overview}</OverViewContainer>
+      <Text style={{ color: "white" }}>{results.overview}</Text>
       <AppearanceContainer>
         <Appearance>
           출연:
           {results.cast &&
             results.cast
-              .slice(0, 3)
-              .map((h, index) =>
-                index === results.cast.length ? `${h.name}` : `, ${h.name}.`
+              .slice(0, 2)
+              .map((result, index) =>
+                index === results.cast.length
+                  ? `${result.name}`
+                  : `, ${result.name}...`
               )}
         </Appearance>
         <TouchableOpacity
@@ -150,6 +147,4 @@ const SubInformation = ({ results, openBrowser }) => {
       </AppearanceContainer>
     </>
   );
-};
-
-export default SubInformation;
+}

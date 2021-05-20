@@ -47,7 +47,7 @@ export default () => {
         component={Detail}
         options={{
           headerBackTitleVisible: false,
-          headerTitleStyle: { fontSize: 18 },
+          headerTitleStyle: { fontSize: 15 },
           headerTintColor: "white",
           headerRight: () => <HeaderRightStyle />,
         }}
